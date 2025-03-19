@@ -1,8 +1,12 @@
 # 💫About Me :
 🔍 Actively building and learning through machine learning projects
+
 🤖 AI & ML engineer in the making, expanding my Python expertise
+
 🌐 Designing and developing modern, dynamic web applications
+
 🛠️ Learning full-stack development with Django & Node.js
+
 🚀 Continuously exploring new technologies to push my limits
 
 ## 🌐Socials
