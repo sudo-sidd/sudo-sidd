@@ -7,7 +7,7 @@
 
 🛠️ Learning full-stack development with Django & Node.js
 
-🚀 Continuously exploring new technologies to push my limits
+🚀 Continuously exploring new technologies to challenge myself
 
 ## 🌐Socials
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/siddharth-t-baba112aa) 
