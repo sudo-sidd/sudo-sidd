@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <img src="https://visitcount.itsvg.in/api?id=Drackko&icon=4&color=1" alt="visitor count" />
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/sudo-sidd&title=Profile%20Views&edge_flat=false" alt="Visitor Count" />
 </p>
 
 <p align="center">
