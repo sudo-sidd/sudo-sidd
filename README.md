@@ -39,7 +39,7 @@
   <img src="https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif" alt="Divider">
 </p>
 
-<h2">🛠️ Technical Skills</h2>
+<h2>🛠️ Technical Skills</h2>
 
 <p >
   <b>Programming Languages & Tools</b><br>
@@ -137,7 +137,7 @@
 <h2 align="center">📈 Contribution Activity</h2>
 
 <p align="center">
-  <img src="https://ssr-contributions-svg.vercel.app/_/Drackko?chart=3dbar&gap=0.6&scale=2&gradient=true&flatten=0&animation=mess&animation_duration=6&animation_loop=true&format=svg&weeks=50&theme=purple&widget_size=large&colors=87CEFA,00BFFF,1E90FF,4169E1,483D8B,6A5ACD,9370DB,8A2BE2&dark=true" alt="3D Contribution Chart" width="800"/>
+  <img src="https://ssr-contributions-svg.vercel.app/_/sudo-sidd?chart=3dbar&gap=0.6&scale=2&gradient=true&flatten=0&animation=mess&animation_duration=6&animation_loop=true&format=svg&weeks=50&theme=purple&widget_size=large&colors=87CEFA,00BFFF,1E90FF,4169E1,483D8B,6A5ACD,9370DB,8A2BE2&dark=true" alt="3D Contribution Chart" width="800"/>
 </p>
 
 <p align="center">
