@@ -114,11 +114,17 @@
     </td>
   </tr>
   <tr>
-    <td align="center" colspan="2">
+    <td align="center">
       <a href="https://github.com/Drackko/Staff_attendence_system">
-        <img src="https://img.shields.io/badge/CV-Image%20Comparison%20Application-red?style=for-the-badge" alt="Staff Attendance System"/>
+        <img src="https://img.shields.io/badge/CV-Staff%20Attendance%20System-red?style=for-the-badge" alt="Staff Attendance System"/>
       </a>
       <p>An automated attendance tracking system for staff management with user-friendly interface</p>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Drackko/CRM_django">
+        <img src="https://img.shields.io/badge/Web-CRM%20Django-purple?style=for-the-badge" alt="CRM Django"/>
+      </a>
+      <p>A customer relationship management system built with Django for efficient business operations</p>
     </td>
   </tr>
 </table>
