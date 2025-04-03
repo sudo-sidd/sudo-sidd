@@ -1,8 +1,9 @@
+
 <p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=40&pause=600&color=3498DB&center=true&vCenter=true&width=800&height=80&lines=Hi+I'm+Siddharth+T" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=40&pause=600&color=7a0887&center=true&vCenter=true&width=800&height=80&lines=Hi+I'm+Drackko" alt="Typing SVG" /></a>
 </p>
 <p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Comfortaa&size=30&pause=600&color=3498DB&center=true&vCenter=true&width=1000&height=100&lines=AI+%2F+ML+Engineer+in+the+making;Full-Stack+Developer;Continuous+Learner;Problem+Solver" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Comfortaa&size=30&pause=600&color=8335ba&center=true&vCenter=true&width=1000&height=100&lines=AI+%2F+ML+Engineer+in+the+making;Full-Stack+Developer;Continuous+Learner;Problem+Solver" alt="Typing SVG" /></a>
 </p>
 
 <p align='center'>
@@ -79,23 +80,7 @@
   <img src="https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif" alt="Divider">
 </p>
 
-<h2>📊 GitHub Stats</h2>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 50px;">
-  <img src="https://github-readme-stats.vercel.app/api?username=Drackko&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="170"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Drackko&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="170"/>
-</div>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Drackko&theme=tokyonight&hide_border=true&include_all_commits=false&count_private=false&layout=compact" alt="Top Languages" height="200"/>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Drackko&theme=nord&no-frame=true&margin-w=8&margin-h=8&row=1&column=4" alt="GitHub Trophies" width="800"/>
-</p>
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif" alt="Divider">
-</p>
 
 <h2 align="center">🚀 Notable Projects</h2>
 <table align="center">
@@ -132,7 +117,32 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif" alt="Divider">
 </p>
+<h2>📊 GitHub Stats</h2>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 50px;">
+  <img src="https://github-readme-stats.vercel.app/api?username=Drackko&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="170"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Drackko&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="170"/>
+</div>
 
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Drackko&theme=tokyonight&hide_border=true&include_all_commits=false&count_private=false&layout=compact" alt="Top Languages" height="200"/>
+</p>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Drackko&theme=nord&no-frame=true&margin-w=8&margin-h=8&row=1&column=4" alt="GitHub Trophies" width="800"/>
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif" alt="Divider">
+</p>
+<h2 align="center">📈 Contribution Activity</h2>
+
+<p align="center">
+  <img src="https://ssr-contributions-svg.vercel.app/_/Drackko?chart=3dbar&gap=0.6&scale=2&gradient=true&flatten=0&animation=mess&animation_duration=6&animation_loop=true&format=svg&weeks=50&theme=purple&widget_size=large&colors=87CEFA,00BFFF,1E90FF,4169E1,483D8B,6A5ACD,9370DB,8A2BE2&dark=true" alt="3D Contribution Chart" width="800"/>
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif" alt="Divider">
+</p>
 <div align="center">
   <h3>Show some ❤️ by starring some of my repositories!</h3>
   <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> <em><b>I love connecting with different people</b> so if you want to say <b>hi, I'll be happy to meet you!</b> 😊</em>
