@@ -119,16 +119,16 @@
 </p>
 <h2>📊 GitHub Stats</h2>
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 50px;">
-  <img src="https://github-readme-stats.vercel.app/api?username=Drackko&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="170"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Drackko&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="170"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=sudo-sidd&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="170"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sudo-sidd&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="170"/>
 </div>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Drackko&theme=tokyonight&hide_border=true&include_all_commits=false&count_private=false&layout=compact" alt="Top Languages" height="200"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sudo-sidd&theme=tokyonight&hide_border=true&include_all_commits=false&count_private=false&layout=compact" alt="Top Languages" height="200"/>
 </p>
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Drackko&theme=nord&no-frame=true&margin-w=8&margin-h=8&row=1&column=4" alt="GitHub Trophies" width="800"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=sudo-sidd&theme=nord&no-frame=true&margin-w=8&margin-h=8&row=1&column=4" alt="GitHub Trophies" width="800"/>
 </p>
 
 <p align="center">
