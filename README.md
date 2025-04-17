@@ -107,7 +107,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/Drackko/CRM_django">
-        <img src="https://img.shields.io/badge/Web-CRM%20Django-purple?style=for-the-badge" alt="CRM Django"/>
+        <img src="https://img.shields.io/badge/Web-CRM%20Application-purple?style=for-the-badge" alt="CRM Application for Corrugated Box company"/>
       </a>
       <p>A customer relationship management system built with Django for efficient business operations</p>
     </td>
