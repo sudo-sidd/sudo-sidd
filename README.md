@@ -30,7 +30,7 @@
   <li>🔍 Actively building and learning through machine learning projects and hands-on experience</li>
   <li>🤖 AI & ML engineer in the making, continuously expanding my Python expertise</li>
   <li>🌐 Designing and developing modern, dynamic web applications with focus on user experience</li>
-  <li>🛠️ Learning full-stack development with Django & Node.js for building robust solutions</li>
+  <li>🛠️ Learning full-stack development with Node.js for building robust solutions</li>
   <li>🚀 Passionate about exploring new technologies to challenge myself and grow professionally</li>
   <li>📊 Enthusiastic about data-driven solutions that make a positive impact</li>
 </ul>
