@@ -11,7 +11,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <br>
 
-> *Building something interactive here. Check back soon.*
+> *Building something fun here. Check back soon.*
 
 <br>
 
