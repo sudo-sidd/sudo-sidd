@@ -15,9 +15,19 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <br>
 
-Feel free to poke around my projects—most are open experiments for you to explore and use. I'm  down to collaborate ,so if you've got an idea, hit me up!.
+Feel free to poke around my projects—most are open experiments for you to explore and use. I'm always down to collaborate on something new, so if you've got an idea, let's make it happen.
 
-<br><a href="https://sudosidd.dev" target="_blank"><img src="https://img.shields.io/badge/sudosidd.dev-black?style=for-the-badge" alt="Website" /></a>
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sudo-sidd/sudo-sidd/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sudo-sidd/sudo-sidd/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/sudo-sidd/sudo-sidd/output/github-contribution-grid-snake.svg">
+</picture>
+
+<br>
+
+<a href="https://sudosidd.dev" target="_blank"><img src="https://img.shields.io/badge/sudosidd.dev-black?style=for-the-badge" alt="Website" /></a>
 <a href="https://linkedin.com/in/sudo-sidd" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="mailto:siddharth.t.dev@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
 
