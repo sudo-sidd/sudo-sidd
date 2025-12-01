@@ -11,9 +11,6 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <br>
 
-> *Building something fun here. Check back soon.*
-
-<br>
 
 Feel free to poke around my projects—most are open experiments for you to explore and use. I'm always down to collaborate on something new, so if you've got an idea, let's make it happen.
 
