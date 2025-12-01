@@ -15,7 +15,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <br>
 
-Feel free to poke around my projects—most are open experiments for you to explore and use. I'm always down to collaborate on something new, so if you've got an idea, let's make it happen.
+Feel free to poke around my projects—most are open experiments for you to explore and use. I'm  down to collaborate ,so if you've got an idea, hit me up!.
 
 <br><a href="https://sudosidd.dev" target="_blank"><img src="https://img.shields.io/badge/sudosidd.dev-black?style=for-the-badge" alt="Website" /></a>
 <a href="https://linkedin.com/in/sudo-sidd" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
