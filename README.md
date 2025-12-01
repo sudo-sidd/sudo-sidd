@@ -6,7 +6,7 @@
 
 <br>
 
-I’m a student who likes building systems that work the way they should, look good, and feel intentional. I work in the overlap between art, design, and systems because each one solves a different part of the puzzle.
+I enjoy building toys and experimenting with all sorts of stuff , some of my projects are listed here and are open to explore and use 
 
 <br>
 
