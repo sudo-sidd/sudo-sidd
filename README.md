@@ -29,3 +29,27 @@ Feel free to poke around my projects—most are open experiments for you to expl
 <a href="mailto:siddharth.t.dev@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
 
 </div>
+
+<!-- PET-START -->
+<!-- ## My GitHub Pet
+
+![Pet Status](sprites/neutral.svg)
+
+**Stats**
+- **Mood**: Neutral
+- **Hunger**: 50
+- **Energy**: 100
+- **Happiness**: 100
+- **Age**: 0 days
+
+<details>
+<summary>How to interact</summary>
+
+This pet lives in my GitHub repo! You can interact with it by opening an issue with one of the following titles:
+- `feed`: Decreases hunger.
+- `play`: Increases happiness.
+- `rest`: Restores energy.
+
+The workflow runs periodically to update the pet's status.
+</details>
+PET-END -->

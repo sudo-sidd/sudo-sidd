@@ -1,0 +1,52 @@
+name: Pet Loop
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+  workflow_dispatch:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-pet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Determine Action
+        id: get_action
+        shell: bash
+        run: |
+          ACTION=""
+          if [[ "${{ github.event_name }}" == "issues" ]]; then
+            ACTION="${{ github.event.issue.title }}"
+            echo "ACTION=$ACTION" >> $GITHUB_ENV
+          fi
+          
+      - name: Run Game Engine
+        run: |
+          python scripts/update_pet.py --action "${{ env.ACTION }}"
+
+      - name: Close Issue
+        if: github.event_name == 'issues'
+        run: |
+          gh issue close ${{ github.event.issue.number }} --comment "Processed action: ${{ env.ACTION }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Pet Action"
+          git config --global user.email "action@github.com"
+          git add state/creature.json README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update pet state [skip ci]" && git push)

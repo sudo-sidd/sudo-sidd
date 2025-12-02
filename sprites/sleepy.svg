@@ -1,0 +1,9 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="white"/>
+  <circle cx="100" cy="100" r="80" fill="#9C27B0" />
+  <text x="100" y="100" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dy=".3em">SLEEPY</text>
+  <line x1="60" y1="80" x2="80" y2="80" stroke="white" stroke-width="5" />
+  <line x1="120" y1="80" x2="140" y2="80" stroke="white" stroke-width="5" />
+  <circle cx="100" cy="140" r="10" fill="white"/>
+  <text x="150" y="60" font-family="Arial" font-size="30" fill="white">Zzz</text>
+</svg>

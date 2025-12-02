@@ -1,0 +1,9 @@
+{
+  "name": "GitPet",
+  "hunger": 20,
+  "energy": 100,
+  "happiness": 100,
+  "age": 0,
+  "mood": "happy",
+  "last_update": ""
+}
