@@ -1,9 +1,9 @@
 {
   "name": "GitPet",
-  "hunger": 20,
-  "energy": 100,
-  "happiness": 100,
-  "age": 0,
-  "mood": "happy",
-  "last_update": ""
+  "hunger": 65.72880486111112,
+  "energy": 65.70339635416667,
+  "happiness": 77.13559756944446,
+  "age": 0.9526834346064814,
+  "mood": "neutral",
+  "last_update": "2025-12-03T06:30:05.958544"
 }

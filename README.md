@@ -9,6 +9,58 @@
 I Enjoy building interactive toys and experimenting with anything i can get my hands on.
 I'm a student of AIML , and i  like making interactive experiences , designing and developing them .
   
+<!-- PET-START -->
+<div align="center" id="github-tamagotchi">
+
+### My GitHub Tamagotchi
+
+<table role="presentation">
+  <tr>
+    <td align="center" width="320">
+      <img src="sprites/egg.svg" alt="GitPet egg" width="120" />
+      <br />
+      <img src="sprites/neutral.svg" alt="GitPet is neutral" width="180" />
+      <p><strong>GitPet</strong> · Mood: Neutral</p>
+      <p>Age: 1.0 days</p>
+    </td>
+    <td width="320" valign="middle">
+      <strong>Live Stats</strong>
+      <table>
+        <tr>
+          <td>Hunger</td>
+          <td><code>[#############-------] 66%</code></td>
+        </tr>
+        <tr>
+          <td>Energy</td>
+          <td><code>[#############-------] 66%</code></td>
+        </tr>
+        <tr>
+          <td>Happiness</td>
+          <td><code>[###############-----] 77%</code></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div>
+    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=Feed+GitPet&body=I+want+to+feed+GitPet%21" target="_blank"><img src="https://img.shields.io/badge/-Feed-FFD166?style=for-the-badge" alt="Feed" /></a>
+    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=Play+GitPet&body=I+want+to+play+GitPet%21" target="_blank"><img src="https://img.shields.io/badge/-Play-06D6A0?style=for-the-badge" alt="Play" /></a>
+    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=Rest+GitPet&body=I+want+to+rest+GitPet%21" target="_blank"><img src="https://img.shields.io/badge/-Rest-118AB2?style=for-the-badge" alt="Rest" /></a>
+</div>
+
+<sub>Swap <code>sprites/egg.svg</code> or mood sprites in <code>sprites/</code> to reskin GitPet. Numbers come from <code>state/creature.json</code>.</sub>
+
+</div>
+
+<details>
+<summary>How to interact</summary>
+
+Open an issue with titles like `feed`, `play`, or `rest` (the buttons above pre-fill everything). A GitHub Action runs `scripts/update_pet.py` to process the action and refresh this panel.
+
+</details>
+<!-- PET-END -->
+
 <br>
 
 
@@ -29,27 +81,3 @@ Feel free to poke around my projects—most are open experiments for you to expl
 <a href="mailto:siddharth.t.dev@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
 
 </div>
-
-<!-- PET-START -->
-<!-- ## My GitHub Pet
-
-![Pet Status](sprites/neutral.svg)
-
-**Stats**
-- **Mood**: Neutral
-- **Hunger**: 50
-- **Energy**: 100
-- **Happiness**: 100
-- **Age**: 0 days
-
-<details>
-<summary>How to interact</summary>
-
-This pet lives in my GitHub repo! You can interact with it by opening an issue with one of the following titles:
-- `feed`: Decreases hunger.
-- `play`: Increases happiness.
-- `rest`: Restores energy.
-
-The workflow runs periodically to update the pet's status.
-</details>
-PET-END -->
