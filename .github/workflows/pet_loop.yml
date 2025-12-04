@@ -27,15 +27,17 @@ jobs:
         id: get_action
         shell: bash
         run: |
-          ACTION=""
           if [[ "${{ github.event_name }}" == "issues" ]]; then
-            ACTION="${{ github.event.issue.title }}"
-            echo "ACTION=$ACTION" >> $GITHUB_ENV
+            echo "ACTION=${{ github.event.issue.title }}" >> $GITHUB_ENV
+            echo "ACTOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
+          else
+            echo "ACTION=" >> $GITHUB_ENV
+            echo "ACTOR=" >> $GITHUB_ENV
           fi
           
       - name: Run Game Engine
         run: |
-          python scripts/update_pet.py --action "${{ env.ACTION }}"
+          python scripts/update_pet.py --action "${{ env.ACTION }}" --user "${{ env.ACTOR }}"
 
       - name: Close Issue
         if: github.event_name == 'issues'

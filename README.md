@@ -12,42 +12,39 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 0 days, 1 hours)
+### Wisphe (Age: 0 days, 2 hours)
 
-<div style="background-color: #FFF8DC; border: 4px solid #8B4513; border-radius: 10px; padding: 20px; display: inline-block; min-width: 300px;">
-  
-  <!-- Sprite Section -->
-  <div align="center">
-    <img src="sprites/tamogachi_fainted.png" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
-  </div>
-
-  <!-- Status Section -->
-  <div align="center" style="margin-bottom: 20px;">
-    <h3>Pet Status: Fainted</h3>
-    <p><strong>Vital Stats</strong></p>
-    <table border="0" style="border: none; background: transparent;">
-      <tr><td align="right">Hunger:</td><td>`███████████████`&nbsp;100%</td></tr>
-      <tr><td align="right">Mood:</td><td>`████████░░░░░░░`&nbsp;50%</td></tr>
-      <tr><td align="right">Energy:</td><td>`████████░░░░░░░`&nbsp;50%</td></tr>
-    </table>
-  </div>
-
-  <!-- Controls Section -->
-  <div align="center">
-    <table border="0" style="border: none; background: transparent;">
-      <tr>
-        <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/Feed-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Feed" /></a></td>
-        <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/Play-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Play" /></a></td>
-        <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
-      </tr>
-      <tr>
-        <td align="center" style="border: none;"><sub>Ready</sub></td>
-        <td align="center" style="border: none;"><sub>Ready</sub></td>
-        <td align="center" style="border: none;"><sub>Ready</sub></td>
-      </tr>
-    </table>
-  </div>
-
+<div style="background-color: #FFF8DC; border: 4px solid #8B4513; border-radius: 10px; padding: 20px; display: inline-block;">
+<table role="presentation" style="border: none; background: transparent;">
+  <tr>
+    <td align="center" width="300" style="border: none;">
+      <img src="sprites/tamogachi_fainted.png" alt="Wisphe" width="200" style="image-rendering: pixelated;" />
+      <br />
+      <br />
+      <table border="0" style="border: none; background: transparent;">
+        <tr>
+          <td style="border: none;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/Feed-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Feed" /></a></td>
+          <td style="border: none;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/Play-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Play" /></a></td>
+          <td style="border: none;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
+        </tr>
+        <tr>
+          <td align="center" style="border: none;"><sub>Ready</sub></td>
+          <td align="center" style="border: none;"><sub>Ready</sub></td>
+          <td align="center" style="border: none;"><sub>Ready</sub></td>
+        </tr>
+      </table>
+      <br />
+    </td>
+    <td width="300" valign="middle" style="border: none;">
+      <h3>Pet Status : Fainted</h3>
+      <strong>Vital Stats</strong>
+      <br/>
+      Hunger: `███████████████`&nbsp;100%<br/>
+      Mood:   `████████░░░░░░░`&nbsp;50%<br/>
+      Energy: `████████░░░░░░░`&nbsp;50%
+    </td>
+  </tr>
+</table>
 </div>
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
