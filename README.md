@@ -40,7 +40,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 59m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 57m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
