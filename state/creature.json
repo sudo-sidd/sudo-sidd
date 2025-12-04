@@ -4,27 +4,27 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 20,
-    "mood": 70,
+    "mood": 75,
     "energy": 90
   },
   "timestamps": {
     "lastFedAt": "2025-12-04T07:03:33.800600+00:00",
     "lastPlayedAt": "2025-12-04T07:03:47.274599+00:00",
-    "lastPettedAt": "2025-12-04T04:06:24.657065+00:00",
+    "lastPettedAt": "2025-12-04T07:39:43.702653+00:00",
     "lastAutoUpdate": "2025-12-04T07:00:58.898119+00:00"
   },
   "interactions": {
-    "total": 2,
+    "total": 3,
     "byUser": {
       "sudo-sidd": {
-        "count": 2,
-        "lastInteractionAt": "2025-12-04T07:03:47.274599+00:00",
-        "lastAction": "play"
+        "count": 3,
+        "lastInteractionAt": "2025-12-04T07:39:43.702653+00:00",
+        "lastAction": "pet"
       }
     }
   },
   "state": {
-    "currentAnimation": "tamogachi_sad.gif",
-    "status": "Hungry"
+    "currentAnimation": "tamogachi_winking.gif",
+    "status": "Playful"
   }
 }
