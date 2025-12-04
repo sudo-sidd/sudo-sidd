@@ -12,53 +12,51 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### My GitHub Tamagotchi
+### SudoPet (Age: 0 days, 6 hours)
 
 <table role="presentation">
   <tr>
-    <td align="center" width="320">
-      <img src="sprites/egg.svg" alt="GitPet egg" width="120" />
+    <td align="center" width="300">
+      <img src="sprites/tamogachi_happy.gif" alt="SudoPet" width="200" style="image-rendering: pixelated;" />
       <br />
-      <img src="sprites/neutral.svg" alt="GitPet is neutral" width="180" />
-      <p><strong>GitPet</strong> · Mood: Neutral</p>
-      <p>Age: 1.0 days</p>
+      <p><strong>Status</strong>: Feeling Good</p>
     </td>
-    <td width="320" valign="middle">
-      <strong>Live Stats</strong>
-      <table>
-        <tr>
-          <td>Hunger</td>
-          <td><code>[#############-------] 66%</code></td>
-        </tr>
-        <tr>
-          <td>Energy</td>
-          <td><code>[#############-------] 66%</code></td>
-        </tr>
-        <tr>
-          <td>Happiness</td>
-          <td><code>[###############-----] 77%</code></td>
-        </tr>
-      </table>
+    <td width="300" valign="middle">
+      <strong>Vital Stats</strong>
+      <br/>
+      Hunger: `░░░░░░░░░░░░░░░░░░░░` 0%<br/>
+      Mood:   `███████████░░░░░░░░░` 55%<br/>
+      Energy: `██████████████░░░░░░` 70%
     </td>
   </tr>
 </table>
 
-<div>
-    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=Feed+GitPet&body=I+want+to+feed+GitPet%21" target="_blank"><img src="https://img.shields.io/badge/-Feed-FFD166?style=for-the-badge" alt="Feed" /></a>
-    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=Play+GitPet&body=I+want+to+play+GitPet%21" target="_blank"><img src="https://img.shields.io/badge/-Play-06D6A0?style=for-the-badge" alt="Play" /></a>
-    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=Rest+GitPet&body=I+want+to+rest+GitPet%21" target="_blank"><img src="https://img.shields.io/badge/-Rest-118AB2?style=for-the-badge" alt="Rest" /></a>
-</div>
-
-<sub>Swap <code>sprites/egg.svg</code> or mood sprites in <code>sprites/</code> to reskin GitPet. Numbers come from <code>state/creature.json</code>.</sub>
-
+<div align="center">
+    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/-Feed-FFD166?style=for-the-badge" alt="Feed" /></a>
+    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/-Play-06D6A0?style=for-the-badge" alt="Play" /></a>
+    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/-Pet-118AB2?style=for-the-badge" alt="Pet" /></a>
 </div>
 
 <details>
-<summary>How to interact</summary>
+<summary><strong>Top Caretakers</strong></summary>
 
-Open an issue with titles like `feed`, `play`, or `rest` (the buttons above pre-fill everything). A GitHub Action runs `scripts/update_pet.py` to process the action and refresh this panel.
-
+```
+1. @testuser – 1
+```
 </details>
+
+<details>
+<summary><strong>How to interact</strong></summary>
+
+Use these commands in an issue or press the button above:
+- `/feed`: Decreases hunger, improves mood.
+- `/play`: Improves mood, uses energy.
+- `/pet`: Improves mood slightly.
+
+The system updates every 6 hours automatically.
+</details>
+
+</div>
 <!-- PET-END -->
 
 <br>

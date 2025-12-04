@@ -1,9 +1,26 @@
 {
-  "name": "GitPet",
-  "hunger": 65.72880486111112,
-  "energy": 65.70339635416667,
-  "happiness": 77.13559756944446,
-  "age": 0.9526834346064814,
-  "mood": "neutral",
-  "last_update": "2025-12-03T06:30:05.958544"
+  "name": "SudoPet",
+  "ageHours": 6,
+  "createdAt": "2025-12-04T00:00:00Z",
+  "stats": {
+    "hunger": 0,
+    "mood": 55,
+    "energy": 70
+  },
+  "timestamps": {
+    "lastFedAt": "2025-12-04T03:20:51.107896+00:00",
+    "lastPlayedAt": "2025-12-04T00:00:00Z",
+    "lastPettedAt": "2025-12-04T00:00:00Z",
+    "lastAutoUpdate": "2025-12-04T03:20:19.763321+00:00"
+  },
+  "interactions": {
+    "total": 1,
+    "byUser": {
+      "testuser": 1
+    }
+  },
+  "state": {
+    "currentAnimation": "tamogachi_happy.gif",
+    "status": "Feeling good"
+  }
 }
