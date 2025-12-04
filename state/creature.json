@@ -1,20 +1,20 @@
 {
   "name": "Wisphe",
-  "ageHours": 3,
+  "ageHours": 4,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 20,
-    "mood": 80,
-    "energy": 90
+    "mood": 95,
+    "energy": 80
   },
   "timestamps": {
     "lastFedAt": "2025-12-04T07:03:33.800600+00:00",
-    "lastPlayedAt": "2025-12-04T07:03:47.274599+00:00",
+    "lastPlayedAt": "2025-12-04T08:25:22.530103+00:00",
     "lastPettedAt": "2025-12-04T08:00:40.235421+00:00",
     "lastAutoUpdate": "2025-12-04T07:43:48.485457+00:00"
   },
   "interactions": {
-    "total": 4,
+    "total": 5,
     "byUser": {
       "sudo-sidd": {
         "count": 3,
@@ -25,11 +25,16 @@
         "count": 1,
         "lastInteractionAt": "2025-12-04T08:00:40.235421+00:00",
         "lastAction": "pet"
+      },
+      "dhanwanth-dev": {
+        "count": 1,
+        "lastInteractionAt": "2025-12-04T08:25:22.530103+00:00",
+        "lastAction": "play"
       }
     }
   },
   "state": {
-    "currentAnimation": "tamogachi_winking.gif",
-    "status": "Playful"
+    "currentAnimation": "tamogachi_excited.gif",
+    "status": "Excited!"
   }
 }
