@@ -11,9 +11,10 @@ SPRITES_DIR = 'sprites'
 REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 
 # Configuration
-HUNGER_RATE = 4  # +1 every 4 hours
+# Aligned to 6-hour cron schedule to ensure at least 1 point of decay per run
+HUNGER_RATE = 6  # +1 every 6 hours
 MOOD_DECAY_RATE = 6  # -1 every 6 hours
-ENERGY_DECAY_RATE = 8  # -1 every 8 hours
+ENERGY_DECAY_RATE = 6  # -1 every 6 hours
 AGE_INCREMENT = 6  # +6 hours per cron run
 
 COOLDOWN_FEED = 3600  # 1 hour in seconds
@@ -94,7 +95,13 @@ def update_readme(state):
     timestamps = state['timestamps']
     
     # Leaderboard
-    sorted_users = sorted(state['interactions']['byUser'].items(), key=lambda x: x[1], reverse=True)
+    # Handle new user structure (dict) or old structure (int)
+    users_list = []
+    for user, data in state['interactions']['byUser'].items():
+        count = data['count'] if isinstance(data, dict) else data
+        users_list.append((user, count))
+        
+    sorted_users = sorted(users_list, key=lambda x: x[1], reverse=True)
     leaderboard_rows = []
     for i, (user, count) in enumerate(sorted_users[:5], 1):
         leaderboard_rows.append(f"{i}. @{user} – {count}")
@@ -136,7 +143,6 @@ def update_readme(state):
         </tr>
       </table>
       <br />
-      <sub>Read the rules before interaction</sub>
     </td>
     <td width="300" valign="middle">
       <h3>Pet Status : {status_text}</h3>
@@ -148,6 +154,18 @@ def update_readme(state):
     </td>
   </tr>
 </table>
+
+<div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
+  <p>
+    This is <strong>Wisphe</strong>. I found him inside the broken firmware of an old Tamagotchi shell that wouldn’t even boot. The code was scrambled, but he was still in there, floating around like he was waiting for someone to notice him.
+  </p>
+  <p>
+    I patched the bits that kept him crashing and moved him into this README so he’d have a stable place to stay. He’s friendly, a little moody, and pays attention to anyone who interacts with him.
+  </p>
+  <p>
+    If you’re here, give him a moment. He loves the company.
+  </p>
+</div>
 
 <details>
 <summary><strong>Top Caretakers</strong></summary>
@@ -253,13 +271,7 @@ def apply_decay(state):
     state['stats']['energy'] = clamp(state['stats']['energy'] - energy_dec)
     
     # Age
-    # User said "Age increases by 6 hours every cron run". 
-    # But if we run this based on time delta, we should probably just add the hours passed?
-    # Or strictly follow the "every cron run" rule. 
-    # Let's assume the cron runs every 6 hours, so we add 6 hours if this is a cron run.
-    # But this function might be called during user interaction too?
-    # The prompt says "Step 5: Update age... Increase age by 6 hours each run" under "Automatic cycle".
-    # So we should only update age if it's an auto update.
+    # Age is now calculated dynamically in main(), so we don't need to increment it here.
     
     return state
 
@@ -279,7 +291,7 @@ def handle_action(state, action, user):
         stats['hunger'] = clamp(stats['hunger'] - 20)
         stats['mood'] = clamp(stats['mood'] + 5)
         timestamps['lastFedAt'] = now.isoformat()
-        print(f"@{user} fed SudoPet!")
+        print(f"@{user} fed Wisphe!")
         
     elif action == 'play':
         last_played = parse_time(timestamps['lastPlayedAt'])
@@ -290,7 +302,7 @@ def handle_action(state, action, user):
         stats['mood'] = clamp(stats['mood'] + 15)
         stats['energy'] = clamp(stats['energy'] - 10)
         timestamps['lastPlayedAt'] = now.isoformat()
-        print(f"@{user} played with SudoPet!")
+        print(f"@{user} played with Wisphe!")
         
     elif action == 'pet':
         last_petted = parse_time(timestamps['lastPettedAt'])
@@ -300,7 +312,7 @@ def handle_action(state, action, user):
             
         stats['mood'] = clamp(stats['mood'] + 5)
         timestamps['lastPettedAt'] = now.isoformat()
-        print(f"@{user} petted SudoPet!")
+        print(f"@{user} petted Wisphe!")
     
     else:
         print(f"Unknown command: {action}")
@@ -308,10 +320,25 @@ def handle_action(state, action, user):
 
     # Update interactions
     state['interactions']['total'] += 1
-    if user in state['interactions']['byUser']:
-        state['interactions']['byUser'][user] += 1
-    else:
-        state['interactions']['byUser'][user] = 1
+    
+    if user not in state['interactions']['byUser']:
+        state['interactions']['byUser'][user] = {
+            'count': 0,
+            'lastInteractionAt': None,
+            'lastAction': None
+        }
+    
+    # Migration for old integer format if necessary
+    if isinstance(state['interactions']['byUser'][user], int):
+         state['interactions']['byUser'][user] = {
+            'count': state['interactions']['byUser'][user],
+            'lastInteractionAt': None,
+            'lastAction': None
+        }
+
+    state['interactions']['byUser'][user]['count'] += 1
+    state['interactions']['byUser'][user]['lastInteractionAt'] = now.isoformat()
+    state['interactions']['byUser'][user]['lastAction'] = action
         
     return state
 
@@ -337,7 +364,7 @@ def main():
     if not args.action:
         # Cron job mode
         state = apply_decay(state)
-        state['ageHours'] += AGE_INCREMENT
+        # Age is now calculated dynamically based on createdAt
         state['timestamps']['lastAutoUpdate'] = get_utc_now().isoformat()
         print("Ran automatic update cycle.")
     else:
@@ -346,6 +373,13 @@ def main():
             print("Error: --user is required for actions.")
             return
         state = handle_action(state, args.action, args.user)
+
+    # Calculate Age Dynamically
+    if 'createdAt' in state:
+        created_at = parse_time(state['createdAt'])
+        now = get_utc_now()
+        age_hours = int((now - created_at).total_seconds() / 3600)
+        state['ageHours'] = age_hours
 
     state = determine_state(state)
     save_state(state)

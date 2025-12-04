@@ -12,12 +12,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 1 days, 6 hours)
+### Wisphe (Age: 0 days, 4 hours)
 
 <table role="presentation">
   <tr>
     <td align="center" width="300">
-      <img src="sprites/tamogachi_happy.gif" alt="Wisphe" width="200" style="image-rendering: pixelated;" />
+      <img src="sprites/tamogachi_excited.gif" alt="Wisphe" width="200" style="image-rendering: pixelated;" />
       <br />
       <br />
       <table border="0">
@@ -27,25 +27,23 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
           <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
         </tr>
         <tr>
-          <td align="center"><sub>Wait 33m</sub></td>
+          <td align="center"><sub>Wait 53m</sub></td>
           <td align="center"><sub>Ready</sub></td>
           <td align="center"><sub>Ready</sub></td>
         </tr>
       </table>
       <br />
-      <sub>Read the rules before interaction</sub>
     </td>
     <td width="300" valign="middle">
-      <h3>Pet Status : Feeling Good</h3>
+      <h3>Pet Status : Excited!</h3>
       <strong>Vital Stats</strong>
       <br/>
-      Hunger: `░░░░░░░░░░░░░░░░░░░░` 0%<br/>
-      Mood:   `███████████░░░░░░░░░` 55%<br/>
-      Energy: `██████████████░░░░░░` 70%
+      Hunger: `░░░░░░░░░░░░░░░░░░░░` 1%<br/>
+      Mood:   `████████████████░░░░` 80%<br/>
+      Energy: `████████████░░░░░░░░` 60%
     </td>
   </tr>
 </table>
-
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -58,12 +56,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     If you’re here, give him a moment. He loves the company.
   </p>
 </div>
-  
+
 <details>
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @testuser – 1
+1. @testuser – 4
 ```
 </details>
 
