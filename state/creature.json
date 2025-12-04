@@ -3,22 +3,28 @@
   "ageHours": 2,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 50,
-    "energy": 50
+    "hunger": 70,
+    "mood": 55,
+    "energy": 100
   },
   "timestamps": {
-    "lastFedAt": "2025-12-04T04:06:24.657065+00:00",
+    "lastFedAt": "2025-12-04T07:03:33.800600+00:00",
     "lastPlayedAt": "2025-12-04T04:06:24.657065+00:00",
     "lastPettedAt": "2025-12-04T04:06:24.657065+00:00",
     "lastAutoUpdate": "2025-12-04T07:00:58.898119+00:00"
   },
   "interactions": {
-    "total": 0,
-    "byUser": {}
+    "total": 1,
+    "byUser": {
+      "sudo-sidd": {
+        "count": 1,
+        "lastInteractionAt": "2025-12-04T07:03:33.800600+00:00",
+        "lastAction": "feed"
+      }
+    }
   },
   "state": {
-    "currentAnimation": "tamogachi_fainted.png",
-    "status": "Fainted"
+    "currentAnimation": "tamogachi_sad.gif",
+    "status": "Hungry"
   }
 }

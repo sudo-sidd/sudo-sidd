@@ -16,17 +16,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <!-- Sprite Section -->
 <div align="center">
-  <img src="sprites/tamogachi_fainted.png" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
+  <img src="sprites/tamogachi_sad.gif" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
 </div>
 
 <!-- Status Section -->
 <div align="center" style="margin-bottom: 20px;">
-  <h3>Pet Status: Fainted</h3>
+  <h3>Pet Status: Hungry</h3>
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>`███████████████`&nbsp;100%</td></tr>
-    <tr><td align="right">Mood:</td><td>`████████░░░░░░░`&nbsp;50%</td></tr>
-    <tr><td align="right">Energy:</td><td>`████████░░░░░░░`&nbsp;50%</td></tr>
+    <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;70%</td></tr>
+    <tr><td align="right">Mood:</td><td>`████████░░░░░░░`&nbsp;55%</td></tr>
+    <tr><td align="right">Energy:</td><td>`███████████████`&nbsp;100%</td></tr>
   </table>
 </div>
 
@@ -39,7 +39,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Ready</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 59m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
@@ -62,7 +62,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-No interactions yet.
+1. @sudo-sidd – 1
 ```
 </details>
 
