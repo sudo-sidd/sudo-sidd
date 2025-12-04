@@ -124,37 +124,36 @@ def update_readme(state):
 
 ### {state['name']} (Age: {state['ageHours'] // 24} days, {state['ageHours'] % 24} hours)
 
-<div style="background-color: #FFF8DC; border: 4px solid #8B4513; border-radius: 10px; padding: 20px; display: inline-block;">
-<table role="presentation" style="border: none; background: transparent;">
-  <tr>
-    <td align="center" width="300" style="border: none;">
-      <img src="{SPRITES_DIR}/{sprite_file}" alt="{state['name']}" width="200" style="image-rendering: pixelated;" />
-      <br />
-      <br />
-      <table border="0" style="border: none; background: transparent;">
-        <tr>
-          <td style="border: none;">{make_issue_button('Feed', 'feed')}</td>
-          <td style="border: none;">{make_issue_button('Play', 'play')}</td>
-          <td style="border: none;">{make_issue_button('Pet', 'pet')}</td>
-        </tr>
-        <tr>
-          <td align="center" style="border: none;"><sub>{status_feed}</sub></td>
-          <td align="center" style="border: none;"><sub>{status_play}</sub></td>
-          <td align="center" style="border: none;"><sub>{status_pet}</sub></td>
-        </tr>
-      </table>
-      <br />
-    </td>
-    <td width="300" valign="middle" style="border: none;">
-      <h3>Pet Status : {status_text}</h3>
-      <strong>Vital Stats</strong>
-      <br/>
-      Hunger: {render_stat_bar(stats['hunger'])}<br/>
-      Mood:   {render_stat_bar(stats['mood'])}<br/>
-      Energy: {render_stat_bar(stats['energy'])}
-    </td>
-  </tr>
-</table>
+<!-- Sprite Section -->
+<div align="center">
+  <img src="{SPRITES_DIR}/{sprite_file}" alt="{state['name']}" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
+</div>
+
+<!-- Status Section -->
+<div align="center" style="margin-bottom: 20px;">
+  <h3>Pet Status: {status_text}</h3>
+  <p><strong>Vital Stats</strong></p>
+  <table border="0" style="border: none; background: transparent;">
+    <tr><td align="right">Hunger:</td><td>{render_stat_bar(stats['hunger'])}</td></tr>
+    <tr><td align="right">Mood:</td><td>{render_stat_bar(stats['mood'])}</td></tr>
+    <tr><td align="right">Energy:</td><td>{render_stat_bar(stats['energy'])}</td></tr>
+  </table>
+</div>
+
+<!-- Controls Section -->
+<div align="center">
+  <table border="0" style="border: none; background: transparent;">
+    <tr>
+      <td style="border: none; padding: 5px;">{make_issue_button('Feed', 'feed')}</td>
+      <td style="border: none; padding: 5px;">{make_issue_button('Play', 'play')}</td>
+      <td style="border: none; padding: 5px;">{make_issue_button('Pet', 'pet')}</td>
+    </tr>
+    <tr>
+      <td align="center" style="border: none;"><sub>{status_feed}</sub></td>
+      <td align="center" style="border: none;"><sub>{status_play}</sub></td>
+      <td align="center" style="border: none;"><sub>{status_pet}</sub></td>
+    </tr>
+  </table>
 </div>
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
