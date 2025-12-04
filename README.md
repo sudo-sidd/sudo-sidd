@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 0 days, 4 hours)
+### Wisphe (Age: 0 days, 6 hours)
 
 <!-- Sprite Section -->
 <div align="center">
@@ -21,12 +21,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <!-- Status Section -->
 <div align="center" style="margin-bottom: 20px;">
-  <h3>Pet Status: Excited!</h3>
+  <h3>Pet Status: Excited</h3>
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>`███░░░░░░░░░░░░`&nbsp;20%</td></tr>
+    <tr><td align="right">Hunger:</td><td>`░░░░░░░░░░░░░░░`&nbsp;0%</td></tr>
     <tr><td align="right">Mood:</td><td>`███████████████`&nbsp;100%</td></tr>
-    <tr><td align="right">Energy:</td><td>`████████████░░░`&nbsp;80%</td></tr>
+    <tr><td align="right">Energy:</td><td>`███████████████`&nbsp;100%</td></tr>
   </table>
 </div>
 
@@ -39,9 +39,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
+      <td align="center" style="border: none;"><sub>Wait 29m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 57m</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 4m</sub></td>
+      <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
 </div>
@@ -62,7 +62,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 3
+1. @sudo-sidd – 4
 2. @dhanwanth-dev – 2
 3. @Syedha18 – 1
 ```
