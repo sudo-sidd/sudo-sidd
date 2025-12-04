@@ -218,33 +218,59 @@ def determine_state(state):
     hunger = stats['hunger']
     mood = stats['mood']
     energy = stats['energy']
+
+    # CRITICAL STATES (override everything)
+    if hunger >= 95:
+        state['state']['currentAnimation'] = "tamogachi_fainted.png"
+        state['state']['status'] = "Fainted"
+        return state
     
-    # Default
-    animation = "tamogachi_happy.gif"
-    status = "Feeling good"
-    
-    # Rules
-    if hunger >= 100:
-        animation = "tamogachi_fainted.png"
-        status = "Fainted"
-    elif hunger > 80:
-        animation = "tamogachi_fainted.png" # User requested fainted sprite for hungry
-        status = "Starving"
-    elif energy < 20:
-        animation = "sleepy.svg"
-        status = "Sleepy"
-    elif mood < 40:
-        animation = "tamogachi_sad.gif"
-        status = "Feeling down"
-    elif mood > 70:
-        animation = "tamogachi_excited.gif"
-        status = "Excited!"
-    elif hunger > 60:
-        animation = "tamogachi_sad.gif" # Or maybe neutral?
-        status = "Hungry"
-    
-    state['state']['currentAnimation'] = animation
-    state['state']['status'] = status
+    if energy <= 10:
+        state['state']['currentAnimation'] = "tamogachi_fainted.png"
+        state['state']['status'] = "Exhausted"
+        return state
+
+    # HIGH PRIORITY (big feelings)
+    if hunger >= 80:
+        state['state']['currentAnimation'] = "tamogachi_cry.gif"
+        state['state']['status'] = "Starving"
+        return state
+
+    if mood <= 20:
+        state['state']['currentAnimation'] = "tamogachi_cry.gif"
+        state['state']['status'] = "Crying"
+        return state
+
+    # MEDIUM PRIORITY (uncomfortable)
+    if hunger >= 60:
+        state['state']['currentAnimation'] = "tamogachi_sad.gif"
+        state['state']['status'] = "Hungry"
+        return state
+
+    if energy <= 25:
+        state['state']['currentAnimation'] = "tamogachi_sad.gif"
+        state['state']['status'] = "Sleepy"
+        return state
+
+    if mood <= 40:
+        state['state']['currentAnimation'] = "tamogachi_sad.gif"
+        state['state']['status'] = "Feeling down"
+        return state
+
+    # POSITIVE STATES
+    if mood >= 85:
+        state['state']['currentAnimation'] = "tamogachi_excited.gif"
+        state['state']['status'] = "Excited!"
+        return state
+
+    if mood >= 60:
+        state['state']['currentAnimation'] = "tamogachi_winking.gif"
+        state['state']['status'] = "Playful"
+        return state
+
+    # NEUTRAL / HAPPY DEFAULT
+    state['state']['currentAnimation'] = "tamogachi_happy.gif"
+    state['state']['status'] = "Content"
     return state
 
 def apply_decay(state):
