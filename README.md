@@ -39,9 +39,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Wait 23m</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 24m</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 4m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 19m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 19m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 0m</sub></td>
     </tr>
   </table>
 </div>
@@ -77,10 +77,16 @@ Use the buttons above or comment commands in an issue:
 | `/play` | +15 Mood, -10 Energy | **1 hour** |
 | `/pet` | +5 Mood | **5 minutes** |
 
-**Reward Loop**:
-- Keeping **Mood** high (>70) makes Wisphe excited.
-- Letting **Hunger** get too high (>80) or **Mood** too low (<40) makes Wisphe sad or fainted.
-- **Energy** drops over time; resting happens automatically or via play trade-offs.
+**States & Rules**:
+- **Happy States**: Keep Mood above 60 to make Wisphe Playful, or above 85 for Excited!
+- **Warning Signs**: 
+  - Hunger > 60: Hungry
+  - Energy < 25: Sleepy
+  - Mood < 40: Feeling Down
+- **Critical Conditions**:
+  - Hunger > 80: Starving
+  - Mood < 20: Crying
+  - **Game Over**: If Hunger hits 95 or Energy drops to 10, Wisphe will Faint.
 
 The system updates every 6 hours automatically.
 </details>

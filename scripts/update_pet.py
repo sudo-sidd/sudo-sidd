@@ -187,10 +187,16 @@ Use the buttons above or comment commands in an issue:
 | `/play` | +15 Mood, -10 Energy | **1 hour** |
 | `/pet` | +5 Mood | **5 minutes** |
 
-**Reward Loop**:
-- Keeping **Mood** high (>70) makes {state['name']} excited.
-- Letting **Hunger** get too high (>80) or **Mood** too low (<40) makes {state['name']} sad or fainted.
-- **Energy** drops over time; resting happens automatically or via play trade-offs.
+**States & Rules**:
+- **Happy States**: Keep Mood above 60 to make {state['name']} Playful, or above 85 for Excited!
+- **Warning Signs**: 
+  - Hunger > 60: Hungry
+  - Energy < 25: Sleepy
+  - Mood < 40: Feeling Down
+- **Critical Conditions**:
+  - Hunger > 80: Starving
+  - Mood < 20: Crying
+  - **Game Over**: If Hunger hits 95 or Energy drops to 10, {state['name']} will Faint.
 
 The system updates every 6 hours automatically.
 </details>
