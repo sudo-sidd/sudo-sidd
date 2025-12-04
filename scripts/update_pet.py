@@ -44,13 +44,17 @@ def render_stat_bar(value, total_blocks=20):
     bar = '█' * filled + '░' * (total_blocks - filled)
     return f"`{bar}` {percent}%"
 
-def make_issue_button(label, action, color):
+def make_issue_button(label, action):
     issue_title = urllib.parse.quote_plus(f"/{action}")
     issue_body = urllib.parse.quote_plus(f"/{action}")
     badge_label = urllib.parse.quote(label)
+    # Orange button with darker orange/brown label background to simulate border/style
+    color = 'FF8C00' # Dark Orange
+    label_color = 'A0522D' # Sienna (Brownish)
+    
     badge_url = (
-        f"https://img.shields.io/badge/-{badge_label}-{color}?"
-        "style=for-the-badge"
+        f"https://img.shields.io/badge/{badge_label}-{color}?"
+        f"style=for-the-badge&labelColor={label_color}&logoColor=white"
     )
     issue_url = (
         f"https://github.com/{REPO_SLUG}/issues/new?title={issue_title}&body={issue_body}"
@@ -59,6 +63,18 @@ def make_issue_button(label, action, color):
         f'<a href="{issue_url}" target="_blank">'
         f'<img src="{badge_url}" alt="{label}" /></a>'
     )
+
+def get_cooldown_status(last_time_str, cooldown_seconds):
+    if not last_time_str:
+        return "Ready"
+    last_time = parse_time(last_time_str)
+    now = get_utc_now()
+    diff = (now - last_time).total_seconds()
+    if diff >= cooldown_seconds:
+        return "Ready"
+    else:
+        remaining = int((cooldown_seconds - diff) / 60)
+        return f"Wait {remaining}m"
 
 def update_readme(state):
     with open(README_FILE, 'r') as f:
@@ -75,6 +91,7 @@ def update_readme(state):
         return
 
     stats = state['stats']
+    timestamps = state['timestamps']
     
     # Leaderboard
     sorted_users = sorted(state['interactions']['byUser'].items(), key=lambda x: x[1], reverse=True)
@@ -90,6 +107,11 @@ def update_readme(state):
     # Sprite
     sprite_file = state['state']['currentAnimation']
     
+    # Cooldowns
+    status_feed = get_cooldown_status(timestamps['lastFedAt'], COOLDOWN_FEED)
+    status_play = get_cooldown_status(timestamps['lastPlayedAt'], COOLDOWN_PLAY)
+    status_pet = get_cooldown_status(timestamps['lastPettedAt'], COOLDOWN_PET)
+
     new_section = f"""{start_marker}
 <div align="center" id="github-tamagotchi">
 
@@ -100,9 +122,24 @@ def update_readme(state):
     <td align="center" width="300">
       <img src="{SPRITES_DIR}/{sprite_file}" alt="{state['name']}" width="200" style="image-rendering: pixelated;" />
       <br />
-      <p><strong>Status</strong>: {status_text}</p>
+      <br />
+      <table border="0">
+        <tr>
+          <td>{make_issue_button('Feed', 'feed')}</td>
+          <td>{make_issue_button('Play', 'play')}</td>
+          <td>{make_issue_button('Pet', 'pet')}</td>
+        </tr>
+        <tr>
+          <td align="center"><sub>{status_feed}</sub></td>
+          <td align="center"><sub>{status_play}</sub></td>
+          <td align="center"><sub>{status_pet}</sub></td>
+        </tr>
+      </table>
+      <br />
+      <sub>Read the rules before interaction</sub>
     </td>
     <td width="300" valign="middle">
+      <h3>Pet Status : {status_text}</h3>
       <strong>Vital Stats</strong>
       <br/>
       Hunger: {render_stat_bar(stats['hunger'])}<br/>
@@ -111,12 +148,6 @@ def update_readme(state):
     </td>
   </tr>
 </table>
-
-<div align="center">
-    {make_issue_button('Feed', 'feed', 'FFD166')}
-    {make_issue_button('Play', 'play', '06D6A0')}
-    {make_issue_button('Pet', 'pet', '118AB2')}
-</div>
 
 <details>
 <summary><strong>Top Caretakers</strong></summary>
@@ -129,12 +160,30 @@ def update_readme(state):
 <details>
 <summary><strong>How to interact</strong></summary>
 
-Use these commands in an issue or comment:
-- `/feed`: Decreases hunger, improves mood.
-- `/play`: Improves mood, uses energy.
-- `/pet`: Improves mood slightly.
+Use the buttons above or comment commands in an issue:
+
+| Command | Effect | Cooldown |
+| :--- | :--- | :--- |
+| `/feed` | -20 Hunger, +5 Mood | **1 hour** |
+| `/play` | +15 Mood, -10 Energy | **3 hours** |
+| `/pet` | +5 Mood | **30 minutes** |
+
+**Reward Loop**:
+- Keeping **Mood** high (>70) makes {state['name']} excited.
+- Letting **Hunger** get too high (>80) or **Mood** too low (<40) makes {state['name']} sad or fainted.
+- **Energy** drops over time; resting happens automatically or via play trade-offs.
 
 The system updates every 6 hours automatically.
+</details>
+
+<details>
+<summary><strong>How this game works</strong></summary>
+
+This is a fully automated creature living in the repository.
+- **Time**: It ages and stats decay in real-time (updated every 6 hours).
+- **Memory**: It remembers who interacted with it and when.
+- **Persistence**: All state is saved in `state/creature.json`.
+- **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet.
 </details>
 
 </div>

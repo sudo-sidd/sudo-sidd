@@ -1,6 +1,6 @@
 {
-  "name": "SudoPet",
-  "ageHours": 6,
+  "name": "Wisphe",
+  "ageHours": 30,
   "createdAt": "2025-12-04T00:00:00Z",
   "stats": {
     "hunger": 0,
@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-04T03:20:51.107896+00:00",
     "lastPlayedAt": "2025-12-04T00:00:00Z",
     "lastPettedAt": "2025-12-04T00:00:00Z",
-    "lastAutoUpdate": "2025-12-04T03:20:19.763321+00:00"
+    "lastAutoUpdate": "2025-12-04T03:47:28.069702+00:00"
   },
   "interactions": {
     "total": 1,

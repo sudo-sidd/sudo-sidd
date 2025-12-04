@@ -8,20 +8,35 @@
 
 I Enjoy building interactive toys and experimenting with anything i can get my hands on.
 I'm a student of AIML , and i  like making interactive experiences , designing and developing them .
-  
+
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### SudoPet (Age: 0 days, 6 hours)
+### Wisphe (Age: 1 days, 6 hours)
 
 <table role="presentation">
   <tr>
     <td align="center" width="300">
-      <img src="sprites/tamogachi_happy.gif" alt="SudoPet" width="200" style="image-rendering: pixelated;" />
+      <img src="sprites/tamogachi_happy.gif" alt="Wisphe" width="200" style="image-rendering: pixelated;" />
       <br />
-      <p><strong>Status</strong>: Feeling Good</p>
+      <br />
+      <table border="0">
+        <tr>
+          <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/Feed-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Feed" /></a></td>
+          <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/Play-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Play" /></a></td>
+          <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
+        </tr>
+        <tr>
+          <td align="center"><sub>Wait 33m</sub></td>
+          <td align="center"><sub>Ready</sub></td>
+          <td align="center"><sub>Ready</sub></td>
+        </tr>
+      </table>
+      <br />
+      <sub>Read the rules before interaction</sub>
     </td>
     <td width="300" valign="middle">
+      <h3>Pet Status : Feeling Good</h3>
       <strong>Vital Stats</strong>
       <br/>
       Hunger: `░░░░░░░░░░░░░░░░░░░░` 0%<br/>
@@ -31,12 +46,19 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   </tr>
 </table>
 
-<div align="center">
-    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/-Feed-FFD166?style=for-the-badge" alt="Feed" /></a>
-    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/-Play-06D6A0?style=for-the-badge" alt="Play" /></a>
-    <a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/-Pet-118AB2?style=for-the-badge" alt="Pet" /></a>
-</div>
 
+<div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
+  <p>
+    This is <strong>Wisphe</strong>. I found him inside the broken firmware of an old Tamagotchi shell that wouldn’t even boot. The code was scrambled, but he was still in there, floating around like he was waiting for someone to notice him.
+  </p>
+  <p>
+    I patched the bits that kept him crashing and moved him into this README so he’d have a stable place to stay. He’s friendly, a little moody, and pays attention to anyone who interacts with him.
+  </p>
+  <p>
+    If you’re here, give him a moment. He loves the company.
+  </p>
+</div>
+  
 <details>
 <summary><strong>Top Caretakers</strong></summary>
 
@@ -48,12 +70,30 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <details>
 <summary><strong>How to interact</strong></summary>
 
-Use these commands in an issue or press the button above:
-- `/feed`: Decreases hunger, improves mood.
-- `/play`: Improves mood, uses energy.
-- `/pet`: Improves mood slightly.
+Use the buttons above or comment commands in an issue:
+
+| Command | Effect | Cooldown |
+| :--- | :--- | :--- |
+| `/feed` | -20 Hunger, +5 Mood | **1 hour** |
+| `/play` | +15 Mood, -10 Energy | **3 hours** |
+| `/pet` | +5 Mood | **30 minutes** |
+
+**Reward Loop**:
+- Keeping **Mood** high (>70) makes Wisphe excited.
+- Letting **Hunger** get too high (>80) or **Mood** too low (<40) makes Wisphe sad or fainted.
+- **Energy** drops over time; resting happens automatically or via play trade-offs.
 
 The system updates every 6 hours automatically.
+</details>
+
+<details>
+<summary><strong>How this game works</strong></summary>
+
+This is a fully automated creature living in the repository.
+- **Time**: It ages and stats decay in real-time (updated every 6 hours).
+- **Memory**: It remembers who interacted with it and when.
+- **Persistence**: All state is saved in `state/creature.json`.
+- **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet.
 </details>
 
 </div>
