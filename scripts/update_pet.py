@@ -17,9 +17,10 @@ MOOD_DECAY_RATE = 6  # -1 every 6 hours
 ENERGY_DECAY_RATE = 6  # -1 every 6 hours
 AGE_INCREMENT = 6  # +6 hours per cron run
 
-COOLDOWN_FEED = 3600  # 1 hour in seconds
-COOLDOWN_PLAY = 3600  # 1 hour in seconds
-COOLDOWN_PET = 300  # 5 minutes in seconds
+COOLDOWN_FEED = 1800  # 30 minutes in seconds
+COOLDOWN_PLAY = 1800  # 30 minutes in seconds
+# Petting has no cooldown (always allowed)
+COOLDOWN_PET = 0
 
 def load_state():
     with open(STATE_FILE, 'r') as f:
@@ -71,6 +72,8 @@ def get_cooldown_status(last_time_str, cooldown_seconds):
     last_time = parse_time(last_time_str)
     now = get_utc_now()
     diff = (now - last_time).total_seconds()
+    if not cooldown_seconds or cooldown_seconds <= 0:
+        return "Ready"
     if diff >= cooldown_seconds:
         return "Ready"
     else:
@@ -225,48 +228,33 @@ def determine_state(state):
     mood = stats['mood']
     energy = stats['energy']
 
-    # CRITICAL STATES (override everything)
-    if hunger >= 95:
+    # Fainted (hard condition)
+    if hunger >= 100 and energy <= 20:
         state['state']['currentAnimation'] = "tamogachi_fainted.png"
         state['state']['status'] = "Fainted"
         return state
-    
-    if energy <= 10:
-        state['state']['currentAnimation'] = "tamogachi_fainted.png"
-        state['state']['status'] = "Exhausted"
-        return state
 
-    # HIGH PRIORITY (big feelings)
-    if hunger >= 80:
+    # Critical thresholds
+    if hunger >= 90:
         state['state']['currentAnimation'] = "tamogachi_cry.gif"
-        state['state']['status'] = "Starving"
+        state['state']['status'] = "Hungry"
         return state
 
-    if mood <= 20:
+    if mood < 25:
         state['state']['currentAnimation'] = "tamogachi_cry.gif"
         state['state']['status'] = "Crying"
         return state
 
-    # MEDIUM PRIORITY (uncomfortable)
-    if hunger >= 60:
-        state['state']['currentAnimation'] = "tamogachi_sad.gif"
-        state['state']['status'] = "Hungry"
-        return state
-
-    if energy <= 25:
+    if energy < 15:
+        # tired / sad
         state['state']['currentAnimation'] = "tamogachi_sad.gif"
         state['state']['status'] = "Sleepy"
         return state
 
-    if mood <= 40:
-        state['state']['currentAnimation'] = "tamogachi_sad.gif"
-        state['state']['status'] = "Feeling down"
-        return state
-
-    # POSITIVE STATES
-    if mood >= 85:
+    # Positive states
+    if mood >= 75 and energy > 40:
         state['state']['currentAnimation'] = "tamogachi_excited.gif"
-        state['state']['status'] = "Excited!"
+        state['state']['status'] = "Excited"
         return state
 
     if mood >= 60:
@@ -274,9 +262,9 @@ def determine_state(state):
         state['state']['status'] = "Playful"
         return state
 
-    # NEUTRAL / HAPPY DEFAULT
+    # Neutral / default
     state['state']['currentAnimation'] = "tamogachi_happy.gif"
-    state['state']['status'] = "Content"
+    state['state']['status'] = "Happy"
     return state
 
 def apply_decay(state):
@@ -287,21 +275,30 @@ def apply_decay(state):
     diff = now - last_update
     hours_passed = diff.total_seconds() / 3600.0
     
-    if hours_passed < 1:
+    if hours_passed < 0.5:
         return state # No significant decay yet
-        
-    # Apply decay
-    # Hunger: +1 every 4 hours
+
+    # Apply time-based updates
+    # Hunger increases over time
     hunger_inc = int(hours_passed / HUNGER_RATE)
     state['stats']['hunger'] = clamp(state['stats']['hunger'] + hunger_inc)
-    
-    # Mood: -1 every 6 hours
+
+    # Hunger affects mood: high hunger drains mood over time
+    # For each 6-hour block, mood is decreased by 1 plus an extra penalty when hunger > 60
     mood_dec = int(hours_passed / MOOD_DECAY_RATE)
+    if state['stats']['hunger'] >= 60:
+        mood_dec += int((state['stats']['hunger'] - 60) / 20)  # small extra drain
     state['stats']['mood'] = clamp(state['stats']['mood'] - mood_dec)
-    
-    # Energy: -1 every 8 hours
-    energy_dec = int(hours_passed / ENERGY_DECAY_RATE)
-    state['stats']['energy'] = clamp(state['stats']['energy'] - energy_dec)
+
+    # Mood affects energy recovery: good mood slowly restores energy
+    # Positive mood gives a small energy recovery per period
+    energy_change = 0
+    if state['stats']['mood'] >= 70:
+        energy_change += int(hours_passed / (AGE_INCREMENT / 2))  # faster recovery when happy
+    else:
+        energy_change -= int(hours_passed / ENERGY_DECAY_RATE)
+
+    state['stats']['energy'] = clamp(state['stats']['energy'] + energy_change)
     
     # Age
     # Age is now calculated dynamically in main(), so we don't need to increment it here.
@@ -315,38 +312,62 @@ def handle_action(state, action, user):
     
     action = action.lower().replace('/', '').strip()
     
+    # --- Feed ---
     if action == 'feed':
-        last_fed = parse_time(timestamps['lastFedAt'])
-        if (now - last_fed).total_seconds() < COOLDOWN_FEED:
+        last_fed = parse_time(timestamps['lastFedAt']) if timestamps.get('lastFedAt') else None
+        if last_fed and COOLDOWN_FEED and (now - last_fed).total_seconds() < COOLDOWN_FEED:
             print(f"Cooldown active. You can feed again in {int((COOLDOWN_FEED - (now - last_fed).total_seconds())/60)} minutes.")
             return state
-        
-        stats['hunger'] = clamp(stats['hunger'] - 30)
-        stats['mood'] = clamp(stats['mood'] + 5)
-        stats['energy'] = clamp(stats['energy'] + 50)
+
+        # Feed reduces hunger, small mood boost, small energy recovery
+        stats['hunger'] = clamp(stats['hunger'] - 35)
+        stats['mood'] = clamp(stats['mood'] + 8)
+        stats['energy'] = clamp(stats['energy'] + 25)
         timestamps['lastFedAt'] = now.isoformat()
         print(f"@{user} fed Wisphe!")
-        
+
+        # Can revive fainted state if conditions improved
+        if state['state'].get('status', '').lower() == 'fainted' and stats['hunger'] < 100 and stats['energy'] >= 20:
+            # revive to sleepy/content
+            state['state']['status'] = 'Content'
+            state['state']['currentAnimation'] = 'tamogachi_happy.gif'
+            print("Wisphe has been revived via feeding.")
+
+    # --- Play ---
     elif action == 'play':
-        last_played = parse_time(timestamps['lastPlayedAt'])
-        if (now - last_played).total_seconds() < COOLDOWN_PLAY:
+        last_played = parse_time(timestamps['lastPlayedAt']) if timestamps.get('lastPlayedAt') else None
+        if last_played and COOLDOWN_PLAY and (now - last_played).total_seconds() < COOLDOWN_PLAY:
             print(f"Cooldown active. You can play again in {int((COOLDOWN_PLAY - (now - last_played).total_seconds())/60)} minutes.")
             return state
-            
-        stats['mood'] = clamp(stats['mood'] + 15)
-        stats['energy'] = clamp(stats['energy'] - 10)
-        timestamps['lastPlayedAt'] = now.isoformat()
-        print(f"@{user} played with Wisphe!")
-        
-    elif action == 'pet':
-        last_petted = parse_time(timestamps['lastPettedAt'])
-        if (now - last_petted).total_seconds() < COOLDOWN_PET:
-            print(f"Cooldown active. You can pet again in {int((COOLDOWN_PET - (now - last_petted).total_seconds())/60)} minutes.")
+
+        # Play only allowed if hunger less than 80
+        if stats['hunger'] >= 80:
+            print("Too hungry to play.")
+            # playing while hungry does nothing but maybe reduce energy
+            stats['energy'] = clamp(stats['energy'] - 5)
             return state
-            
-        stats['mood'] = clamp(stats['mood'] + 5)
+
+        # Play effectiveness scales with energy
+        energy_pct = stats['energy'] / 100.0
+        mood_gain = int(20 * max(0.2, energy_pct))  # at least 20% effectiveness
+        energy_cost = int(20 + (10 * (1 - energy_pct)))  # lower energy => slightly higher cost
+
+        stats['mood'] = clamp(stats['mood'] + mood_gain)
+        stats['energy'] = clamp(stats['energy'] - energy_cost)
+        timestamps['lastPlayedAt'] = now.isoformat()
+        print(f"@{user} played with Wisphe! Mood +{mood_gain}, Energy -{energy_cost}")
+
+    # --- Pet ---
+    elif action == 'pet':
+        # petting always works (no cooldown)
+        stats['mood'] = clamp(stats['mood'] + 6)
         timestamps['lastPettedAt'] = now.isoformat()
-        print(f"@{user} petted Wisphe!")
+        print(f"@{user} petted Wisphe! (mood +6)")
+
+        # If very sad, pet provides extra comfort
+        if stats['mood'] < 30:
+            stats['mood'] = clamp(stats['mood'] + 10)
+            print("Pet calmed Wisphe.")
     
     else:
         print(f"Unknown command: {action}")
