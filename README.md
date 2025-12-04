@@ -25,7 +25,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
     <tr><td align="right">Hunger:</td><td>`███░░░░░░░░░░░░`&nbsp;20%</td></tr>
-    <tr><td align="right">Mood:</td><td>`███████████░░░░`&nbsp;75%</td></tr>
+    <tr><td align="right">Mood:</td><td>`████████████░░░`&nbsp;80%</td></tr>
     <tr><td align="right">Energy:</td><td>`██████████████░`&nbsp;90%</td></tr>
   </table>
 </div>
@@ -39,9 +39,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Wait 19m</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 19m</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 0m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 2m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 3m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 4m</sub></td>
     </tr>
   </table>
 </div>
@@ -63,6 +63,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 ```
 1. @sudo-sidd – 3
+2. @Syedha18 – 1
 ```
 </details>
 
