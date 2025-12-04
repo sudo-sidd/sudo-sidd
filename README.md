@@ -25,8 +25,8 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
     <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;70%</td></tr>
-    <tr><td align="right">Mood:</td><td>`████████░░░░░░░`&nbsp;55%</td></tr>
-    <tr><td align="right">Energy:</td><td>`███████████████`&nbsp;100%</td></tr>
+    <tr><td align="right">Mood:</td><td>`██████████░░░░░`&nbsp;70%</td></tr>
+    <tr><td align="right">Energy:</td><td>`██████████████░`&nbsp;90%</td></tr>
   </table>
 </div>
 
@@ -40,7 +40,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Wait 59m</sub></td>
-      <td align="center" style="border: none;"><sub>Ready</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 59m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
@@ -62,7 +62,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 1
+1. @sudo-sidd – 2
 ```
 </details>
 
