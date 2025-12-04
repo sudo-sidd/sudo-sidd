@@ -18,8 +18,8 @@ ENERGY_DECAY_RATE = 6  # -1 every 6 hours
 AGE_INCREMENT = 6  # +6 hours per cron run
 
 COOLDOWN_FEED = 3600  # 1 hour in seconds
-COOLDOWN_PLAY = 10800  # 3 hours in seconds
-COOLDOWN_PET = 1800  # 30 minutes in seconds
+COOLDOWN_PLAY = 3600  # 1 hour in seconds
+COOLDOWN_PET = 300  # 5 minutes in seconds
 
 def load_state():
     with open(STATE_FILE, 'r') as f:
@@ -38,12 +38,12 @@ def parse_time(iso_str):
 def clamp(value, min_val=0, max_val=100):
     return max(min_val, min(max_val, value))
 
-def render_stat_bar(value, total_blocks=20):
+def render_stat_bar(value, total_blocks=15):
     percent = clamp(value)
     filled = int(round((percent / 100) * total_blocks))
     filled = min(total_blocks, filled)
     bar = '█' * filled + '░' * (total_blocks - filled)
-    return f"`{bar}` {percent}%"
+    return f"`{bar}`&nbsp;{percent}%"
 
 def make_issue_button(label, action):
     issue_title = urllib.parse.quote_plus(f"/{action}")
@@ -124,27 +124,28 @@ def update_readme(state):
 
 ### {state['name']} (Age: {state['ageHours'] // 24} days, {state['ageHours'] % 24} hours)
 
-<table role="presentation">
+<div style="background-color: #FFF8DC; border: 4px solid #8B4513; border-radius: 10px; padding: 20px; display: inline-block;">
+<table role="presentation" style="border: none; background: transparent;">
   <tr>
-    <td align="center" width="300">
+    <td align="center" width="300" style="border: none;">
       <img src="{SPRITES_DIR}/{sprite_file}" alt="{state['name']}" width="200" style="image-rendering: pixelated;" />
       <br />
       <br />
-      <table border="0">
+      <table border="0" style="border: none; background: transparent;">
         <tr>
-          <td>{make_issue_button('Feed', 'feed')}</td>
-          <td>{make_issue_button('Play', 'play')}</td>
-          <td>{make_issue_button('Pet', 'pet')}</td>
+          <td style="border: none;">{make_issue_button('Feed', 'feed')}</td>
+          <td style="border: none;">{make_issue_button('Play', 'play')}</td>
+          <td style="border: none;">{make_issue_button('Pet', 'pet')}</td>
         </tr>
         <tr>
-          <td align="center"><sub>{status_feed}</sub></td>
-          <td align="center"><sub>{status_play}</sub></td>
-          <td align="center"><sub>{status_pet}</sub></td>
+          <td align="center" style="border: none;"><sub>{status_feed}</sub></td>
+          <td align="center" style="border: none;"><sub>{status_play}</sub></td>
+          <td align="center" style="border: none;"><sub>{status_pet}</sub></td>
         </tr>
       </table>
       <br />
     </td>
-    <td width="300" valign="middle">
+    <td width="300" valign="middle" style="border: none;">
       <h3>Pet Status : {status_text}</h3>
       <strong>Vital Stats</strong>
       <br/>
@@ -154,6 +155,7 @@ def update_readme(state):
     </td>
   </tr>
 </table>
+</div>
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -182,9 +184,9 @@ Use the buttons above or comment commands in an issue:
 
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
-| `/feed` | -20 Hunger, +5 Mood | **1 hour** |
-| `/play` | +15 Mood, -10 Energy | **3 hours** |
-| `/pet` | +5 Mood | **30 minutes** |
+| `/feed` | -30 Hunger, +5 Mood, +50 Energy | **1 hour** |
+| `/play` | +15 Mood, -10 Energy | **1 hour** |
+| `/pet` | +5 Mood | **5 minutes** |
 
 **Reward Loop**:
 - Keeping **Mood** high (>70) makes {state['name']} excited.
@@ -288,8 +290,9 @@ def handle_action(state, action, user):
             print(f"Cooldown active. You can feed again in {int((COOLDOWN_FEED - (now - last_fed).total_seconds())/60)} minutes.")
             return state
         
-        stats['hunger'] = clamp(stats['hunger'] - 20)
+        stats['hunger'] = clamp(stats['hunger'] - 30)
         stats['mood'] = clamp(stats['mood'] + 5)
+        stats['energy'] = clamp(stats['energy'] + 50)
         timestamps['lastFedAt'] = now.isoformat()
         print(f"@{user} fed Wisphe!")
         

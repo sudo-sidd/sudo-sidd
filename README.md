@@ -12,38 +12,40 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 0 days, 4 hours)
+### Wisphe (Age: 0 days, 1 hours)
 
-<table role="presentation">
+<div style="background-color: #FFF8DC; border: 4px solid #8B4513; border-radius: 10px; padding: 20px; display: inline-block;">
+<table role="presentation" style="border: none; background: transparent;">
   <tr>
-    <td align="center" width="300">
-      <img src="sprites/tamogachi_excited.gif" alt="Wisphe" width="200" style="image-rendering: pixelated;" />
+    <td align="center" width="300" style="border: none;">
+      <img src="sprites/tamogachi_fainted.png" alt="Wisphe" width="200" style="image-rendering: pixelated;" />
       <br />
       <br />
-      <table border="0">
+      <table border="0" style="border: none; background: transparent;">
         <tr>
-          <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/Feed-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Feed" /></a></td>
-          <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/Play-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Play" /></a></td>
-          <td><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
+          <td style="border: none;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Ffeed&body=%2Ffeed" target="_blank"><img src="https://img.shields.io/badge/Feed-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Feed" /></a></td>
+          <td style="border: none;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fplay&body=%2Fplay" target="_blank"><img src="https://img.shields.io/badge/Play-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Play" /></a></td>
+          <td style="border: none;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
         </tr>
         <tr>
-          <td align="center"><sub>Wait 53m</sub></td>
-          <td align="center"><sub>Ready</sub></td>
-          <td align="center"><sub>Ready</sub></td>
+          <td align="center" style="border: none;"><sub>Ready</sub></td>
+          <td align="center" style="border: none;"><sub>Ready</sub></td>
+          <td align="center" style="border: none;"><sub>Ready</sub></td>
         </tr>
       </table>
       <br />
     </td>
-    <td width="300" valign="middle">
-      <h3>Pet Status : Excited!</h3>
+    <td width="300" valign="middle" style="border: none;">
+      <h3>Pet Status : Fainted</h3>
       <strong>Vital Stats</strong>
       <br/>
-      Hunger: `░░░░░░░░░░░░░░░░░░░░` 1%<br/>
-      Mood:   `████████████████░░░░` 80%<br/>
-      Energy: `████████████░░░░░░░░` 60%
+      Hunger: `███████████████`&nbsp;100%<br/>
+      Mood:   `████████░░░░░░░`&nbsp;50%<br/>
+      Energy: `████████░░░░░░░`&nbsp;50%
     </td>
   </tr>
 </table>
+</div>
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -61,7 +63,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @testuser – 4
+No interactions yet.
 ```
 </details>
 
@@ -72,9 +74,9 @@ Use the buttons above or comment commands in an issue:
 
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
-| `/feed` | -20 Hunger, +5 Mood | **1 hour** |
-| `/play` | +15 Mood, -10 Energy | **3 hours** |
-| `/pet` | +5 Mood | **30 minutes** |
+| `/feed` | -30 Hunger, +5 Mood, +50 Energy | **1 hour** |
+| `/play` | +15 Mood, -10 Energy | **1 hour** |
+| `/pet` | +5 Mood | **5 minutes** |
 
 **Reward Loop**:
 - Keeping **Mood** high (>70) makes Wisphe excited.
