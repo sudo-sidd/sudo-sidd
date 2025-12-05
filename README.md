@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 0 days, 21 hours)
+### Wisphe (Age: 0 days, 22 hours)
 
 <!-- Sprite Section -->
 <div align="center">
