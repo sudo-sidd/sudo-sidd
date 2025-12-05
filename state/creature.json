@@ -1,17 +1,17 @@
 {
   "name": "Wisphe",
-  "ageHours": 38,
+  "ageHours": 39,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 25,
-    "mood": 75,
+    "hunger": 26,
+    "mood": 74,
     "energy": 100
   },
   "timestamps": {
     "lastFedAt": "2025-12-05T05:47:26.888859+00:00",
     "lastPlayedAt": "2025-12-05T09:39:47.724597+00:00",
     "lastPettedAt": "2025-12-04T08:28:17.766202+00:00",
-    "lastAutoUpdate": "2025-12-05T18:49:03.491277+00:00"
+    "lastAutoUpdate": "2025-12-05T19:13:57.078379+00:00"
   },
   "interactions": {
     "total": 9,
@@ -39,7 +39,7 @@
     }
   },
   "state": {
-    "currentAnimation": "tamogachi_excited.gif",
-    "status": "Excited"
+    "currentAnimation": "tamogachi_winking.gif",
+    "status": "Playful"
   }
 }
