@@ -230,7 +230,7 @@ def determine_state(state):
 
     # Fainted (hard condition)
     if hunger >= 100 and energy <= 20:
-        state['state']['currentAnimation'] = "tamogachi_fainted.png"
+        state['state']['currentAnimation'] = "tamogachi_fainted.gif"
         state['state']['status'] = "Fainted"
         return state
 
