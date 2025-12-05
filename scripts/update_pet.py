@@ -11,11 +11,11 @@ SPRITES_DIR = 'sprites'
 REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 
 # Configuration
-# Aligned to 6-hour cron schedule to ensure at least 1 point of decay per run
-HUNGER_RATE = 6  # +1 every 6 hours
-MOOD_DECAY_RATE = 6  # -1 every 6 hours
-ENERGY_DECAY_RATE = 6  # -1 every 6 hours
-AGE_INCREMENT = 6  # +6 hours per cron run
+# Rates per hour (approximate)
+HUNGER_INC_PER_HOUR = 2.0
+MOOD_DEC_PER_HOUR = 2.0
+ENERGY_DEC_PER_HOUR = 2.0
+ENERGY_REC_PER_HOUR = 4.0
 
 COOLDOWN_FEED = 1800  # 30 minutes in seconds
 COOLDOWN_PLAY = 1800  # 30 minutes in seconds
@@ -275,33 +275,41 @@ def apply_decay(state):
     diff = now - last_update
     hours_passed = diff.total_seconds() / 3600.0
     
-    if hours_passed < 0.5:
-        return state # No significant decay yet
+    # Allow updates if at least 5 minutes passed (0.08 hours)
+    if hours_passed < 0.08:
+        return state
 
     # Apply time-based updates
     # Hunger increases over time
-    hunger_inc = int(hours_passed / HUNGER_RATE)
+    hunger_inc = int(hours_passed * HUNGER_INC_PER_HOUR)
+    # Ensure at least 1 unit if significant time passed (e.g. > 20 mins) to avoid stagnation
+    if hunger_inc == 0 and hours_passed > 0.4:
+        hunger_inc = 1
+        
     state['stats']['hunger'] = clamp(state['stats']['hunger'] + hunger_inc)
 
     # Hunger affects mood: high hunger drains mood over time
-    # For each 6-hour block, mood is decreased by 1 plus an extra penalty when hunger > 60
-    mood_dec = int(hours_passed / MOOD_DECAY_RATE)
+    mood_dec = int(hours_passed * MOOD_DEC_PER_HOUR)
     if state['stats']['hunger'] >= 60:
-        mood_dec += int((state['stats']['hunger'] - 60) / 20)  # small extra drain
+        mood_dec += int(hours_passed * 2)  # extra drain
+        
+    if mood_dec == 0 and hours_passed > 0.4:
+        mood_dec = 1
+
     state['stats']['mood'] = clamp(state['stats']['mood'] - mood_dec)
 
     # Mood affects energy recovery: good mood slowly restores energy
-    # Positive mood gives a small energy recovery per period
     energy_change = 0
     if state['stats']['mood'] >= 70:
-        energy_change += int(hours_passed / (AGE_INCREMENT / 2))  # faster recovery when happy
+        energy_change = int(hours_passed * ENERGY_REC_PER_HOUR)
+        if energy_change == 0 and hours_passed > 0.4:
+            energy_change = 1
     else:
-        energy_change -= int(hours_passed / ENERGY_DECAY_RATE)
-
+        energy_change = -int(hours_passed * ENERGY_DEC_PER_HOUR)
+        if energy_change == 0 and hours_passed > 0.4:
+            energy_change = -1
+            
     state['stats']['energy'] = clamp(state['stats']['energy'] + energy_change)
-    
-    # Age
-    # Age is now calculated dynamically in main(), so we don't need to increment it here.
     
     return state
 
