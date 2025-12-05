@@ -3,15 +3,15 @@
   "ageHours": 42,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 35,
-    "mood": 65,
-    "energy": 95
+    "hunger": 36,
+    "mood": 64,
+    "energy": 94
   },
   "timestamps": {
     "lastFedAt": "2025-12-05T05:47:26.888859+00:00",
     "lastPlayedAt": "2025-12-05T09:39:47.724597+00:00",
     "lastPettedAt": "2025-12-04T08:28:17.766202+00:00",
-    "lastAutoUpdate": "2025-12-05T22:16:14.580807+00:00"
+    "lastAutoUpdate": "2025-12-05T22:40:51.972831+00:00"
   },
   "interactions": {
     "total": 9,
