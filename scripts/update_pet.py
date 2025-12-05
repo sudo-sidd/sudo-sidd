@@ -12,10 +12,10 @@ REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 
 # Configuration
 # Rates per hour (approximate)
-HUNGER_INC_PER_HOUR = 2.0
-MOOD_DEC_PER_HOUR = 2.0
-ENERGY_DEC_PER_HOUR = 2.0
-ENERGY_REC_PER_HOUR = 4.0
+HUNGER_INC_PER_HOUR = 4.0
+MOOD_DEC_PER_HOUR = 4.0
+ENERGY_DEC_PER_HOUR = 4.0
+ENERGY_REC_PER_HOUR = 6.0
 
 COOLDOWN_FEED = 1800  # 30 minutes in seconds
 COOLDOWN_PLAY = 1800  # 30 minutes in seconds
