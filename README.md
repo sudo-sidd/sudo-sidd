@@ -24,8 +24,8 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <h3>Pet Status: Excited</h3>
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>`██░░░░░░░░░░░░░`&nbsp;13%</td></tr>
-    <tr><td align="right">Mood:</td><td>`█████████████░░`&nbsp;87%</td></tr>
+    <tr><td align="right">Hunger:</td><td>`██░░░░░░░░░░░░░`&nbsp;14%</td></tr>
+    <tr><td align="right">Mood:</td><td>`█████████████░░`&nbsp;86%</td></tr>
     <tr><td align="right">Energy:</td><td>`███████████████`&nbsp;100%</td></tr>
   </table>
 </div>
