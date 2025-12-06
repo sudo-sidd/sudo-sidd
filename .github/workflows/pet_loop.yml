@@ -52,3 +52,15 @@ jobs:
           git config --global user.email "action@github.com"
           git add state/creature.json README.md
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update pet state [skip ci]" && git push)
+
+      - name: Wait and Revert Animation
+        if: github.event_name == 'issues'
+        run: |
+          echo "Waiting for animation duration (2 mins)..."
+          sleep 130  # Wait slightly longer than the 120s threshold
+          
+          # Run update again to revert state
+          python scripts/update_pet.py
+          
+          git add state/creature.json README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: revert animation to idle [skip ci]" && git push)
