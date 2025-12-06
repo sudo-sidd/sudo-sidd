@@ -16,7 +16,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <!-- Sprite Section -->
 <div align="center">
-  <img src="sprites/tamogachi_happy.gif" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
+  <img src="sprites/wooper_idle.gif" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
 </div>
 
 <!-- Status Section -->
@@ -24,9 +24,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <h3>Pet Status: Happy</h3>
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;67%</td></tr>
-    <tr><td align="right">Mood:</td><td>`█████░░░░░░░░░░`&nbsp;31%</td></tr>
-    <tr><td align="right">Energy:</td><td>`█████████░░░░░░`&nbsp;63%</td></tr>
+    <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;68%</td></tr>
+    <tr><td align="right">Mood:</td><td>`████░░░░░░░░░░░`&nbsp;30%</td></tr>
+    <tr><td align="right">Energy:</td><td>`█████████░░░░░░`&nbsp;62%</td></tr>
   </table>
 </div>
 

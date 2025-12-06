@@ -227,43 +227,62 @@ def determine_state(state):
     hunger = stats['hunger']
     mood = stats['mood']
     energy = stats['energy']
+    timestamps = state['timestamps']
+    now = get_utc_now()
+
+    # Check for recent player actions (within 2 minutes)
+    # Play
+    if timestamps.get('lastPlayedAt'):
+        last_played = parse_time(timestamps['lastPlayedAt'])
+        if (now - last_played).total_seconds() < 120:
+            state['state']['currentAnimation'] = "wooper_play.gif"
+            state['state']['status'] = "Playing"
+            return state
+
+    # Pet
+    if timestamps.get('lastPettedAt'):
+        last_petted = parse_time(timestamps['lastPettedAt'])
+        if (now - last_petted).total_seconds() < 120:
+            state['state']['currentAnimation'] = "wooper_petting.gif"
+            state['state']['status'] = "Being Petted"
+            return state
 
     # Fainted (hard condition)
     if hunger >= 100 and energy <= 20:
-        state['state']['currentAnimation'] = "tamogachi_fainted.gif"
+        state['state']['currentAnimation'] = "wooper_crying.gif"
         state['state']['status'] = "Fainted"
         return state
 
     # Critical thresholds
     if hunger >= 90:
-        state['state']['currentAnimation'] = "tamogachi_cry.gif"
+        state['state']['currentAnimation'] = "wooper_sad.gif"
         state['state']['status'] = "Hungry"
         return state
 
     if mood < 25:
-        state['state']['currentAnimation'] = "tamogachi_cry.gif"
+        state['state']['currentAnimation'] = "wooper_crying.gif"
         state['state']['status'] = "Crying"
         return state
 
     if energy < 15:
         # tired / sad
-        state['state']['currentAnimation'] = "tamogachi_sad.gif"
+        state['state']['currentAnimation'] = "wooper_sad.gif"
         state['state']['status'] = "Sleepy"
         return state
 
     # Positive states
     if mood >= 75 and energy > 40:
-        state['state']['currentAnimation'] = "tamogachi_excited.gif"
+        state['state']['currentAnimation'] = "wooper_idle.gif"
         state['state']['status'] = "Excited"
         return state
 
     if mood >= 60:
-        state['state']['currentAnimation'] = "tamogachi_winking.gif"
+        state['state']['currentAnimation'] = "wooper_idle.gif"
         state['state']['status'] = "Playful"
         return state
 
     # Neutral / default
-    state['state']['currentAnimation'] = "tamogachi_happy.gif"
+    state['state']['currentAnimation'] = "wooper_idle.gif"
     state['state']['status'] = "Happy"
     return state
 
