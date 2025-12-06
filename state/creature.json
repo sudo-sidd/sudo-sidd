@@ -1,17 +1,17 @@
 {
   "name": "Woop",
-  "ageHours": 59,
+  "ageHours": 60,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 50,
-    "mood": 64,
-    "energy": 22
+    "hunger": 52,
+    "mood": 62,
+    "energy": 20
   },
   "timestamps": {
     "lastFedAt": "2025-12-06T11:21:02.345000+00:00",
     "lastPlayedAt": "2025-12-06T15:17:26.999098+00:00",
     "lastPettedAt": "2025-12-06T14:07:39.062721+00:00",
-    "lastAutoUpdate": "2025-12-06T15:39:21.656837+00:00"
+    "lastAutoUpdate": "2025-12-06T16:18:55.420894+00:00"
   },
   "interactions": {
     "total": 16,
