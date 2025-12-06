@@ -228,6 +228,14 @@ def determine_state(state):
     now = get_utc_now()
 
     # Check for recent player actions (within 2 minutes)
+    # Feed
+    if timestamps.get('lastFedAt'):
+        last_fed = parse_time(timestamps['lastFedAt'])
+        if (now - last_fed).total_seconds() < 120:
+            state['state']['currentAnimation'] = "wooper_eating.gif"
+            state['state']['status'] = "Eating"
+            return state
+
     # Play
     if timestamps.get('lastPlayedAt'):
         last_played = parse_time(timestamps['lastPlayedAt'])
@@ -246,7 +254,7 @@ def determine_state(state):
 
     # Fainted (hard condition)
     if hunger >= 100 and energy <= 20:
-        state['state']['currentAnimation'] = "wooper_crying.gif"
+        state['state']['currentAnimation'] = "wooper_fainted.gif"
         state['state']['status'] = "Fainted"
         return state
 
