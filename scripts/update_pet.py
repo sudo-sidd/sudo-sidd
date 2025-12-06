@@ -18,7 +18,7 @@ ENERGY_DEC_PER_HOUR = 4.0
 ENERGY_REC_PER_HOUR = 6.0
 
 COOLDOWN_FEED = 1800  # 30 minutes in seconds
-COOLDOWN_PLAY = 1800  # 30 minutes in seconds
+COOLDOWN_PLAY = 0  # No cooldown, limited by energy
 # Petting has no cooldown (always allowed)
 COOLDOWN_PET = 0
 
@@ -186,7 +186,7 @@ Use the buttons above or comment commands in an issue:
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
 | `/feed` | Fills his tummy, boosts Mood, and restores Energy. | **30 mins** |
-| `/play` | Makes him Happy, but tires him out. | **30 mins** |
+| `/play` | Makes him Happy, but tires him out. Requires Energy. | **None** |
 | `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
 
 **States & Rules**:
@@ -370,6 +370,11 @@ def handle_action(state, action, user):
         last_played = parse_time(timestamps['lastPlayedAt']) if timestamps.get('lastPlayedAt') else None
         if last_played and COOLDOWN_PLAY and (now - last_played).total_seconds() < COOLDOWN_PLAY:
             print(f"Cooldown active. You can play again in {int((COOLDOWN_PLAY - (now - last_played).total_seconds())/60)} minutes.")
+            return state
+
+        # Play requirement: Energy
+        if stats['energy'] < 15:
+            print("Too tired to play.")
             return state
 
         # Play only allowed if hunger less than 80

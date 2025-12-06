@@ -51,7 +51,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 10m</sub></td>
+      <td align="center" style="border: none;"><sub>Ready</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
@@ -76,7 +76,7 @@ Use the buttons above or comment commands in an issue:
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
 | `/feed` | Fills his tummy, boosts Mood, and restores Energy. | **30 mins** |
-| `/play` | Makes him Happy, but tires him out. | **30 mins** |
+| `/play` | Makes him Happy, but tires him out. Requires Energy. | **None** |
 | `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
 
 **States & Rules**:
