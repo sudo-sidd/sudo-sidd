@@ -12,21 +12,32 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 2 days, 4 hours)
+### Woop (Age: 2 days, 4 hours)
 
-<!-- Sprite Section -->
-<div align="center">
-  <img src="sprites/wooper_idle.gif" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
+<div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
+  <p>
+    He's <strong>Woop</strong> the Wooper. He's my pet and yes you can pet him.
+  </p>
 </div>
 
-<!-- Status Section -->
-<div align="center" style="margin-bottom: 20px;">
-  <h3>Pet Status: Happy</h3>
-  <p><strong>Vital Stats</strong></p>
+<!-- Sprite & Stats Section -->
+<div align="center">
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;68%</td></tr>
-    <tr><td align="right">Mood:</td><td>`███████░░░░░░░░`&nbsp;48%</td></tr>
-    <tr><td align="right">Energy:</td><td>`██████░░░░░░░░░`&nbsp;39%</td></tr>
+    <tr>
+      <td align="center" style="border: none; padding: 20px;">
+        <img src="sprites/wooper_idle.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <br>
+        <strong>Status: Happy</strong>
+      </td>
+      <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
+        <strong>🍖 Hunger</strong><br>
+        `██████████░░░░░`&nbsp;68%<br><br>
+        <strong>❤️ Mood</strong><br>
+        `███████░░░░░░░░`&nbsp;48%<br><br>
+        <strong>⚡ Energy</strong><br>
+        `██████░░░░░░░░░`&nbsp;39%
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -40,25 +51,13 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 27m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 18m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
 </div>
 
-<div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
-  <p>
-    This is <strong>Wisphe</strong>. I found him inside the broken firmware of an old Tamagotchi shell that wouldn’t even boot. The code was scrambled, but he was still in there, floating around like he was waiting for someone to notice him.
-  </p>
-  <p>
-    I patched the bits that kept him crashing and moved him into this README so he’d have a stable place to stay. He’s friendly, a little moody, and pays attention to anyone who interacts with him.
-  </p>
-  <p>
-    If you’re here, give him a moment. He loves the company.
-  </p>
-</div>
-
-<details>
+<details open>
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
@@ -81,7 +80,7 @@ Use the buttons above or comment commands in an issue:
 | `/pet` | +5 Mood | **5 minutes** |
 
 **States & Rules**:
-- **Happy States**: Keep Mood above 60 to make Wisphe Playful, or above 85 for Excited!
+- **Happy States**: Keep Mood above 60 to make Woop Playful, or above 85 for Excited!
 - **Warning Signs**: 
   - Hunger > 60: Hungry
   - Energy < 25: Sleepy
@@ -89,7 +88,7 @@ Use the buttons above or comment commands in an issue:
 - **Critical Conditions**:
   - Hunger > 80: Starving
   - Mood < 20: Crying
-  - **Game Over**: If Hunger hits 95 or Energy drops to 10, Wisphe will Faint.
+  - **Game Over**: If Hunger hits 95 or Energy drops to 10, Woop will Faint.
 
 The system updates every 6 hours automatically.
 </details>

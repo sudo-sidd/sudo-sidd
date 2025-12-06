@@ -127,19 +127,30 @@ def update_readme(state):
 
 ### {state['name']} (Age: {state['ageHours'] // 24} days, {state['ageHours'] % 24} hours)
 
-<!-- Sprite Section -->
-<div align="center">
-  <img src="{SPRITES_DIR}/{sprite_file}" alt="{state['name']}" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
+<div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
+  <p>
+    He's <strong>Woop</strong> the Wooper. He's my pet and yes you can pet him.
+  </p>
 </div>
 
-<!-- Status Section -->
-<div align="center" style="margin-bottom: 20px;">
-  <h3>Pet Status: {status_text}</h3>
-  <p><strong>Vital Stats</strong></p>
+<!-- Sprite & Stats Section -->
+<div align="center">
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>{render_stat_bar(stats['hunger'])}</td></tr>
-    <tr><td align="right">Mood:</td><td>{render_stat_bar(stats['mood'])}</td></tr>
-    <tr><td align="right">Energy:</td><td>{render_stat_bar(stats['energy'])}</td></tr>
+    <tr>
+      <td align="center" style="border: none; padding: 20px;">
+        <img src="{SPRITES_DIR}/{sprite_file}" alt="{state['name']}" width="256" style="image-rendering: pixelated;" />
+        <br>
+        <strong>Status: {status_text}</strong>
+      </td>
+      <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
+        <strong>🍖 Hunger</strong><br>
+        {render_stat_bar(stats['hunger'])}<br><br>
+        <strong>❤️ Mood</strong><br>
+        {render_stat_bar(stats['mood'])}<br><br>
+        <strong>⚡ Energy</strong><br>
+        {render_stat_bar(stats['energy'])}
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -159,19 +170,7 @@ def update_readme(state):
   </table>
 </div>
 
-<div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
-  <p>
-    This is <strong>Wisphe</strong>. I found him inside the broken firmware of an old Tamagotchi shell that wouldn’t even boot. The code was scrambled, but he was still in there, floating around like he was waiting for someone to notice him.
-  </p>
-  <p>
-    I patched the bits that kept him crashing and moved him into this README so he’d have a stable place to stay. He’s friendly, a little moody, and pays attention to anyone who interacts with him.
-  </p>
-  <p>
-    If you’re here, give him a moment. He loves the company.
-  </p>
-</div>
-
-<details>
+<details open>
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
