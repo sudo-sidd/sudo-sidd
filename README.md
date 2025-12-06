@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 2 days, 14 hours)
+### Woop (Age: 2 days, 15 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -31,11 +31,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `██████░░░░░░░░░`&nbsp;42%<br><br>
+        `██████░░░░░░░░░`&nbsp;41%<br><br>
         <strong>❤️ </strong>
-        `████████░░░░░░░`&nbsp;56%<br><br>
+        `████████░░░░░░░`&nbsp;55%<br><br>
         <strong>⚡ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;14%
+        `██░░░░░░░░░░░░░`&nbsp;13%
       </td>
     </tr>
   </table>
