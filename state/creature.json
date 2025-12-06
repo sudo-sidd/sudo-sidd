@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-06T11:21:02.345000+00:00",
     "lastPlayedAt": "2025-12-06T08:48:38.874083+00:00",
     "lastPettedAt": "2025-12-06T09:26:35.304827+00:00",
-    "lastAutoUpdate": "2025-12-06T11:13:10.209914+00:00"
+    "lastAutoUpdate": "2025-12-06T11:23:14.929464+00:00"
   },
   "interactions": {
     "total": 14,
@@ -39,7 +39,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Playful"
   }
 }
