@@ -1,25 +1,25 @@
 {
   "name": "Woop",
-  "ageHours": 57,
+  "ageHours": 58,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 45,
-    "mood": 54,
+    "mood": 60,
     "energy": 52
   },
   "timestamps": {
     "lastFedAt": "2025-12-06T11:21:02.345000+00:00",
     "lastPlayedAt": "2025-12-06T08:48:38.874083+00:00",
-    "lastPettedAt": "2025-12-06T09:26:35.304827+00:00",
+    "lastPettedAt": "2025-12-06T14:07:39.062721+00:00",
     "lastAutoUpdate": "2025-12-06T13:42:05.083238+00:00"
   },
   "interactions": {
-    "total": 14,
+    "total": 15,
     "byUser": {
       "sudo-sidd": {
-        "count": 10,
-        "lastInteractionAt": "2025-12-06T11:21:02.345000+00:00",
-        "lastAction": "feed"
+        "count": 11,
+        "lastInteractionAt": "2025-12-06T14:07:39.062721+00:00",
+        "lastAction": "pet"
       },
       "Syedha18": {
         "count": 1,
@@ -39,7 +39,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_idle.gif",
-    "status": "Happy"
+    "currentAnimation": "wooper_petting.gif",
+    "status": "Being Petted"
   }
 }
