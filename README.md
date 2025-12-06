@@ -25,15 +25,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Eating</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
         `███████████░░░░`&nbsp;75%<br><br>
         <strong>❤️ </strong>
-        `█████████░░░░░░`&nbsp;62%<br><br>
+        `██████████░░░░░`&nbsp;68%<br><br>
         <strong>⚡ </strong>
         `██████░░░░░░░░░`&nbsp;37%
       </td>
@@ -50,7 +50,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Wait 28m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 23m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
@@ -61,7 +61,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 13
+1. @sudo-sidd – 14
 2. @dhanwanth-dev – 2
 3. @Syedha18 – 1
 4. @Mithrajith – 1
