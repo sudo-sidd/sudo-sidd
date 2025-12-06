@@ -1,17 +1,17 @@
 {
   "name": "Wisphe",
-  "ageHours": 51,
+  "ageHours": 52,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 65,
-    "mood": 34,
-    "energy": 65
+    "hunger": 67,
+    "mood": 31,
+    "energy": 63
   },
   "timestamps": {
     "lastFedAt": "2025-12-05T05:47:26.888859+00:00",
     "lastPlayedAt": "2025-12-05T09:39:47.724597+00:00",
     "lastPettedAt": "2025-12-04T08:28:17.766202+00:00",
-    "lastAutoUpdate": "2025-12-06T07:36:28.012964+00:00"
+    "lastAutoUpdate": "2025-12-06T08:20:31.868440+00:00"
   },
   "interactions": {
     "total": 9,

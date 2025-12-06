@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Wisphe (Age: 2 days, 3 hours)
+### Wisphe (Age: 2 days, 4 hours)
 
 <!-- Sprite Section -->
 <div align="center">
@@ -24,9 +24,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <h3>Pet Status: Happy</h3>
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
-    <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;65%</td></tr>
-    <tr><td align="right">Mood:</td><td>`█████░░░░░░░░░░`&nbsp;34%</td></tr>
-    <tr><td align="right">Energy:</td><td>`██████████░░░░░`&nbsp;65%</td></tr>
+    <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;67%</td></tr>
+    <tr><td align="right">Mood:</td><td>`█████░░░░░░░░░░`&nbsp;31%</td></tr>
+    <tr><td align="right">Energy:</td><td>`█████████░░░░░░`&nbsp;63%</td></tr>
   </table>
 </div>
 
