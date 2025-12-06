@@ -16,12 +16,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <!-- Sprite Section -->
 <div align="center">
-  <img src="sprites/wooper_play.gif" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
+  <img src="sprites/wooper_idle.gif" alt="Wisphe" width="256" style="image-rendering: pixelated; display: block; margin-bottom: 20px;" />
 </div>
 
 <!-- Status Section -->
 <div align="center" style="margin-bottom: 20px;">
-  <h3>Pet Status: Playing</h3>
+  <h3>Pet Status: Happy</h3>
   <p><strong>Vital Stats</strong></p>
   <table border="0" style="border: none; background: transparent;">
     <tr><td align="right">Hunger:</td><td>`██████████░░░░░`&nbsp;68%</td></tr>
@@ -40,7 +40,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 29m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 27m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
