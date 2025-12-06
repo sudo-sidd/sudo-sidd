@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-06T19:34:41.131251+00:00",
     "lastPlayedAt": "2025-12-06T15:17:26.999098+00:00",
     "lastPettedAt": "2025-12-06T19:41:04.559665+00:00",
-    "lastAutoUpdate": "2025-12-06T19:36:01.980099+00:00"
+    "lastAutoUpdate": "2025-12-06T19:43:17.342287+00:00"
   },
   "interactions": {
     "total": 18,
@@ -39,7 +39,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_petting.gif",
-    "status": "Being Petted"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Playful"
   }
 }
