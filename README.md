@@ -31,11 +31,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `████████░░░░░░░`&nbsp;51%<br><br>
+        `████████░░░░░░░`&nbsp;50%<br><br>
         <strong>❤️ </strong>
-        `██████████░░░░░`&nbsp;65%<br><br>
+        `██████████░░░░░`&nbsp;64%<br><br>
         <strong>⚡ </strong>
-        `███░░░░░░░░░░░░`&nbsp;23%
+        `███░░░░░░░░░░░░`&nbsp;22%
       </td>
     </tr>
   </table>
@@ -51,7 +51,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 27m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 10m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
