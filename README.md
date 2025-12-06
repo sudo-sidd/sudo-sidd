@@ -30,11 +30,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>Status: Happy</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
-        <strong>🍖 Hunger</strong><br>
-        `██████████░░░░░`&nbsp;68%<br><br>
-        <strong>❤️ Mood</strong><br>
+        <strong>🍖 </strong>
+        `█████░░░░░░░░░░`&nbsp;32%<br><br>
+        <strong>❤️ </strong>
         `███████░░░░░░░░`&nbsp;48%<br><br>
-        <strong>⚡ Energy</strong><br>
+        <strong>⚡ </strong>
         `██████░░░░░░░░░`&nbsp;39%
       </td>
     </tr>
@@ -51,7 +51,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 18m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 13m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
@@ -75,29 +75,27 @@ Use the buttons above or comment commands in an issue:
 
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
-| `/feed` | -30 Hunger, +5 Mood, +50 Energy | **1 hour** |
-| `/play` | +15 Mood, -10 Energy | **1 hour** |
-| `/pet` | +5 Mood | **5 minutes** |
+| `/feed` | Fills his tummy, boosts Mood, and restores Energy. | **30 mins** |
+| `/play` | Makes him Happy, but tires him out. | **30 mins** |
+| `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
 
 **States & Rules**:
-- **Happy States**: Keep Mood above 60 to make Woop Playful, or above 85 for Excited!
+- **Happy States**: Keep Mood high to make Woop Playful or Excited!
 - **Warning Signs**: 
-  - Hunger > 60: Hungry
-  - Energy < 25: Sleepy
-  - Mood < 40: Feeling Down
+  - Low Fullness makes Woop Hungry.
+  - Low Energy makes Woop Sleepy.
+  - Low Mood makes Woop Cry.
 - **Critical Conditions**:
-  - Hunger > 80: Starving
-  - Mood < 20: Crying
-  - **Game Over**: If Hunger hits 95 or Energy drops to 10, Woop will Faint.
+  - **Game Over**: If he gets too hungry and tired, Woop will Faint.
 
-The system updates every 6 hours automatically.
+The system updates every 30 minutes automatically.
 </details>
 
 <details>
 <summary><strong>How this game works</strong></summary>
 
 This is a fully automated creature living in the repository.
-- **Time**: It ages and stats decay in real-time (updated every 6 hours).
+- **Time**: It ages and stats decay in real-time (updated every 30 mins).
 - **Memory**: It remembers who interacted with it and when.
 - **Persistence**: All state is saved in `state/creature.json`.
 - **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet.
