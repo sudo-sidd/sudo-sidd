@@ -25,15 +25,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_idle.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Happy</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
         `███████████░░░░`&nbsp;74%<br><br>
         <strong>❤️ </strong>
-        `███████░░░░░░░░`&nbsp;45%<br><br>
+        `████████░░░░░░░`&nbsp;51%<br><br>
         <strong>⚡ </strong>
         `████░░░░░░░░░░░`&nbsp;26%
       </td>
@@ -61,7 +61,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 16
+1. @sudo-sidd – 17
 2. @dhanwanth-dev – 2
 3. @Syedha18 – 1
 4. @Mithrajith – 1

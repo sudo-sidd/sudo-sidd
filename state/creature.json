@@ -4,21 +4,21 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 26,
-    "mood": 45,
+    "mood": 51,
     "energy": 26
   },
   "timestamps": {
     "lastFedAt": "2025-12-07T06:34:36.093885+00:00",
     "lastPlayedAt": "2025-12-06T15:17:26.999098+00:00",
-    "lastPettedAt": "2025-12-07T06:34:54.710448+00:00",
+    "lastPettedAt": "2025-12-07T07:16:45.653082+00:00",
     "lastAutoUpdate": "2025-12-07T07:15:32.797185+00:00"
   },
   "interactions": {
-    "total": 20,
+    "total": 21,
     "byUser": {
       "sudo-sidd": {
-        "count": 16,
-        "lastInteractionAt": "2025-12-07T06:34:54.710448+00:00",
+        "count": 17,
+        "lastInteractionAt": "2025-12-07T07:16:45.653082+00:00",
         "lastAction": "pet"
       },
       "Syedha18": {
@@ -39,7 +39,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_idle.gif",
-    "status": "Happy"
+    "currentAnimation": "wooper_petting.gif",
+    "status": "Being Petted"
   }
 }
