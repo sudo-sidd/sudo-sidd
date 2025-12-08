@@ -33,9 +33,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `███████████░░░░`&nbsp;72%<br><br>
         <strong>❤️ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;13%<br><br>
+        `███░░░░░░░░░░░░`&nbsp;18%<br><br>
         <strong>⚡ </strong>
-        `████░░░░░░░░░░░`&nbsp;25%
+        `░░░░░░░░░░░░░░░`&nbsp;0%
       </td>
     </tr>
   </table>
@@ -62,8 +62,8 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 ```
 1. @sudo-sidd – 20
-2. @dhanwanth-dev – 2
-3. @Mithrajith – 2
+2. @Mithrajith – 3
+3. @dhanwanth-dev – 2
 4. @Syedha18 – 1
 ```
 </details>
