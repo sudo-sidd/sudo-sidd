@@ -33,7 +33,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `██████████████░`&nbsp;92%<br><br>
         <strong>❤️ </strong>
-        `██████░░░░░░░░░`&nbsp;39%<br><br>
+        `███████░░░░░░░░`&nbsp;45%<br><br>
         <strong>⚡ </strong>
         `████░░░░░░░░░░░`&nbsp;25%
       </td>
@@ -61,7 +61,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 21
+1. @sudo-sidd – 22
 2. @Mithrajith – 6
 3. @dhanwanth-dev – 2
 4. @Syedha18 – 1
