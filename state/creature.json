@@ -4,17 +4,17 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 28,
-    "mood": 18,
+    "mood": 34,
     "energy": 0
   },
   "timestamps": {
     "lastFedAt": "2025-12-08T07:44:26.962757+00:00",
     "lastPlayedAt": "2025-12-08T07:45:16.544303+00:00",
-    "lastPettedAt": "2025-12-07T23:02:53.826519+00:00",
+    "lastPettedAt": "2025-12-08T07:46:36.194615+00:00",
     "lastAutoUpdate": "2025-12-08T07:27:55.055350+00:00"
   },
   "interactions": {
-    "total": 26,
+    "total": 27,
     "byUser": {
       "sudo-sidd": {
         "count": 20,
@@ -32,14 +32,14 @@
         "lastAction": "pet"
       },
       "Mithrajith": {
-        "count": 3,
-        "lastInteractionAt": "2025-12-08T07:45:16.544303+00:00",
-        "lastAction": "play"
+        "count": 4,
+        "lastInteractionAt": "2025-12-08T07:46:36.194615+00:00",
+        "lastAction": "pet"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_play.gif",
+    "status": "Playing"
   }
 }
