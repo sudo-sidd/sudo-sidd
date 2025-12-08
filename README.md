@@ -33,7 +33,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `███████████░░░░`&nbsp;72%<br><br>
         <strong>❤️ </strong>
-        `█████░░░░░░░░░░`&nbsp;34%<br><br>
+        `██████░░░░░░░░░`&nbsp;40%<br><br>
         <strong>⚡ </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%
       </td>
@@ -62,7 +62,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 ```
 1. @sudo-sidd – 20
-2. @Mithrajith – 4
+2. @Mithrajith – 5
 3. @dhanwanth-dev – 2
 4. @Syedha18 – 1
 ```
