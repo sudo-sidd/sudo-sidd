@@ -27,7 +27,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td align="center" style="border: none; padding: 20px;">
         <img src="sprites/wooper_idle.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Happy</strong>
+        <strong>Status: Playful</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
@@ -52,6 +52,10 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>Wait 27m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
+<<<<<<< Updated upstream
+=======
+      <td align="center" style="border: none;"><sub>Ready</sub></td>
+>>>>>>> Stashed changes
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
