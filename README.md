@@ -50,7 +50,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Wait 29m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 28m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
