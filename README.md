@@ -25,15 +25,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_crying.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Crying</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
         `███████░░░░░░░░`&nbsp;49%<br><br>
         <strong>❤️ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;12%<br><br>
+        `████░░░░░░░░░░░`&nbsp;28%<br><br>
         <strong>⚡ </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%
       </td>
@@ -61,7 +61,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 22
+1. @sudo-sidd – 23
 2. @Mithrajith – 6
 3. @dhanwanth-dev – 2
 4. @Syedha18 – 1
@@ -76,7 +76,7 @@ Use the buttons above or comment commands in an issue:
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
 | `/feed` | Fills his tummy, boosts Mood, and restores Energy. | **30 mins** |
-| `/play` | Makes him Happy, but tires him out. Requires Energy. | **None** |
+| `/play` | Makes him Happy, but tires him out. Requires 15 Energy. | **None** |
 | `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
 
 **States & Rules**:
