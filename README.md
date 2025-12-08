@@ -52,10 +52,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>Wait 27m</sub></td>
       <td align="center" style="border: none;"><sub>Ready</sub></td>
-<<<<<<< Updated upstream
-=======
       <td align="center" style="border: none;"><sub>Ready</sub></td>
->>>>>>> Stashed changes
       <td align="center" style="border: none;"><sub>Ready</sub></td>
     </tr>
   </table>
