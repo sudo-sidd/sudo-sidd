@@ -110,29 +110,6 @@ This is a fully automated creature living in the repository.
 Feel free to poke around my projects—most are open experiments for you to explore and use. I'm always down to collaborate on something new, so if you've got an idea, let's make it happen.
 
 <br>
-
-## 📊 Profile Views & Stats
-
-<div align="center">
-  
-![Profile Views](https://komarev.com/ghpvc/?username=sudo-sidd&color=7A0887&style=for-the-badge&label=PROFILE+VIEWS)
-
-</div>
-
-<br>
-
-## 📈 GitHub Stats
-
-<div align="center">
-  
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=sudo-sidd&theme=radical&hide_border=true&ring=7A0887&fire=8335BA&currStreakLabel=7A0887)](https://git.io/streak-stats)
-
-![Siddharth's GitHub stats](https://github-readme-stats.vercel.app/api?username=sudo-sidd&show_icons=true&theme=radical&hide_border=true&title_color=7A0887&icon_color=8335BA&text_color=FFFFFF&bg_color=0D1117)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=sudo-sidd&layout=compact&theme=radical&hide_border=true&title_color=7A0887&text_color=FFFFFF&bg_color=0D1117)
-
-</div>
-
 <br>
 
 
