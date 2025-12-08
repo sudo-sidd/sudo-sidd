@@ -111,13 +111,30 @@ Feel free to poke around my projects—most are open experiments for you to expl
 
 <br>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sudo-sidd/sudo-sidd/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sudo-sidd/sudo-sidd/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/sudo-sidd/sudo-sidd/output/github-contribution-grid-snake.svg">
-</picture>
+## 📊 Profile Views & Stats
+
+<div align="center">
+  
+![Profile Views](https://komarev.com/ghpvc/?username=sudo-sidd&color=7A0887&style=for-the-badge&label=PROFILE+VIEWS)
+
+</div>
 
 <br>
+
+## 📈 GitHub Stats
+
+<div align="center">
+  
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=sudo-sidd&theme=radical&hide_border=true&ring=7A0887&fire=8335BA&currStreakLabel=7A0887)](https://git.io/streak-stats)
+
+![Siddharth's GitHub stats](https://github-readme-stats.vercel.app/api?username=sudo-sidd&show_icons=true&theme=radical&hide_border=true&title_color=7A0887&icon_color=8335BA&text_color=FFFFFF&bg_color=0D1117)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=sudo-sidd&layout=compact&theme=radical&hide_border=true&title_color=7A0887&text_color=FFFFFF&bg_color=0D1117)
+
+</div>
+
+<br>
+
 
 <a href="https://sudosidd.dev" target="_blank"><img src="https://img.shields.io/badge/sudosidd.dev-black?style=for-the-badge" alt="Website" /></a>
 <a href="https://linkedin.com/in/sudo-sidd" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
