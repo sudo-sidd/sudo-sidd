@@ -186,7 +186,7 @@ Use the buttons above or comment commands in an issue:
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
 | `/feed` | Fills his tummy, boosts Mood, and restores Energy. | **30 mins** |
-| `/play` | Makes him Happy, but tires him out. Requires Energy. | **None** |
+| `/play` | Makes him Happy, but tires him out. Requires 15 Energy. | **None** |
 | `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
 
 **States & Rules**:
