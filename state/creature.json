@@ -1,25 +1,25 @@
 {
   "name": "Woop",
-  "ageHours": 104,
+  "ageHours": 105,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 43,
-    "mood": 31,
-    "energy": 0
+    "hunger": 8,
+    "mood": 39,
+    "energy": 25
   },
   "timestamps": {
-    "lastFedAt": "2025-12-08T07:44:26.962757+00:00",
+    "lastFedAt": "2025-12-08T13:32:30.351256+00:00",
     "lastPlayedAt": "2025-12-08T07:45:16.544303+00:00",
     "lastPettedAt": "2025-12-08T07:48:41.182312+00:00",
     "lastAutoUpdate": "2025-12-08T12:36:02.634409+00:00"
   },
   "interactions": {
-    "total": 29,
+    "total": 30,
     "byUser": {
       "sudo-sidd": {
-        "count": 20,
-        "lastInteractionAt": "2025-12-07T23:02:53.826519+00:00",
-        "lastAction": "pet"
+        "count": 21,
+        "lastInteractionAt": "2025-12-08T13:32:30.351256+00:00",
+        "lastAction": "feed"
       },
       "Syedha18": {
         "count": 1,
@@ -39,7 +39,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_sad.gif",
-    "status": "Sleepy"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   }
 }
