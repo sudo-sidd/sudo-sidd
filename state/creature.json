@@ -1,20 +1,20 @@
 {
   "name": "Woop",
-  "ageHours": 145,
+  "ageHours": 146,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 100,
-    "mood": 0,
+    "mood": 16,
     "energy": 0
   },
   "timestamps": {
     "lastFedAt": "2025-12-08T13:32:30.351256+00:00",
     "lastPlayedAt": "2025-12-08T07:45:16.544303+00:00",
-    "lastPettedAt": "2025-12-08T23:48:37.331439+00:00",
+    "lastPettedAt": "2025-12-10T06:06:56.504651+00:00",
     "lastAutoUpdate": "2025-12-10T05:43:41.395307+00:00"
   },
   "interactions": {
-    "total": 32,
+    "total": 33,
     "byUser": {
       "sudo-sidd": {
         "count": 23,
@@ -35,11 +35,16 @@
         "count": 6,
         "lastInteractionAt": "2025-12-08T07:48:41.182312+00:00",
         "lastAction": "pet"
+      },
+      "Pradeesh1108": {
+        "count": 1,
+        "lastInteractionAt": "2025-12-10T06:06:56.504651+00:00",
+        "lastAction": "pet"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_fainted.gif",
-    "status": "Fainted"
+    "currentAnimation": "wooper_petting.gif",
+    "status": "Being Petted"
   }
 }
