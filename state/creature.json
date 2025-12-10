@@ -4,17 +4,17 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 65,
-    "mood": 24,
-    "energy": 25
+    "mood": 29,
+    "energy": 0
   },
   "timestamps": {
     "lastFedAt": "2025-12-10T06:07:49.310214+00:00",
-    "lastPlayedAt": "2025-12-08T07:45:16.544303+00:00",
+    "lastPlayedAt": "2025-12-10T06:08:48.042329+00:00",
     "lastPettedAt": "2025-12-10T06:06:56.504651+00:00",
     "lastAutoUpdate": "2025-12-10T05:43:41.395307+00:00"
   },
   "interactions": {
-    "total": 34,
+    "total": 35,
     "byUser": {
       "sudo-sidd": {
         "count": 23,
@@ -37,9 +37,9 @@
         "lastAction": "pet"
       },
       "Pradeesh1108": {
-        "count": 2,
-        "lastInteractionAt": "2025-12-10T06:07:49.310214+00:00",
-        "lastAction": "feed"
+        "count": 3,
+        "lastInteractionAt": "2025-12-10T06:08:48.042329+00:00",
+        "lastAction": "play"
       }
     }
   },
