@@ -1,9 +1,9 @@
 {
   "name": "Woop",
-  "ageHours": 178,
+  "ageHours": 179,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 89,
+    "hunger": 91,
     "mood": 0,
     "energy": 0
   },
@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-10T18:02:01.948602+00:00",
     "lastPlayedAt": "2025-12-10T06:08:48.042329+00:00",
     "lastPettedAt": "2025-12-10T06:06:56.504651+00:00",
-    "lastAutoUpdate": "2025-12-11T14:44:28.891729+00:00"
+    "lastAutoUpdate": "2025-12-11T15:20:19.798282+00:00"
   },
   "interactions": {
     "total": 37,
@@ -44,7 +44,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_crying.gif",
-    "status": "Crying"
+    "currentAnimation": "wooper_sad.gif",
+    "status": "Hungry"
   }
 }
