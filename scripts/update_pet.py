@@ -10,6 +10,9 @@ README_FILE = 'README.md'
 SPRITES_DIR = 'sprites'
 REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 
+# Users to hide from the displayed leaderboard (still tracked in state)
+LEADERBOARD_EXCLUDE_USERS = {"sudo-sidd"}
+
 # Configuration
 # Rates per hour (approximate)
 HUNGER_INC_PER_HOUR = 4.0
@@ -129,6 +132,8 @@ def update_readme(state):
     # Handle new user structure (dict) or old structure (int)
     users_list = []
     for user, data in state['interactions']['byUser'].items():
+        if user in LEADERBOARD_EXCLUDE_USERS:
+            continue
         count = data['count'] if isinstance(data, dict) else data
         users_list.append((user, count))
         

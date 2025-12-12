@@ -61,11 +61,10 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 26
-2. @Mithrajith – 6
-3. @Pradeesh1108 – 3
-4. @dhanwanth-dev – 2
-5. @Syedha18 – 1
+1. @Mithrajith – 6
+2. @Pradeesh1108 – 3
+3. @dhanwanth-dev – 2
+4. @Syedha18 – 1
 ```
 </details>
 
