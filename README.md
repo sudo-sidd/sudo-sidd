@@ -33,7 +33,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `████████░░░░░░░`&nbsp;54%<br><br>
         <strong>❤️ </strong>
-        `██████░░░░░░░░░`&nbsp;38%<br><br>
+        `███████░░░░░░░░`&nbsp;44%<br><br>
         <strong>⚡ </strong>
         `████░░░░░░░░░░░`&nbsp;26%
       </td>
@@ -52,7 +52,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
       <td align="center" style="border: none;"><sub>Play with him</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
     </tr>
   </table>
 </div>
