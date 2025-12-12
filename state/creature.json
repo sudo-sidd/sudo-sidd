@@ -3,22 +3,22 @@
   "ageHours": 196,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 0
+    "hunger": 65,
+    "mood": 10,
+    "energy": 25
   },
   "timestamps": {
-    "lastFedAt": "2025-12-10T18:02:01.948602+00:00",
+    "lastFedAt": "2025-12-12T08:28:45.587455+00:00",
     "lastPlayedAt": "2025-12-10T06:08:48.042329+00:00",
     "lastPettedAt": "2025-12-10T06:06:56.504651+00:00",
     "lastAutoUpdate": "2025-12-12T08:25:19.058520+00:00"
   },
   "interactions": {
-    "total": 37,
+    "total": 38,
     "byUser": {
       "sudo-sidd": {
-        "count": 25,
-        "lastInteractionAt": "2025-12-10T18:02:01.948602+00:00",
+        "count": 26,
+        "lastInteractionAt": "2025-12-12T08:28:45.587455+00:00",
         "lastAction": "feed"
       },
       "Syedha18": {
@@ -44,7 +44,7 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_fainted.gif",
-    "status": "Fainted"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   }
 }
