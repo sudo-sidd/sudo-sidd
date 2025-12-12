@@ -80,6 +80,34 @@ def get_cooldown_status(last_time_str, cooldown_seconds):
         remaining = int((cooldown_seconds - diff) / 60)
         return f"Wait {remaining}m"
 
+def get_action_hint(state, action):
+    timestamps = state['timestamps']
+    stats = state['stats']
+    now = get_utc_now()
+
+    action = action.lower().strip()
+
+    if action == 'feed':
+        last_fed = parse_time(timestamps['lastFedAt']) if timestamps.get('lastFedAt') else None
+        if last_fed and COOLDOWN_FEED and (now - last_fed).total_seconds() < COOLDOWN_FEED:
+            return "He just ate — maybe later"
+        return "Feed him"
+
+    if action == 'play':
+        if stats.get('energy', 0) < 15:
+            return "Too tired"
+        if stats.get('hunger', 0) >= 80:
+            return "Too hungry"
+        return "Play with him"
+
+    if action == 'pet':
+        last_petted = parse_time(timestamps['lastPettedAt']) if timestamps.get('lastPettedAt') else None
+        if last_petted and (now - last_petted).total_seconds() < 120:
+            return "He feels loved"
+        return "Pet him"
+
+    return ""
+
 def update_readme(state):
     with open(README_FILE, 'r') as f:
         content = f.read()
@@ -117,10 +145,10 @@ def update_readme(state):
     # Sprite
     sprite_file = state['state']['currentAnimation']
     
-    # Cooldowns
-    status_feed = get_cooldown_status(timestamps['lastFedAt'], COOLDOWN_FEED)
-    status_play = get_cooldown_status(timestamps['lastPlayedAt'], COOLDOWN_PLAY)
-    status_pet = get_cooldown_status(timestamps['lastPettedAt'], COOLDOWN_PET)
+    # Button hints (human-friendly)
+    status_feed = get_action_hint(state, 'feed')
+    status_play = get_action_hint(state, 'play')
+    status_pet = get_action_hint(state, 'pet')
 
     new_section = f"""{start_marker}
 <div align="center" id="github-tamagotchi">
