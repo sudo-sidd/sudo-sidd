@@ -3,15 +3,15 @@
   "ageHours": 201,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 46,
-    "mood": 44,
-    "energy": 26
+    "hunger": 48,
+    "mood": 42,
+    "energy": 25
   },
   "timestamps": {
     "lastFedAt": "2025-12-12T13:27:30.854922+00:00",
     "lastPlayedAt": "2025-12-12T08:35:25.669302+00:00",
     "lastPettedAt": "2025-12-12T13:27:41.599708+00:00",
-    "lastAutoUpdate": "2025-12-12T12:36:45.850266+00:00"
+    "lastAutoUpdate": "2025-12-12T13:29:54.427509+00:00"
   },
   "interactions": {
     "total": 42,
@@ -44,12 +44,12 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Idle"
   },
   "decayCarry": {
-    "hunger": 0.3349117395833332,
-    "mood": 0.8590680091666671,
-    "energy": 0.5974343513333336
+    "hunger": 0.5492014763888888,
+    "mood": 0.4533566196666672,
+    "energy": 0.5044074275288888
   }
 }
