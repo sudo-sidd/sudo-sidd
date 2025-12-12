@@ -213,8 +213,8 @@ Use the buttons above or comment commands in an issue:
 
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
-| `/feed` | Fills his tummy, boosts Mood, and restores Energy. | **30 mins** |
-| `/play` | Makes him Happy, but tires him out. Requires 15 Energy. | **None** |
+| `/feed` | Fills his tummy a lot, boosts Mood, and restores Energy. | **20 mins** |
+| `/play` | Boosts Mood a lot, costs Energy, and makes him hungrier. Requires Energy. | **None** |
 | `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
 
 **States & Rules**:
@@ -379,18 +379,17 @@ def handle_action(state, action, user):
             print(f"Cooldown active. You can feed again in {int((COOLDOWN_FEED - (now - last_fed).total_seconds())/60)} minutes.")
             return state
 
-        # Feed reduces hunger, small mood boost, small energy recovery
+        # Feed: strong on fullness, solid on mood/energy
         stats['hunger'] = clamp(stats['hunger'] - 35)
-        stats['mood'] = clamp(stats['mood'] + 8)
+        stats['mood'] = clamp(stats['mood'] + 10)
         stats['energy'] = clamp(stats['energy'] + 25)
         timestamps['lastFedAt'] = now.isoformat()
-        print(f"@{user} fed Wisphe!")
+        print(f"@{user} fed Woop!")
 
         # Can revive fainted state if conditions improved
         if state['state'].get('status', '').lower() == 'fainted' and stats['hunger'] < 100 and stats['energy'] >= 20:
-            # revive to sleepy/content
-            state['state']['status'] = 'Content'
-            state['state']['currentAnimation'] = 'tamogachi_happy.gif'
+            state['state']['status'] = 'Happy'
+            state['state']['currentAnimation'] = 'wooper_idle.gif'
             print("Wisphe has been revived via feeding.")
 
     # --- Play ---
@@ -412,15 +411,17 @@ def handle_action(state, action, user):
             stats['energy'] = clamp(stats['energy'] - 5)
             return state
 
-        # Play effectiveness scales with energy
+        # Play effectiveness scales with energy, but always has a meaningful cost
         energy_pct = stats['energy'] / 100.0
-        mood_gain = int(20 * max(0.2, energy_pct))  # at least 20% effectiveness
-        energy_cost = int(20 + (10 * (1 - energy_pct)))  # lower energy => slightly higher cost
+        mood_gain = int(24 * max(0.4, energy_pct))  # 9..24
+        energy_cost = int(18 + (8 * (1 - energy_pct)))  # 18..26
+        hunger_cost = 6
 
         stats['mood'] = clamp(stats['mood'] + mood_gain)
         stats['energy'] = clamp(stats['energy'] - energy_cost)
+        stats['hunger'] = clamp(stats['hunger'] + hunger_cost)
         timestamps['lastPlayedAt'] = now.isoformat()
-        print(f"@{user} played with Wisphe! Mood +{mood_gain}, Energy -{energy_cost}")
+        print(f"@{user} played with Woop! Mood +{mood_gain}, Energy -{energy_cost}")
 
     # --- Pet ---
     elif action == 'pet':
