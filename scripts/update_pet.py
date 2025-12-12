@@ -15,10 +15,19 @@ LEADERBOARD_EXCLUDE_USERS = {"sudo-sidd"}
 
 # Configuration
 # Rates per hour (approximate)
-HUNGER_INC_PER_HOUR = 4.0
-MOOD_DEC_PER_HOUR = 3.0
-ENERGY_DEC_PER_HOUR = 3.0
-ENERGY_REC_PER_HOUR = 6.0
+HUNGER_INC_PER_HOUR = 2.5
+MOOD_DEC_PER_HOUR = 1.8
+ENERGY_DEC_PER_HOUR = 1.6
+ENERGY_REC_PER_HOUR = 4.5
+
+# Extra mood drain when very hungry
+HUNGER_MOOD_PENALTY_PER_HOUR = 1.2
+
+# Energy behavior thresholds
+ENERGY_REC_MOOD_THRESHOLD = 75
+ENERGY_REC_HUNGER_MAX = 75
+ENERGY_STABLE_MOOD_THRESHOLD = 45
+ENERGY_DECAY_HUNGER_THRESHOLD = 80
 
 COOLDOWN_FEED = 1200  # 20 minutes in seconds
 COOLDOWN_PLAY = 0  # No cooldown, limited by energy
@@ -41,6 +50,17 @@ def parse_time(iso_str):
 
 def clamp(value, min_val=0, max_val=100):
     return max(min_val, min(max_val, value))
+
+def _ensure_decay_carry(state):
+    # Tracks fractional decay so small time steps still accumulate smoothly.
+    carry = state.get('decayCarry')
+    if not isinstance(carry, dict):
+        carry = {}
+    carry.setdefault('hunger', 0.0)
+    carry.setdefault('mood', 0.0)
+    carry.setdefault('energy', 0.0)
+    state['decayCarry'] = carry
+    return state
 
 def render_stat_bar(value, total_blocks=15):
     percent = clamp(value)
@@ -286,89 +306,167 @@ def determine_state(state):
             return state
 
     # Fainted (hard condition)
-    if hunger >= 100 and energy <= 20:
+    if hunger >= 100 and energy <= 15:
         state['state']['currentAnimation'] = "wooper_fainted.gif"
         state['state']['status'] = "Fainted"
         return state
 
-    # Critical thresholds
-    if hunger >= 90:
-        state['state']['currentAnimation'] = "wooper_sad.gif"
-        state['state']['status'] = "Hungry"
-        return state
-
-    if mood < 25:
+    # Crying (rare)
+    if mood < 18:
         state['state']['currentAnimation'] = "wooper_crying.gif"
         state['state']['status'] = "Crying"
         return state
 
-    if energy < 15:
-        # tired / sad
+    # Sad (common)
+    if hunger >= 85 or energy < 18 or mood < 38:
         state['state']['currentAnimation'] = "wooper_sad.gif"
-        state['state']['status'] = "Sleepy"
+        state['state']['status'] = "Sad"
         return state
 
     # Positive states
-    if mood >= 75 and energy > 40:
+    if mood >= 82 and energy >= 55 and hunger <= 55:
         state['state']['currentAnimation'] = "wooper_idle.gif"
         state['state']['status'] = "Excited"
         return state
 
-    if mood >= 60:
+    if mood >= 62 and energy >= 32:
         state['state']['currentAnimation'] = "wooper_idle.gif"
-        state['state']['status'] = "Playful"
+        state['state']['status'] = "Happy"
         return state
 
-    # Neutral / default
+    # Neutral
     state['state']['currentAnimation'] = "wooper_idle.gif"
-    state['state']['status'] = "Happy"
+    state['state']['status'] = "Idle"
     return state
 
-def apply_decay(state):
-    now = get_utc_now()
+def apply_decay(state, now=None):
+    state = _ensure_decay_carry(state)
+    now = now or get_utc_now()
     last_update = parse_time(state['timestamps']['lastAutoUpdate'])
-    
+
     # Calculate hours passed
     diff = now - last_update
-    hours_passed = diff.total_seconds() / 3600.0
-    
-    # Allow updates if at least 5 minutes passed (0.08 hours)
-    if hours_passed < 0.08:
+    hours_passed = max(0.0, diff.total_seconds() / 3600.0)
+    if hours_passed <= 0.0:
         return state
 
-    # Apply time-based updates
+    carry = state['decayCarry']
+
     # Hunger increases over time
-    hunger_inc = int(hours_passed * HUNGER_INC_PER_HOUR)
-    # Ensure at least 1 unit if significant time passed (e.g. > 20 mins) to avoid stagnation
-    if hunger_inc == 0 and hours_passed > 0.4:
-        hunger_inc = 1
-        
-    state['stats']['hunger'] = clamp(state['stats']['hunger'] + hunger_inc)
+    hunger_delta = (hours_passed * HUNGER_INC_PER_HOUR) + float(carry.get('hunger', 0.0))
+    hunger_inc = int(math.floor(hunger_delta))
+    carry['hunger'] = hunger_delta - hunger_inc
+    if hunger_inc:
+        state['stats']['hunger'] = clamp(state['stats']['hunger'] + hunger_inc)
 
-    # Hunger affects mood: high hunger drains mood over time
-    mood_dec = int(hours_passed * MOOD_DEC_PER_HOUR)
-    if state['stats']['hunger'] >= 60:
-        mood_dec += int(hours_passed * 2)  # extra drain
-        
-    if mood_dec == 0 and hours_passed > 0.4:
-        mood_dec = 1
+    # Mood decreases over time, with a penalty when very hungry
+    mood_rate = MOOD_DEC_PER_HOUR
+    if state['stats']['hunger'] >= 80:
+        mood_rate += HUNGER_MOOD_PENALTY_PER_HOUR
 
-    state['stats']['mood'] = clamp(state['stats']['mood'] - mood_dec)
+    mood_delta = (hours_passed * mood_rate) + float(carry.get('mood', 0.0))
+    mood_dec = int(math.floor(mood_delta))
+    carry['mood'] = mood_delta - mood_dec
+    if mood_dec:
+        state['stats']['mood'] = clamp(state['stats']['mood'] - mood_dec)
 
-    # Mood affects energy recovery: good mood slowly restores energy
-    energy_change = 0
-    if state['stats']['mood'] >= 70:
-        energy_change = int(hours_passed * ENERGY_REC_PER_HOUR)
-        if energy_change == 0 and hours_passed > 0.4:
-            energy_change = 1
+    # Energy rules:
+    # - Recovers only when mood is high AND hunger isn't too high
+    # - Stays constant under normal/idle conditions
+    # - Decays only when mood is low OR hunger is high
+    mood = state['stats']['mood']
+    hunger = state['stats']['hunger']
+
+    energy_rate = 0.0
+    if mood >= ENERGY_REC_MOOD_THRESHOLD and hunger <= ENERGY_REC_HUNGER_MAX:
+        energy_rate = ENERGY_REC_PER_HOUR
+    elif mood < ENERGY_STABLE_MOOD_THRESHOLD or hunger >= ENERGY_DECAY_HUNGER_THRESHOLD:
+        energy_rate = -ENERGY_DEC_PER_HOUR
+
+    if energy_rate == 0.0:
+        # Don't accumulate carry while stable; keeps behavior predictable.
+        carry['energy'] = 0.0
     else:
-        energy_change = -int(hours_passed * ENERGY_DEC_PER_HOUR)
-        if energy_change == 0 and hours_passed > 0.4:
-            energy_change = -1
-            
-    state['stats']['energy'] = clamp(state['stats']['energy'] + energy_change)
-    
+        # Soft caps:
+        # - Below ~20, energy should be very hard to drain further.
+        # - Above ~85, energy should be very hard to recover further.
+        energy = state['stats']['energy']
+        mult = 1.0
+        if energy_rate < 0:
+            # Taper drain between 30 -> 20, then keep very slow below 20.
+            if energy <= 20:
+                mult = 0.1
+            elif energy <= 30:
+                t = (30 - energy) / 10.0  # 0..1
+                mult = 1.0 - (0.9 * t)  # 1.0 -> 0.1
+        else:
+            # Taper recovery between 75 -> 85, then keep very slow above 85.
+            if energy >= 85:
+                mult = 0.1
+            elif energy >= 75:
+                t = (energy - 75) / 10.0  # 0..1
+                mult = 1.0 - (0.9 * t)  # 1.0 -> 0.1
+
+        effective_rate = abs(energy_rate) * mult
+
+        energy_delta = (hours_passed * effective_rate) + float(carry.get('energy', 0.0))
+        energy_mag = int(math.floor(energy_delta))
+        carry['energy'] = energy_delta - energy_mag
+        if energy_mag:
+            state['stats']['energy'] = clamp(
+                state['stats']['energy'] + (energy_mag if energy_rate > 0 else -energy_mag)
+            )
+
     return state
+
+def simulate_distribution(
+    seed_state,
+    days=7,
+    step_minutes=30,
+    start_hunger=10,
+    start_mood=80,
+    start_energy=60,
+):
+    # Simulate scheduled updates only (no actions) and return status distribution.
+    # Defaults are a "healthy" starting point: fullness ~90% => hunger=10.
+    sim_state = json.loads(json.dumps(seed_state))
+    sim_state = _ensure_decay_carry(sim_state)
+    created_at = parse_time(sim_state['createdAt']) if sim_state.get('createdAt') else get_utc_now()
+
+    # Reset stats to a believable baseline (so distributions are meaningful)
+    sim_state['stats']['hunger'] = clamp(start_hunger)
+    sim_state['stats']['mood'] = clamp(start_mood)
+    sim_state['stats']['energy'] = clamp(start_energy)
+    sim_state['decayCarry'] = {'hunger': 0.0, 'mood': 0.0, 'energy': 0.0}
+
+    # Clear action timestamps so we don't begin inside an action animation window
+    sim_state.setdefault('timestamps', {})
+    for k in ('lastFedAt', 'lastPlayedAt', 'lastPettedAt'):
+        if k in sim_state['timestamps']:
+            sim_state['timestamps'].pop(k, None)
+
+    # Start from "now" to avoid depending on whatever the repo state currently contains.
+    now = get_utc_now()
+    sim_state['timestamps']['lastAutoUpdate'] = now.isoformat()
+    end = now + datetime.timedelta(days=days)
+    step = datetime.timedelta(minutes=step_minutes)
+
+    counts = {}
+    total = 0
+    while now < end:
+        now = now + step
+        sim_state = apply_decay(sim_state, now=now)
+        sim_state['timestamps']['lastAutoUpdate'] = now.isoformat()
+
+        # Keep age consistent for realism.
+        sim_state['ageHours'] = int((now - created_at).total_seconds() / 3600)
+
+        sim_state = determine_state(sim_state)
+        status = sim_state['state']['status']
+        counts[status] = counts.get(status, 0) + 1
+        total += 1
+
+    return counts, total
 
 def handle_action(state, action, user):
     now = get_utc_now()
@@ -472,9 +570,29 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--action', help='Action to perform (feed, play, pet)')
     parser.add_argument('--user', help='GitHub username of the player')
+    parser.add_argument('--simulate-days', type=int, default=0, help='Simulate scheduled updates for N days and print state distribution')
+    parser.add_argument('--sim-hunger', type=int, default=10, help='Simulation start hunger (default: 10 = fullness 90)')
+    parser.add_argument('--sim-mood', type=int, default=80, help='Simulation start mood (default: 80)')
+    parser.add_argument('--sim-energy', type=int, default=60, help='Simulation start energy (default: 60)')
     args = parser.parse_args()
 
     state = load_state()
+
+    if args.simulate_days and args.simulate_days > 0:
+        counts, total = simulate_distribution(
+            state,
+            days=args.simulate_days,
+            step_minutes=30,
+            start_hunger=args.sim_hunger,
+            start_mood=args.sim_mood,
+            start_energy=args.sim_energy,
+        )
+        fullness = clamp(100 - args.sim_hunger)
+        print(f"Simulated {args.simulate_days} days ({total} ticks @30m) from Fullness {fullness}%, Mood {clamp(args.sim_mood)}%, Energy {clamp(args.sim_energy)}%")
+        for k, v in sorted(counts.items(), key=lambda kv: kv[1], reverse=True):
+            pct = (v / total) * 100 if total else 0
+            print(f"- {k}: {v} ({pct:.1f}%)")
+        return
     
     # Always calculate decay first? 
     # The prompt says "On user comment... 4. Update stats and timestamps". 
