@@ -25,17 +25,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_crying.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Eating</strong>
+        <strong>Status: Crying</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `█████░░░░░░░░░░`&nbsp;35%<br><br>
+        `█████░░░░░░░░░░`&nbsp;33%<br><br>
         <strong>❤️ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;10%<br><br>
+        `█░░░░░░░░░░░░░░`&nbsp;9%<br><br>
         <strong>⚡ </strong>
-        `██████░░░░░░░░░`&nbsp;41%
+        `██████░░░░░░░░░`&nbsp;40%
       </td>
     </tr>
   </table>
