@@ -25,9 +25,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_sad.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Eating</strong>
+        <strong>Status: Sad</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
@@ -35,7 +35,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>❤️ </strong>
         `████░░░░░░░░░░░`&nbsp;26%<br><br>
         <strong>⚡ </strong>
-        `████████░░░░░░░`&nbsp;51%
+        `████████░░░░░░░`&nbsp;50%
       </td>
     </tr>
   </table>
@@ -52,7 +52,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
       <td align="center" style="border: none;"><sub>Play with him</sub></td>
-      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
+      <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 </div>

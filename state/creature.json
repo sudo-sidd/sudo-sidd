@@ -5,13 +5,13 @@
   "stats": {
     "hunger": 56,
     "mood": 26,
-    "energy": 51
+    "energy": 50
   },
   "timestamps": {
     "lastFedAt": "2025-12-14T13:27:19.513279+00:00",
     "lastPlayedAt": "2025-12-12T08:35:25.669302+00:00",
     "lastPettedAt": "2025-12-14T13:27:28.422783+00:00",
-    "lastAutoUpdate": "2025-12-14T13:24:40.830154+00:00"
+    "lastAutoUpdate": "2025-12-14T13:29:43.206678+00:00"
   },
   "interactions": {
     "total": 45,
@@ -44,12 +44,12 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_sad.gif",
+    "status": "Sad"
   },
   "decayCarry": {
-    "hunger": 0.33142391666666793,
-    "mood": 0.4411574176666684,
-    "energy": 0.9997466035866684
+    "hunger": 0.5414076006944457,
+    "mood": 0.5923456701666684,
+    "energy": 0.13413616136444628
   }
 }
