@@ -31,7 +31,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `███████░░░░░░░░`&nbsp;44%<br><br>
+        `██████░░░░░░░░░`&nbsp;43%<br><br>
         <strong>❤️ </strong>
         `████░░░░░░░░░░░`&nbsp;26%<br><br>
         <strong>⚡ </strong>
