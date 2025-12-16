@@ -3,18 +3,18 @@
   "ageHours": 294,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 17
+    "hunger": 65,
+    "mood": 10,
+    "energy": 42
   },
   "timestamps": {
-    "lastFedAt": "2025-12-14T13:27:19.513279+00:00",
+    "lastFedAt": "2025-12-16T10:41:12.264026+00:00",
     "lastPlayedAt": "2025-12-12T08:35:25.669302+00:00",
     "lastPettedAt": "2025-12-14T13:27:28.422783+00:00",
     "lastAutoUpdate": "2025-12-16T10:20:56.937165+00:00"
   },
   "interactions": {
-    "total": 45,
+    "total": 46,
     "byUser": {
       "sudo-sidd": {
         "count": 33,
@@ -40,12 +40,17 @@
         "count": 3,
         "lastInteractionAt": "2025-12-10T06:08:48.042329+00:00",
         "lastAction": "play"
+      },
+      "LUCA-DesComBes": {
+        "count": 1,
+        "lastInteractionAt": "2025-12-16T10:41:12.264026+00:00",
+        "lastAction": "feed"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_crying.gif",
-    "status": "Crying"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
     "hunger": 0.6759412340277797,
