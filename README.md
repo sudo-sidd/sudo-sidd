@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 12 days, 20 hours)
+### Woop (Age: 12 days, 23 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -25,17 +25,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Sad</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>❤️ </strong>
-        `██████░░░░░░░░░`&nbsp;37%<br><br>
+        `█████░░░░░░░░░░`&nbsp;33%<br><br>
         <strong>⚡ </strong>
-        `███░░░░░░░░░░░░`&nbsp;23%
+        `███░░░░░░░░░░░░`&nbsp;21%
       </td>
     </tr>
   </table>
@@ -50,14 +50,14 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
+      <td align="center" style="border: none;"><sub>Feed him</sub></td>
       <td align="center" style="border: none;"><sub>Too hungry</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — pet at 2025-12-17 00:37 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — pet at 2025-12-17 03:51 UTC</em></small>
   </div>
 
 
