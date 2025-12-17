@@ -179,29 +179,38 @@ def update_readme(state):
     status_play = get_action_hint(state, 'play')
     status_pet = get_action_hint(state, 'pet')
 
-    # Last interaction (most recent non-excluded user)
-    last_user = None
-    last_time = None
-    last_action = None
-    for user, data in state['interactions']['byUser'].items():
-        if user in LEADERBOARD_EXCLUDE_USERS:
-            continue
-        if isinstance(data, dict):
-            last_at = data.get('lastInteractionAt')
-            if last_at:
-                try:
-                    t = parse_time(last_at)
-                except Exception:
-                    continue
-                if last_time is None or t > last_time:
-                    last_time = t
-                    last_user = user
-                    last_action = data.get('lastAction')
-
-    if last_user:
-        last_interaction_text = f"Last interaction: @{last_user} — {last_action} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+    # Prefer the explicit top-level lastInteraction if present, otherwise fall back to scanning byUser
+    last = state.get('lastInteraction')
+    if last and isinstance(last, dict):
+        try:
+            last_time = parse_time(last.get('at'))
+            last_interaction_text = f"Last interaction: @{last.get('user')} — {last.get('action')} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+        except Exception:
+            last_interaction_text = "Last interaction: data unavailable"
     else:
-        last_interaction_text = "No interactions yet."
+        # Backwards compatibility: scan per-user records
+        last_user = None
+        last_time = None
+        last_action = None
+        for user, data in state['interactions']['byUser'].items():
+            if user in LEADERBOARD_EXCLUDE_USERS:
+                continue
+            if isinstance(data, dict):
+                last_at = data.get('lastInteractionAt')
+                if last_at:
+                    try:
+                        t = parse_time(last_at)
+                    except Exception:
+                        continue
+                    if last_time is None or t > last_time:
+                        last_time = t
+                        last_user = user
+                        last_action = data.get('lastAction')
+
+        if last_user:
+            last_interaction_text = f"Last interaction: @{last_user} — {last_action} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+        else:
+            last_interaction_text = "No interactions yet."
 
     new_section = f"""{start_marker}
 <div align="center" id="github-tamagotchi">
@@ -604,7 +613,14 @@ def handle_action(state, action, user):
     state['interactions']['byUser'][user]['count'] += 1
     state['interactions']['byUser'][user]['lastInteractionAt'] = now.isoformat()
     state['interactions']['byUser'][user]['lastAction'] = action
-        
+
+    # Persist the last interaction at the top-level for quick access and display
+    state['lastInteraction'] = {
+        'user': user,
+        'action': action,
+        'at': now.isoformat()
+    }
+
     return state
 
 def main():

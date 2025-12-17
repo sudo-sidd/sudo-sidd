@@ -3,15 +3,15 @@
   "ageHours": 308,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 65,
-    "mood": 26,
-    "energy": 48
+    "hunger": 100,
+    "mood": 32,
+    "energy": 23
   },
   "timestamps": {
     "lastFedAt": "2025-12-17T00:24:28.873453+00:00",
     "lastPlayedAt": "2025-12-12T08:35:25.669302+00:00",
     "lastPettedAt": "2025-12-17T00:20:32.871086+00:00",
-    "lastAutoUpdate": "2025-12-17T00:24:28.873418+00:00"
+    "lastAutoUpdate": "2025-12-17T00:20:32.871057+00:00"
   },
   "interactions": {
     "total": 49,
@@ -50,6 +50,11 @@
         "count": 1,
         "lastInteractionAt": "2025-12-17T00:20:32.871086+00:00",
         "lastAction": "pet"
+      },
+      "lastkeeper": {
+        "count": 1,
+        "lastInteractionAt": "2025-12-17T00:28:34.072399+00:00",
+        "lastAction": "pet"
       }
     }
   },
@@ -58,8 +63,8 @@
     "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.8231186798611136,
-    "mood": 0.7865027325000061,
-    "energy": 0.28442311203111587
+    "hunger": 0.6592281513888913,
+    "mood": 0.5898340983333394,
+    "energy": 0.24561383488889366
   }
 }
