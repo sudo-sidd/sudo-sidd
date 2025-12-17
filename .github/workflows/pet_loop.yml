@@ -2,7 +2,7 @@ name: Pet Loop
 
 on:
   schedule:
-      - cron: '*/30 * * * *' # Every 30 mins
+      - cron: '0 */6 * * *' # Every 6 hrs
   workflow_dispatch:
   issues:
     types: [opened]

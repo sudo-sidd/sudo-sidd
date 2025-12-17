@@ -89,17 +89,17 @@ Use the buttons above or comment commands in an issue:
 - **Critical Conditions**:
   - **Game Over**: If he gets too hungry and tired, Woop will Faint.
 
-The system updates every 30 minutes automatically.
+The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 </details>
 
 <details>
 <summary><strong>How this game works</strong></summary>
 
 This is a fully automated creature living in the repository.
-- **Time**: It ages and stats decay in real-time (updated every 30 mins).
+- **Time**: It ages and stats decay in real-time (updated every 6 hours).
 - **Memory**: It remembers who interacted with it and when.
 - **Persistence**: All state is saved in `state/creature.json`.
-- **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet.
+- **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet. After you take an action, wait for the GitHub Action to finish and refresh this page to see the updated pet.
 </details>
 
 </div>
