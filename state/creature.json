@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-17T00:24:28.873453+00:00",
     "lastPlayedAt": "2025-12-12T08:35:25.669302+00:00",
     "lastPettedAt": "2025-12-17T03:51:49.178518+00:00",
-    "lastAutoUpdate": "2025-12-17T03:51:49.178472+00:00"
+    "lastAutoUpdate": "2025-12-17T03:54:01.708702+00:00"
   },
   "interactions": {
     "total": 51,
@@ -59,13 +59,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_petting.gif",
-    "status": "Being Petted"
+    "currentAnimation": "wooper_sad.gif",
+    "status": "Sad"
   },
   "decayCarry": {
-    "hunger": 0.46221939444444615,
-    "mood": 0.15342359000000627,
-    "energy": 0.33016216124444897
+    "hunger": 0.5542542569444462,
+    "mood": 0.26386542500000626,
+    "energy": 0.34135360052444896
   },
   "lastInteraction": {
     "user": "sudo-sidd",
