@@ -25,17 +25,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Eating</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `█████░░░░░░░░░░`&nbsp;35%<br><br>
+        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>❤️ </strong>
-        `█████░░░░░░░░░░`&nbsp;32%<br><br>
+        `██████░░░░░░░░░`&nbsp;37%<br><br>
         <strong>⚡ </strong>
-        `███████░░░░░░░░`&nbsp;48%
+        `███░░░░░░░░░░░░`&nbsp;23%
       </td>
     </tr>
   </table>
@@ -51,13 +51,13 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
-      <td align="center" style="border: none;"><sub>Play with him</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>Too hungry</sub></td>
+      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @lastkeeper — pet at 2025-12-17 00:28 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — pet at 2025-12-17 00:37 UTC</em></small>
   </div>
 
 
