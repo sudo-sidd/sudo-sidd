@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 12 days, 19 hours)
+### Woop (Age: 12 days, 20 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -25,17 +25,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_crying.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Crying</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;2%<br><br>
-        <strong>❤️ </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        <strong>❤️ </strong>
+        `██░░░░░░░░░░░░░`&nbsp;16%<br><br>
         <strong>⚡ </strong>
-        `████░░░░░░░░░░░`&nbsp;24%
+        `███░░░░░░░░░░░░`&nbsp;23%
       </td>
     </tr>
   </table>
@@ -52,10 +52,14 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
       <td align="center" style="border: none;"><sub>Too hungry</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
     </tr>
   </table>
-</div>
+
+  <div style="margin-top:8px;">
+    <small><em>Last interaction: @testbot — pet at 2025-12-17 00:20 UTC</em></small>
+  </div>
+
 
 <details open>
 <summary><strong>Top Caretakers</strong></summary>
@@ -69,8 +73,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 ```
 </details>
 
-<details>
+<details open>
 <summary><strong>How to interact</strong></summary>
+The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 
 Use the buttons above or comment commands in an issue:
 
@@ -89,7 +94,6 @@ Use the buttons above or comment commands in an issue:
 - **Critical Conditions**:
   - **Game Over**: If he gets too hungry and tired, Woop will Faint.
 
-The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 </details>
 
 <details>

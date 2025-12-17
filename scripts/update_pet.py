@@ -34,6 +34,10 @@ COOLDOWN_PLAY = 0  # No cooldown, limited by energy
 # Petting has no cooldown (always allowed)
 COOLDOWN_PET = 0
 
+# The scheduled automatic update interval for the repository (minutes).
+# Keep this in sync with `.github/workflows/pet_loop.yml` which now runs every 6 hours.
+SCHEDULE_STEP_MINUTES = 6 * 60  # 360 minutes = 6 hours
+
 def load_state():
     with open(STATE_FILE, 'r') as f:
         return json.load(f)
@@ -175,6 +179,30 @@ def update_readme(state):
     status_play = get_action_hint(state, 'play')
     status_pet = get_action_hint(state, 'pet')
 
+    # Last interaction (most recent non-excluded user)
+    last_user = None
+    last_time = None
+    last_action = None
+    for user, data in state['interactions']['byUser'].items():
+        if user in LEADERBOARD_EXCLUDE_USERS:
+            continue
+        if isinstance(data, dict):
+            last_at = data.get('lastInteractionAt')
+            if last_at:
+                try:
+                    t = parse_time(last_at)
+                except Exception:
+                    continue
+                if last_time is None or t > last_time:
+                    last_time = t
+                    last_user = user
+                    last_action = data.get('lastAction')
+
+    if last_user:
+        last_interaction_text = f"Last interaction: @{last_user} — {last_action} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+    else:
+        last_interaction_text = "No interactions yet."
+
     new_section = f"""{start_marker}
 <div align="center" id="github-tamagotchi">
 
@@ -221,7 +249,11 @@ def update_readme(state):
       <td align="center" style="border: none;"><sub>{status_pet}</sub></td>
     </tr>
   </table>
-</div>
+
+  <div style="margin-top:8px;">
+    <small><em>{last_interaction_text}</em></small>
+  </div>
+
 
 <details open>
 <summary><strong>Top Caretakers</strong></summary>
@@ -231,8 +263,9 @@ def update_readme(state):
 ```
 </details>
 
-<details>
+<details open>
 <summary><strong>How to interact</strong></summary>
+The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 
 Use the buttons above or comment commands in an issue:
 
@@ -251,7 +284,6 @@ Use the buttons above or comment commands in an issue:
 - **Critical Conditions**:
   - **Game Over**: If he gets too hungry and tired, {state['name']} will Faint.
 
-The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 </details>
 
 <details>
@@ -342,7 +374,16 @@ def determine_state(state):
 def apply_decay(state, now=None):
     state = _ensure_decay_carry(state)
     now = now or get_utc_now()
-    last_update = parse_time(state['timestamps']['lastAutoUpdate'])
+
+    # Use lastAutoUpdate if present, otherwise fall back to createdAt; if neither, initialize lastAutoUpdate
+    last_update_str = state.get('timestamps', {}).get('lastAutoUpdate') or state.get('createdAt')
+    if not last_update_str:
+        # Nothing to decay from; set lastAutoUpdate and return
+        state.setdefault('timestamps', {})
+        state['timestamps']['lastAutoUpdate'] = now.isoformat()
+        return state
+
+    last_update = parse_time(last_update_str)
 
     # Calculate hours passed
     diff = now - last_update
@@ -582,13 +623,14 @@ def main():
         counts, total = simulate_distribution(
             state,
             days=args.simulate_days,
-            step_minutes=30,
+            step_minutes=SCHEDULE_STEP_MINUTES,
             start_hunger=args.sim_hunger,
             start_mood=args.sim_mood,
             start_energy=args.sim_energy,
         )
         fullness = clamp(100 - args.sim_hunger)
-        print(f"Simulated {args.simulate_days} days ({total} ticks @30m) from Fullness {fullness}%, Mood {clamp(args.sim_mood)}%, Energy {clamp(args.sim_energy)}%")
+        interval_h = SCHEDULE_STEP_MINUTES // 60
+        print(f"Simulated {args.simulate_days} days ({total} ticks @{interval_h}h) from Fullness {fullness}%, Mood {clamp(args.sim_mood)}%, Energy {clamp(args.sim_energy)}%")
         for k, v in sorted(counts.items(), key=lambda kv: kv[1], reverse=True):
             pct = (v / total) * 100 if total else 0
             print(f"- {k}: {v} ({pct:.1f}%)")
@@ -616,6 +658,12 @@ def main():
         if not args.user:
             print("Error: --user is required for actions.")
             return
+        # Apply decay up to now so state reflects time passed since last automatic update
+        now = get_utc_now()
+        state = apply_decay(state, now=now)
+        state.setdefault('timestamps', {})
+        state['timestamps']['lastAutoUpdate'] = now.isoformat()
+
         state = handle_action(state, args.action, args.user)
 
     # Calculate Age Dynamically
