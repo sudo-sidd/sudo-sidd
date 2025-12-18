@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 14 days, 7 hours)
+### Woop (Age: 14 days, 8 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -25,17 +25,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Sad</strong>
+        <strong>Status: Eating</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `███░░░░░░░░░░░░`&nbsp;23%<br><br>
+        `████████░░░░░░░`&nbsp;55%<br><br>
         <strong>❤️ </strong>
-        `█████░░░░░░░░░░`&nbsp;31%<br><br>
+        `██████░░░░░░░░░`&nbsp;37%<br><br>
         <strong>⚡ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;14%
+        `██████░░░░░░░░░`&nbsp;39%
       </td>
     </tr>
   </table>
@@ -50,14 +50,14 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Too tired</sub></td>
+      <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
+      <td align="center" style="border: none;"><sub>Play with him</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @SILVER-2K3 — pet at 2025-12-18 11:19 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — feed at 2025-12-18 12:32 UTC</em></small>
   </div>
 
 
