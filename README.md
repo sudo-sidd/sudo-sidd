@@ -25,15 +25,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_crying.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Crying</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
         `███░░░░░░░░░░░░`&nbsp;23%<br><br>
         <strong>❤️ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;15%<br><br>
+        `█████░░░░░░░░░░`&nbsp;31%<br><br>
         <strong>⚡ </strong>
         `██░░░░░░░░░░░░░`&nbsp;14%
       </td>
@@ -52,12 +52,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
       <td align="center" style="border: none;"><sub>Too tired</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @SILVER-2K3 — play at 2025-12-18 11:16 UTC</em></small>
+    <small><em>Last interaction: @SILVER-2K3 — pet at 2025-12-18 11:19 UTC</em></small>
   </div>
 
 
@@ -68,8 +68,8 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 1. @Mithrajith – 6
 2. @Pradeesh1108 – 3
 3. @dhanwanth-dev – 2
-4. @Syedha18 – 1
-5. @LUCA-DesComBes – 1
+4. @SILVER-2K3 – 2
+5. @Syedha18 – 1
 ```
 </details>
 
