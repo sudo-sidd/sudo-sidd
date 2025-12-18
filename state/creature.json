@@ -1,20 +1,20 @@
 {
   "name": "Woop",
-  "ageHours": 338,
+  "ageHours": 340,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 16
+    "hunger": 65,
+    "mood": 10,
+    "energy": 41
   },
   "timestamps": {
-    "lastFedAt": "2025-12-17T00:24:28.873453+00:00",
+    "lastFedAt": "2025-12-18T09:00:37.319220+00:00",
     "lastPlayedAt": "2025-12-12T08:35:25.669302+00:00",
     "lastPettedAt": "2025-12-17T03:51:49.178518+00:00",
-    "lastAutoUpdate": "2025-12-18T06:38:33.459109+00:00"
+    "lastAutoUpdate": "2025-12-18T09:00:37.319174+00:00"
   },
   "interactions": {
-    "total": 51,
+    "total": 52,
     "byUser": {
       "sudo-sidd": {
         "count": 37,
@@ -55,21 +55,26 @@
         "count": 1,
         "lastInteractionAt": "2025-12-17T00:28:34.072399+00:00",
         "lastAction": "pet"
+      },
+      "MeguminFireFox": {
+        "count": 1,
+        "lastInteractionAt": "2025-12-18T09:00:37.319220+00:00",
+        "lastAction": "feed"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_crying.gif",
-    "status": "Crying"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.4096363930555533,
-    "mood": 0.4903239883333388,
-    "energy": 0.015370185355560562
+    "hunger": 0.3289836604166645,
+    "mood": 0.5935407091666729,
+    "energy": 0.39420841046667177
   },
   "lastInteraction": {
-    "user": "sudo-sidd",
-    "action": "pet",
-    "at": "2025-12-17T03:51:49.178518+00:00"
+    "user": "MeguminFireFox",
+    "action": "feed",
+    "at": "2025-12-18T09:00:37.319220+00:00"
   }
 }
