@@ -31,11 +31,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `█████░░░░░░░░░░`&nbsp;35%<br><br>
+        `████░░░░░░░░░░░`&nbsp;29%<br><br>
         <strong>❤️ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;10%<br><br>
+        `███░░░░░░░░░░░░`&nbsp;19%<br><br>
         <strong>⚡ </strong>
-        `██████░░░░░░░░░`&nbsp;41%
+        `███░░░░░░░░░░░░`&nbsp;19%
       </td>
     </tr>
   </table>
@@ -57,7 +57,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @SILVER-2K3 — feed at 2025-12-19 11:25 UTC</em></small>
+    <small><em>Last interaction: @SILVER-2K3 — play at 2025-12-19 11:26 UTC</em></small>
   </div>
 
 
@@ -66,8 +66,8 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 ```
 1. @Mithrajith – 6
-2. @Pradeesh1108 – 3
-3. @SILVER-2K3 – 3
+2. @SILVER-2K3 – 4
+3. @Pradeesh1108 – 3
 4. @dhanwanth-dev – 2
 5. @Syedha18 – 1
 ```

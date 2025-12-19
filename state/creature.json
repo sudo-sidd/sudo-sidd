@@ -3,18 +3,18 @@
   "ageHours": 367,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 65,
-    "mood": 10,
-    "energy": 41
+    "hunger": 71,
+    "mood": 19,
+    "energy": 19
   },
   "timestamps": {
     "lastFedAt": "2025-12-19T11:25:54.883267+00:00",
-    "lastPlayedAt": "2025-12-18T11:16:35.475441+00:00",
+    "lastPlayedAt": "2025-12-19T11:26:09.965350+00:00",
     "lastPettedAt": "2025-12-18T11:19:26.958408+00:00",
-    "lastAutoUpdate": "2025-12-19T11:25:54.883223+00:00"
+    "lastAutoUpdate": "2025-12-19T11:26:09.965308+00:00"
   },
   "interactions": {
-    "total": 56,
+    "total": 57,
     "byUser": {
       "sudo-sidd": {
         "count": 38,
@@ -62,9 +62,9 @@
         "lastAction": "feed"
       },
       "SILVER-2K3": {
-        "count": 3,
-        "lastInteractionAt": "2025-12-19T11:25:54.883267+00:00",
-        "lastAction": "feed"
+        "count": 4,
+        "lastInteractionAt": "2025-12-19T11:26:09.965350+00:00",
+        "lastAction": "play"
       }
     }
   },
@@ -73,13 +73,13 @@
     "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.38284744444444385,
-    "mood": 0.9653297673333405,
-    "energy": 0.17166874624445172
+    "hunger": 0.39332111458333274,
+    "mood": 0.9728708098333405,
+    "energy": 0.17837189513334062
   },
   "lastInteraction": {
     "user": "SILVER-2K3",
-    "action": "feed",
-    "at": "2025-12-19T11:25:54.883267+00:00"
+    "action": "play",
+    "at": "2025-12-19T11:26:09.965350+00:00"
   }
 }
