@@ -33,7 +33,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `████░░░░░░░░░░░`&nbsp;29%<br><br>
         <strong>❤️ </strong>
-        `███░░░░░░░░░░░░`&nbsp;19%<br><br>
+        `█████░░░░░░░░░░`&nbsp;35%<br><br>
         <strong>⚡ </strong>
         `███░░░░░░░░░░░░`&nbsp;19%
       </td>
@@ -52,12 +52,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
       <td align="center" style="border: none;"><sub>Play with him</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>He feels loved</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @SILVER-2K3 — play at 2025-12-19 11:26 UTC</em></small>
+    <small><em>Last interaction: @SILVER-2K3 — pet at 2025-12-19 11:26 UTC</em></small>
   </div>
 
 
@@ -66,7 +66,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 ```
 1. @Mithrajith – 6
-2. @SILVER-2K3 – 4
+2. @SILVER-2K3 – 5
 3. @Pradeesh1108 – 3
 4. @dhanwanth-dev – 2
 5. @Syedha18 – 1
