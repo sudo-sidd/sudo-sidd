@@ -4,21 +4,21 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 73,
-    "mood": 39,
+    "mood": 45,
     "energy": 19
   },
   "timestamps": {
     "lastFedAt": "2025-12-19T11:25:54.883267+00:00",
     "lastPlayedAt": "2025-12-19T11:26:09.965350+00:00",
-    "lastPettedAt": "2025-12-19T12:07:51.316917+00:00",
-    "lastAutoUpdate": "2025-12-19T12:07:51.316860+00:00"
+    "lastPettedAt": "2025-12-19T12:09:00.317668+00:00",
+    "lastAutoUpdate": "2025-12-19T12:09:00.317630+00:00"
   },
   "interactions": {
-    "total": 59,
+    "total": 60,
     "byUser": {
       "sudo-sidd": {
-        "count": 39,
-        "lastInteractionAt": "2025-12-19T12:07:51.316917+00:00",
+        "count": 40,
+        "lastInteractionAt": "2025-12-19T12:09:00.317668+00:00",
         "lastAction": "pet"
       },
       "Syedha18": {
@@ -73,13 +73,13 @@
     "status": "Being Petted"
   },
   "decayCarry": {
-    "hunger": 0.13037078541666602,
-    "mood": 0.22354657283334056,
-    "energy": 0.28954307406667396
+    "hunger": 0.1782879868055549,
+    "mood": 0.2580469578333406,
+    "energy": 0.29260977495556284
   },
   "lastInteraction": {
     "user": "sudo-sidd",
     "action": "pet",
-    "at": "2025-12-19T12:07:51.316917+00:00"
+    "at": "2025-12-19T12:09:00.317668+00:00"
   }
 }
