@@ -4,14 +4,14 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 71,
-    "mood": 35,
+    "mood": 34,
     "energy": 19
   },
   "timestamps": {
     "lastFedAt": "2025-12-19T11:25:54.883267+00:00",
     "lastPlayedAt": "2025-12-19T11:26:09.965350+00:00",
     "lastPettedAt": "2025-12-19T11:26:42.066105+00:00",
-    "lastAutoUpdate": "2025-12-19T11:26:42.066063+00:00"
+    "lastAutoUpdate": "2025-12-19T11:28:56.051673+00:00"
   },
   "interactions": {
     "total": 58,
@@ -69,13 +69,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_sad.gif",
+    "status": "Sad"
   },
   "decayCarry": {
-    "hunger": 0.415613305555555,
-    "mood": 0.9889211873333406,
-    "energy": 0.17979859535556283
+    "hunger": 0.5086588499999994,
+    "mood": 0.055913979333340524,
+    "energy": 0.18575351020000727
   },
   "lastInteraction": {
     "user": "SILVER-2K3",
