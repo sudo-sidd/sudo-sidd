@@ -346,6 +346,50 @@ def determine_state(state):
             state['state']['status'] = "Being Petted"
             return state
 
+    # Post-action happiness window (30 seconds after action animation ends)
+    # Check all action timestamps for the 120-150 second window
+    most_recent_action_time = None
+    for action_key in ['lastFedAt', 'lastPlayedAt', 'lastPettedAt']:
+        if timestamps.get(action_key):
+            action_time = parse_time(timestamps[action_key])
+            if most_recent_action_time is None or action_time > most_recent_action_time:
+                most_recent_action_time = action_time
+    
+    if most_recent_action_time:
+        seconds_since_action = (now - most_recent_action_time).total_seconds()
+        # Happiness window: 2 minutes (action animation) to 2.5 minutes (30 sec happiness)
+        if 120 <= seconds_since_action < 150:
+            # Choose animation based on stats - excited if stats are good, happy otherwise
+            if mood >= 70 and energy >= 50 and hunger <= 60:
+                state['state']['currentAnimation'] = "wooper_idle.gif"
+                state['state']['status'] = "Excited"
+            else:
+                state['state']['currentAnimation'] = "wooper_idle.gif"
+                state['state']['status'] = "Happy"
+            return state
+
+    # Post-action happiness window (30 seconds after action animation ends)
+    # Check all action timestamps for the 120-150 second window
+    most_recent_action_time = None
+    for action_key in ['lastFedAt', 'lastPlayedAt', 'lastPettedAt']:
+        if timestamps.get(action_key):
+            action_time = parse_time(timestamps[action_key])
+            if most_recent_action_time is None or action_time > most_recent_action_time:
+                most_recent_action_time = action_time
+    
+    if most_recent_action_time:
+        seconds_since_action = (now - most_recent_action_time).total_seconds()
+        # Happiness window: 2 minutes (action animation) to 2.5 minutes (30 sec happiness)
+        if 120 <= seconds_since_action < 150:
+            # Choose animation based on stats - excited if stats are good, happy otherwise
+            if mood >= 70 and energy >= 50 and hunger <= 60:
+                state['state']['currentAnimation'] = "wooper_idle.gif"
+                state['state']['status'] = "Excited"
+            else:
+                state['state']['currentAnimation'] = "wooper_idle.gif"
+                state['state']['status'] = "Happy"
+            return state
+
     # Fainted (hard condition)
     if hunger >= 100 and energy <= 15:
         state['state']['currentAnimation'] = "wooper_fainted.gif"
@@ -532,10 +576,10 @@ def handle_action(state, action, user):
             print(f"Cooldown active. You can feed again in {int((COOLDOWN_FEED - (now - last_fed).total_seconds())/60)} minutes.")
             return state
 
-        # Feed: strong on fullness, solid on mood/energy
-        stats['hunger'] = clamp(stats['hunger'] - 35)
-        stats['mood'] = clamp(stats['mood'] + 10)
-        stats['energy'] = clamp(stats['energy'] + 25)
+        # Feed: super OP to combat sadness
+        stats['hunger'] = clamp(stats['hunger'] - 50)
+        stats['mood'] = clamp(stats['mood'] + 25)
+        stats['energy'] = clamp(stats['energy'] + 35)
         timestamps['lastFedAt'] = now.isoformat()
         print(f"@{user} fed Woop!")
 
@@ -564,11 +608,11 @@ def handle_action(state, action, user):
             stats['energy'] = clamp(stats['energy'] - 5)
             return state
 
-        # Play effectiveness scales with energy, but always has a meaningful cost
+        # Play effectiveness scales with energy - super OP version
         energy_pct = stats['energy'] / 100.0
-        mood_gain = int(24 * max(0.4, energy_pct))  # 9..24
-        energy_cost = int(18 + (8 * (1 - energy_pct)))  # 18..26
-        hunger_cost = 6
+        mood_gain = int(45 * max(0.75, energy_pct))  # 35..45
+        energy_cost = int(15 + (5 * (1 - energy_pct)))  # 15..20
+        hunger_cost = 5
 
         stats['mood'] = clamp(stats['mood'] + mood_gain)
         stats['energy'] = clamp(stats['energy'] - energy_cost)
@@ -578,14 +622,14 @@ def handle_action(state, action, user):
 
     # --- Pet ---
     elif action == 'pet':
-        # petting always works (no cooldown)
-        stats['mood'] = clamp(stats['mood'] + 6)
+        # petting always works (no cooldown) - super OP version
+        stats['mood'] = clamp(stats['mood'] + 15)
         timestamps['lastPettedAt'] = now.isoformat()
-        print(f"@{user} petted Wisphe! (mood +6)")
+        print(f"@{user} petted Wisphe! (mood +15)")
 
         # If very sad, pet provides extra comfort
         if stats['mood'] < 30:
-            stats['mood'] = clamp(stats['mood'] + 10)
+            stats['mood'] = clamp(stats['mood'] + 25)
             print("Pet calmed Wisphe.")
     
     else:
