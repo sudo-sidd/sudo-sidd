@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 18 days, 3 hours)
+### Woop (Age: 18 days, 8 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -27,15 +27,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td align="center" style="border: none; padding: 20px;">
         <img src="sprites/wooper_idle.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Happy</strong>
+        <strong>Status: Idle</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `█████░░░░░░░░░░`&nbsp;32%<br><br>
+        `███░░░░░░░░░░░░`&nbsp;19%<br><br>
         <strong>❤️ </strong>
-        `███████████████`&nbsp;100%<br><br>
+        `█████████████░░`&nbsp;84%<br><br>
         <strong>⚡ </strong>
-        `███░░░░░░░░░░░░`&nbsp;22%
+        `███░░░░░░░░░░░░`&nbsp;20%
       </td>
     </tr>
   </table>
@@ -51,7 +51,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Play with him</sub></td>
+      <td align="center" style="border: none;"><sub>Too hungry</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
