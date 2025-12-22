@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-22T04:28:36.503557+00:00",
     "lastPlayedAt": "2025-12-22T04:30:15.712397+00:00",
     "lastPettedAt": "2025-12-22T04:30:57.236604+00:00",
-    "lastAutoUpdate": "2025-12-22T04:33:09.695900+00:00"
+    "lastAutoUpdate": "2025-12-22T04:38:06.834457+00:00"
   },
   "interactions": {
     "total": 64,
@@ -69,13 +69,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_idle.gif",
-    "status": "Happy"
+    "currentAnimation": "wooper_sad.gif",
+    "status": "Sad"
   },
   "decayCarry": {
-    "hunger": 0.18480042152777681,
-    "mood": 0.5561407461666814,
-    "energy": 0.21747940250000003
+    "hunger": 0.3911466416666657,
+    "mood": 0.7047100246666814,
+    "energy": 0.5889025987500001
   },
   "lastInteraction": {
     "user": "Mithrajith",

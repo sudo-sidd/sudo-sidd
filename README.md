@@ -25,9 +25,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_idle.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_sad.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Happy</strong>
+        <strong>Status: Sad</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
