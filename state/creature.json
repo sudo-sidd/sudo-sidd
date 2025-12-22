@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-22T04:28:36.503557+00:00",
     "lastPlayedAt": "2025-12-22T04:30:15.712397+00:00",
     "lastPettedAt": "2025-12-22T04:38:31.723156+00:00",
-    "lastAutoUpdate": "2025-12-22T04:38:31.723115+00:00"
+    "lastAutoUpdate": "2025-12-22T04:40:43.438294+00:00"
   },
   "interactions": {
     "total": 65,
@@ -69,13 +69,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_petting.gif",
-    "status": "Being Petted"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Happy"
   },
   "decayCarry": {
-    "hunger": 0.40843043194444345,
-    "mood": 0.7171543536666815,
-    "energy": 0.62001342125
+    "hunger": 0.4998992923611101,
+    "mood": 0.7830119331666815,
+    "energy": 0.78465737
   },
   "lastInteraction": {
     "user": "Mithrajith",
