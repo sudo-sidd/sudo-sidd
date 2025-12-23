@@ -1,17 +1,17 @@
 {
   "name": "Woop",
-  "ageHours": 458,
+  "ageHours": 464,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 59,
-    "mood": 60,
+    "hunger": 74,
+    "mood": 48,
     "energy": 52
   },
   "timestamps": {
     "lastFedAt": "2025-12-23T02:58:03.842052+00:00",
     "lastPlayedAt": "2025-12-22T04:30:15.712397+00:00",
     "lastPettedAt": "2025-12-22T07:29:34.586152+00:00",
-    "lastAutoUpdate": "2025-12-23T06:39:00.930024+00:00"
+    "lastAutoUpdate": "2025-12-23T12:52:22.207377+00:00"
   },
   "interactions": {
     "total": 67,
@@ -78,8 +78,8 @@
     "status": "Idle"
   },
   "decayCarry": {
-    "hunger": 0.42871287777777667,
-    "mood": 0.8575780676666822,
+    "hunger": 0.9851554708333321,
+    "mood": 0.05821673466668287,
     "energy": 0.0
   },
   "lastInteraction": {
