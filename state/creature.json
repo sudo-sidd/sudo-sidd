@@ -4,17 +4,17 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 50,
-    "mood": 25,
+    "mood": 40,
     "energy": 50
   },
   "timestamps": {
     "lastFedAt": "2025-12-25T17:20:37.223672+00:00",
     "lastPlayedAt": "2025-12-22T04:30:15.712397+00:00",
-    "lastPettedAt": "2025-12-22T07:29:34.586152+00:00",
-    "lastAutoUpdate": "2025-12-25T17:21:05.365352+00:00"
+    "lastPettedAt": "2025-12-25T17:21:56.473746+00:00",
+    "lastAutoUpdate": "2025-12-25T17:21:56.473709+00:00"
   },
   "interactions": {
-    "total": 68,
+    "total": 69,
     "byUser": {
       "sudo-sidd": {
         "count": 41,
@@ -32,9 +32,9 @@
         "lastAction": "pet"
       },
       "Mithrajith": {
-        "count": 11,
-        "lastInteractionAt": "2025-12-25T17:20:37.223672+00:00",
-        "lastAction": "feed"
+        "count": 12,
+        "lastInteractionAt": "2025-12-25T17:21:56.473746+00:00",
+        "lastAction": "pet"
       },
       "Pradeesh1108": {
         "count": 4,
@@ -78,13 +78,13 @@
     "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.1817928118055585,
-    "mood": 0.4848009688333542,
-    "energy": 0.5730985349422263
+    "hunger": 0.21728472638889185,
+    "mood": 0.5103551473333542,
+    "energy": 0.5958133602755596
   },
   "lastInteraction": {
     "user": "Mithrajith",
-    "action": "feed",
-    "at": "2025-12-25T17:20:37.223672+00:00"
+    "action": "pet",
+    "at": "2025-12-25T17:21:56.473746+00:00"
   }
 }
