@@ -11,7 +11,7 @@
     "lastFedAt": "2025-12-25T17:20:37.223672+00:00",
     "lastPlayedAt": "2025-12-22T04:30:15.712397+00:00",
     "lastPettedAt": "2025-12-22T07:29:34.586152+00:00",
-    "lastAutoUpdate": "2025-12-25T17:20:37.223627+00:00"
+    "lastAutoUpdate": "2025-12-25T17:21:05.365352+00:00"
   },
   "interactions": {
     "total": 68,
@@ -78,9 +78,9 @@
     "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.1622499472222252,
-    "mood": 0.4707301063333542,
-    "energy": 0.5605911016088929
+    "hunger": 0.1817928118055585,
+    "mood": 0.4848009688333542,
+    "energy": 0.5730985349422263
   },
   "lastInteraction": {
     "user": "Mithrajith",
