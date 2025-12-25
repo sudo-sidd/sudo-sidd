@@ -1,20 +1,20 @@
 {
   "name": "Woop",
-  "ageHours": 512,
+  "ageHours": 517,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 16
+    "hunger": 50,
+    "mood": 25,
+    "energy": 50
   },
   "timestamps": {
-    "lastFedAt": "2025-12-23T02:58:03.842052+00:00",
+    "lastFedAt": "2025-12-25T17:20:37.223672+00:00",
     "lastPlayedAt": "2025-12-22T04:30:15.712397+00:00",
     "lastPettedAt": "2025-12-22T07:29:34.586152+00:00",
-    "lastAutoUpdate": "2025-12-25T12:50:08.734738+00:00"
+    "lastAutoUpdate": "2025-12-25T17:20:37.223627+00:00"
   },
   "interactions": {
-    "total": 67,
+    "total": 68,
     "byUser": {
       "sudo-sidd": {
         "count": 41,
@@ -32,9 +32,9 @@
         "lastAction": "pet"
       },
       "Mithrajith": {
-        "count": 10,
-        "lastInteractionAt": "2025-12-22T04:38:31.723156+00:00",
-        "lastAction": "pet"
+        "count": 11,
+        "lastInteractionAt": "2025-12-25T17:20:37.223672+00:00",
+        "lastAction": "feed"
       },
       "Pradeesh1108": {
         "count": 4,
@@ -74,17 +74,17 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_crying.gif",
-    "status": "Crying"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.892465996527779,
-    "mood": 0.9469893655000199,
-    "energy": 0.8393249287644482
+    "hunger": 0.1622499472222252,
+    "mood": 0.4707301063333542,
+    "energy": 0.5605911016088929
   },
   "lastInteraction": {
-    "user": "dnzilkay",
+    "user": "Mithrajith",
     "action": "feed",
-    "at": "2025-12-23T02:58:03.842052+00:00"
+    "at": "2025-12-25T17:20:37.223672+00:00"
   }
 }
