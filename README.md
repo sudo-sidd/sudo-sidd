@@ -18,15 +18,14 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_idle.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Sad (Streak broken)</strong>
+        <strong><em>Locked in and shipping code consistently.</em></strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>Stats (2026)</strong><br><br>
-        <strong>Current Streak:</strong> 0 days<br><br>
-        <strong>Total Contributions:</strong> 56<br><br>
-        <em>Just a small break, no worries.</em>
+        <strong>Current Streak:</strong> 8 days<br><br>
+        <strong>Total Contributions:</strong> 58
       </td>
     </tr>
   </table>

@@ -7,7 +7,7 @@ USERNAME = 'sudo-sidd'
 
 def get_contributions_data():
     # Uses a public API that scrapes the contribution graph (No Token Needed)
-    url = f'https://github-contributions-api.jogruber.de/v4/{USERNAME}?y={datetime.date.today().year}'
+    url = f'https://github-contributions-api.jogruber.de/v4/{USERNAME}'
     
     try:
         with urllib.request.urlopen(url) as response:
@@ -20,8 +20,18 @@ def calculate_stats(data):
     if not data:
         return 0, 0, 0
     
-    total = data.get('total', {}).get(str(datetime.date.today().year), 0)
+    totals = data.get('total', {})
+    if not totals:
+        return 0, 0, 0
+    
+    # Find the latest year
+    latest_year = max(int(y) for y in totals.keys())
+    total = totals.get(str(latest_year), 0)
+    
     days = data.get('contributions', [])
+    
+    # Filter days for the latest year
+    days = [d for d in days if d['date'].startswith(str(latest_year))]
     
     # Sort days by date descending
     days.sort(key=lambda x: x['date'], reverse=True)
@@ -63,27 +73,30 @@ def get_status_and_sprite(streak):
         return "Fainted", "wooper_fainted.gif"
 
 def get_dynamic_text(streak, days_since_last):
+    # Scenario: Streak is broken (0)
     if streak == 0:
         if days_since_last == 0:
-            return "<em>Ready to start contributing!</em>"
+            return "<em>Coffee in hand, ready to push code.</em>"
         elif days_since_last == 1:
-            return "<em>Just a small break, no worries.</em>"
+            return "<em>Took a quick breather yesterday.</em>"
         elif days_since_last <= 3:
-            return "<em>Taking a breather... happens to the best of us.</em>"
+            return "<em>Touching grass for a few days.</em>"
         elif days_since_last <= 7:
-            return "<em>Been busy with other things, but let's get back!</em>"
+            return "<em>Busy week IRL, but I'll be back.</em>"
         else:
-            return "<em>Haven't been active lately, but every journey starts with a step.</em>"
+            return "<em>Currently in lurking mode.</em>"
+            
+    # Scenario: Streak is active (>0)
     elif streak == 1:
-        return "<em>Getting back into it! One day down.</em>"
+        return "<em>Back in the terminal. Streak starts now.</em>"
     elif streak <= 6:
-        return "<em>Building momentum, keep it going!</em>"
+        return "<em>In the flow. Coding daily.</em>"
     elif streak <= 29:
-        return "<em>On fire! This streak is impressive.</em>"
+        return "<em>Locked in and shipping code consistently.</em>"
     else:
-        return "<em>Unstoppable! You're crushing it!</em>"
+        return "<em>Living in the terminal. The streak is real.</em>"
 
-def update_readme(status, sprite, total_contributions, streak, dynamic_text):
+def update_readme(status, sprite, total_contributions, streak, dynamic_text, year):
     readme_path = 'README.md'
     try:
         with open(readme_path, 'r') as f:
@@ -118,13 +131,12 @@ def update_readme(status, sprite, total_contributions, streak, dynamic_text):
       <td align="center" style="border: none; padding: 20px;">
         <img src="sprites/{sprite}" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>{status}</strong>
+        <strong>{dynamic_text}</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
-        <strong>Stats ({datetime.date.today().year})</strong><br><br>
+        <strong>Stats ({year})</strong><br><br>
         <strong>Current Streak:</strong> {streak} days<br><br>
-        <strong>Total Contributions:</strong> {total_contributions}<br><br>
-        {dynamic_text}
+        <strong>Total Contributions:</strong> {total_contributions}
       </td>
     </tr>
   </table>
@@ -145,4 +157,7 @@ if __name__ == '__main__':
         total_contributions, streak, days_since_last = calculate_stats(data)
         status, sprite = get_status_and_sprite(streak)
         dynamic_text = get_dynamic_text(streak, days_since_last)
-        update_readme(status, sprite, total_contributions, streak, dynamic_text)
+        # Find latest year
+        totals = data.get('total', {})
+        year = max(int(y) for y in totals.keys()) if totals else datetime.date.today().year
+        update_readme(status, sprite, total_contributions, streak, dynamic_text, year)
