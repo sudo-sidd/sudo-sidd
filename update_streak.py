@@ -25,35 +25,22 @@ def calculate_stats(data):
     if not data: return 0, 0
     total = data.get('total', {}).get(str(datetime.date.today().year), 0)
     days = data.get('contributions', [])
-    days.sort(key=lambda x: x['date'], reverse=True)
     
-    current_streak = 0
+    # Create a dict for quick lookup
+    contrib_dict = {day['date']: day['count'] for day in days}
+    
     today = datetime.date.today()
-    yesterday = today - datetime.timedelta(days=1)
-    
-    streak_active = False
-    for day in days:
-        day_date = datetime.datetime.strptime(day['date'], '%Y-%m-%d').date()
-        count = day['count']
-        if day_date == today:
-            if count > 0:
-                current_streak += 1
-                streak_active = True
-        elif day_date == yesterday:
-            if count > 0:
-                if not streak_active: 
-                    current_streak += 1
-                    streak_active = True
-                elif streak_active: current_streak += 1
-            elif not streak_active: break
+    streak = 0
+    current_date = today
+    while True:
+        count = contrib_dict.get(current_date.isoformat(), 0)
+        if count > 0:
+            streak += 1
+            current_date -= datetime.timedelta(days=1)
         else:
-            if streak_active:
-                last_date = today - datetime.timedelta(days=current_streak)
-                if day_date == last_date:
-                    if count > 0: current_streak += 1
-                    else: break
-            else: break
-    return total, current_streak
+            break
+    
+    return total, streak
 
 def get_status_data(streak, days_since_last=0):
     # 1. Select Sprite
@@ -128,7 +115,7 @@ def update_readme(sprite, status_text, total, streak):
 '''
 
     with open(readme_path, 'w') as f:
-        f.write(before + new_html + after)
+        f.write(before + start_marker + new_html + end_marker + after)
 
 if __name__ == '__main__':
     data = get_contributions_data()

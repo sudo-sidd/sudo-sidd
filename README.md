@@ -14,7 +14,7 @@
 
 <br>
 
-
+<!-- TABLE-START -->
 <div align="center">
   <table style="border: 1px solid #bd93f9; border-radius: 0px; background: #0d1117; width: 80%; box-shadow: 0 0 10px #bd93f940;">
     <tr style="border-bottom: 1px solid #bd93f9;">
@@ -24,23 +24,23 @@
     </tr>
     <tr>
       <td align="center" style="padding: 20px; border-right: 1px solid #bd93f9; width: 40%; vertical-align: middle;">
-        <img src="sprites/wooper_sad.gif" alt="Pet" width="180" style="image-rendering: pixelated; filter: drop-shadow(0 0 5px #bd93f9);" />
+        <img src="sprites/wooper_idle.gif" alt="Pet" width="180" style="image-rendering: pixelated; filter: drop-shadow(0 0 5px #bd93f9);" />
         <br><br>
-        <code style="color: #8be9fd;">system dormant. reboot imminent.</code>
+        <code style="color: #8be9fd;">system optimized. shipping code daily.</code>
       </td>
       <td align="left" style="padding: 20px; font-family: 'Courier New', monospace; color: #bd93f9;">
         <strong>// system_metrics</strong><br><br>
-        streak_active :: <code style="color: #8be9fd;">0 days</code><br>
+        streak_active :: <code style="color: #8be9fd;">8 days</code><br>
         total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">59</code><br>
         current_year&nbsp;&nbsp;:: <code style="color: #8be9fd;">2026</code><br><br>
         <br>
         <strong>// latest_log</strong><br>
-        <span style="color: #ff5555;">> uploading data...</span><span style="animation: blink 1s infinite; color: #8be9fd;">_</span>
+        <span style="color: #8be9fd;">> uploading data...</span><span style="animation: blink 1s infinite; color: #8be9fd;">_</span>
       </td>
     </tr>
   </table>
 </div>
-
+<!-- TABLE-END -->
 <br>
 
 feel free to poke around my projects—most are open experiments. i'm always down to collaborate, so if you've got an idea, let's make it happen.
