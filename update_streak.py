@@ -84,8 +84,6 @@ def update_readme(sprite, status_text, total, streak):
     # Purple borders, dark blue header background
     # Chain icon ⛓️ instead of traffic lights
     
-    log_color = COLOR_CYAN if streak > 0 else COLOR_RED
-    
     new_html = f'''
 <div align="center">
   <table style="border: 1px solid {COLOR_BORDER}; border-radius: 0px; background: #0d1117; width: 80%; box-shadow: 0 0 10px {COLOR_BORDER}40;">
@@ -104,10 +102,7 @@ def update_readme(sprite, status_text, total, streak):
         <strong>// system_metrics</strong><br><br>
         streak_active :: <code style="color: {COLOR_CYAN};">{streak} days</code><br>
         total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: {COLOR_CYAN};">{total}</code><br>
-        current_year&nbsp;&nbsp;:: <code style="color: {COLOR_CYAN};">{datetime.date.today().year}</code><br><br>
-        <br>
-        <strong>// latest_log</strong><br>
-        <span style="color: {log_color};">> uploading data...</span><span style="animation: blink 1s infinite; color: {COLOR_CYAN};">_</span>
+        current_year&nbsp;&nbsp;:: <code style="color: {COLOR_CYAN};">{datetime.date.today().year}</code><br>
       </td>
     </tr>
   </table>

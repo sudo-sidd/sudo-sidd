@@ -1,6 +1,6 @@
 # generate_header.py
 def create_glitch_svg():
-    text = "sudo_sidd"
+    text = "siddharth"
     filename = "header_glitch.svg"
     
     # DedSec Colors

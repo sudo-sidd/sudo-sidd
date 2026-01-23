@@ -32,10 +32,7 @@
         <strong>// system_metrics</strong><br><br>
         streak_active :: <code style="color: #8be9fd;">8 days</code><br>
         total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">59</code><br>
-        current_year&nbsp;&nbsp;:: <code style="color: #8be9fd;">2026</code><br><br>
-        <br>
-        <strong>// latest_log</strong><br>
-        <span style="color: #8be9fd;">> uploading data...</span><span style="animation: blink 1s infinite; color: #8be9fd;">_</span>
+        current_year&nbsp;&nbsp;:: <code style="color: #8be9fd;">2026</code><br>
       </td>
     </tr>
   </table>
