@@ -1,0 +1,53 @@
+<svg width="1000" height="60" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&amp;display=swap');
+          
+          .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+          }
+
+          .typing-text {
+            font-family: 'Fira Code', monospace;
+            font-size: 22px; /* INCREASED SIZE */
+            color: #bd93f9;
+            
+            /* The Typing Logic */
+            width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid #bd93f9; /* Thicker Cursor */
+            
+            /* Animation: 8 seconds total loop */
+            animation: 
+              typing 8s steps(64, end) infinite,
+              blink 0.8s step-end infinite;
+              
+            text-shadow: 0 0 5px #bd93f980; 
+          }
+          
+          /* Keyframes for Loop: Type -> Wait -> Clear -> Repeat */
+          @keyframes typing {
+            0% { width: 0ch; }
+            40% { width: 64ch; } /* Finished typing at 40% */
+            90% { width: 64ch; } /* Stay visible until 90% */
+            100% { width: 0ch; }      /* Instant clear to restart */
+          }
+          
+          @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #bd93f9; }
+          }
+        </style>
+      </defs>
+      
+      <foreignObject x="0" y="0" width="1000" height="60">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <span class="typing-text">interactive developer &amp; designer; ai/ml engineer; game developer</span>
+        </div>
+      </foreignObject>
+    </svg>
