@@ -26,12 +26,12 @@
       <td align="center" style="padding: 20px; border-right: 1px solid #bd93f9; width: 40%; vertical-align: middle;">
         <img src="sprites/wooper_idle.gif" alt="Pet" width="180" style="image-rendering: pixelated; filter: drop-shadow(0 0 5px #bd93f9);" />
         <br><br>
-        <code style="color: #8be9fd;">system optimized. shipping code daily.</code>
+        <code style="color: #8be9fd;">upload stream active. flow state engaged.</code>
       </td>
       <td align="left" style="padding: 20px; font-family: 'Courier New', monospace; color: #bd93f9;">
         <strong>// system_metrics</strong><br><br>
-        streak_active :: <code style="color: #8be9fd;">8 days</code><br>
-        total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">59</code><br>
+        streak_active :: <code style="color: #8be9fd;">4 days</code><br>
+        total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">81</code><br>
         current_year&nbsp;&nbsp;:: <code style="color: #8be9fd;">2026</code><br>
       </td>
     </tr>
