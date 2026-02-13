@@ -30,8 +30,8 @@
       </td>
       <td align="left" style="padding: 20px; font-family: 'Courier New', monospace; color: #bd93f9;">
         <strong>// system_metrics</strong><br><br>
-        streak_active :: <code style="color: #8be9fd;">4 days</code><br>
-        total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">81</code><br>
+        streak_active :: <code style="color: #8be9fd;">2 days</code><br>
+        total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">128</code><br>
         current_year&nbsp;&nbsp;:: <code style="color: #8be9fd;">2026</code><br>
       </td>
     </tr>
