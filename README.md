@@ -24,13 +24,13 @@
     </tr>
     <tr>
       <td align="center" style="padding: 20px; border-right: 1px solid #bd93f9; width: 40%; vertical-align: middle;">
-        <img src="sprites/wooper_idle.gif" alt="Pet" width="180" style="image-rendering: pixelated; filter: drop-shadow(0 0 5px #bd93f9);" />
+        <img src="sprites/wooper_sad.gif" alt="Pet" width="180" style="image-rendering: pixelated; filter: drop-shadow(0 0 5px #bd93f9);" />
         <br><br>
-        <code style="color: #8be9fd;">upload stream active. flow state engaged.</code>
+        <code style="color: #8be9fd;">system dormant. reboot imminent.</code>
       </td>
       <td align="left" style="padding: 20px; font-family: 'Courier New', monospace; color: #bd93f9;">
         <strong>// system_metrics</strong><br><br>
-        streak_active :: <code style="color: #8be9fd;">2 days</code><br>
+        streak_active :: <code style="color: #8be9fd;">0 days</code><br>
         total_pkts&nbsp;&nbsp;&nbsp;&nbsp;:: <code style="color: #8be9fd;">128</code><br>
         current_year&nbsp;&nbsp;:: <code style="color: #8be9fd;">2026</code><br>
       </td>
