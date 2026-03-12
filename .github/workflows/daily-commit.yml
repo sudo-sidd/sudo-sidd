@@ -29,5 +29,9 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add README.md
-          git commit -m "Update Wooper Status" || exit 0
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update Wooper Status [$(date +%Y-%m-%d)]"
+            git push
+          fi

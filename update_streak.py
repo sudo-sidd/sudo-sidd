@@ -84,7 +84,10 @@ def update_readme(sprite, status_text, total, streak):
     # Purple borders, dark blue header background
     # Chain icon ⛓️ instead of traffic lights
     
-    new_html = f'''
+    # Add timestamp to ensure daily updates
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')
+    
+    new_html = f'''<!-- Last updated: {timestamp} -->
 <div align="center">
   <table style="border: 1px solid {COLOR_BORDER}; border-radius: 0px; background: #0d1117; width: 80%; box-shadow: 0 0 10px {COLOR_BORDER}40;">
     <tr style="border-bottom: 1px solid {COLOR_BORDER};">
