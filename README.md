@@ -19,7 +19,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 133 days, 2 hours)
+### cron (Age: 133 days, 3 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -32,17 +32,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_petting.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_idle.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Being Petted</strong>
+        <strong>Status: Happy</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `█████████░░░░░░`&nbsp;59%<br><br>
+        `████████░░░░░░░`&nbsp;56%<br><br>
         <strong>❤️ </strong>
-        `███████████████`&nbsp;100%<br><br>
+        `███████████████`&nbsp;98%<br><br>
         <strong>⚡ </strong>
-        `█████░░░░░░░░░░`&nbsp;34%
+        `██████░░░░░░░░░`&nbsp;40%
       </td>
     </tr>
   </table>
@@ -58,8 +58,8 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
+      <td align="center" style="border: none;"><sub>Play with him</sub></td>
+      <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
