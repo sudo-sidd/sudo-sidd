@@ -3,23 +3,23 @@
   "ageHours": 3194,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 40,
-    "mood": 80,
-    "energy": 24
+    "hunger": 41,
+    "mood": 100,
+    "energy": 34
   },
   "timestamps": {
     "lastFedAt": "2026-04-16T06:08:03.226007+00:00",
     "lastPlayedAt": "2026-04-16T06:08:34.413600+00:00",
-    "lastPettedAt": "2025-12-19T12:09:00.317668+00:00",
-    "lastAutoUpdate": "2026-04-16T06:08:34.413563+00:00"
+    "lastPettedAt": "2026-04-16T06:38:51.379714+00:00",
+    "lastAutoUpdate": "2026-04-16T06:38:51.379662+00:00"
   },
   "interactions": {
-    "total": 62,
+    "total": 63,
     "byUser": {
       "sudo-sidd": {
-        "count": 42,
-        "lastInteractionAt": "2026-04-16T06:08:34.413600+00:00",
-        "lastAction": "play"
+        "count": 43,
+        "lastInteractionAt": "2026-04-16T06:38:51.379714+00:00",
+        "lastAction": "pet"
       },
       "Syedha18": {
         "count": 1,
@@ -69,17 +69,17 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_petting.gif",
+    "status": "Being Petted"
   },
   "decayCarry": {
-    "hunger": 0.16029895972256047,
-    "mood": 0.40740724699863984,
-    "energy": 0.16541888204448718
+    "hunger": 0.42208097291700497,
+    "mood": 0.31589029649863987,
+    "energy": 0.4366265057944867
   },
   "lastInteraction": {
     "user": "sudo-sidd",
-    "action": "play",
-    "at": "2026-04-16T06:08:34.413600+00:00"
+    "action": "pet",
+    "at": "2026-04-16T06:38:51.379714+00:00"
   }
 }

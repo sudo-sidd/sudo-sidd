@@ -22,9 +22,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 ### cron (Age: 133 days, 2 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
-  <p>
-    He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
-  </p>
+        <p>
+        He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
+    </p>
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -32,17 +32,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Eating</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `█████████░░░░░░`&nbsp;60%<br><br>
+        `█████████░░░░░░`&nbsp;59%<br><br>
         <strong>❤️ </strong>
-        `████████████░░░`&nbsp;80%<br><br>
+        `███████████████`&nbsp;100%<br><br>
         <strong>⚡ </strong>
-        `████░░░░░░░░░░░`&nbsp;24%
+        `█████░░░░░░░░░░`&nbsp;34%
       </td>
     </tr>
   </table>
@@ -58,13 +58,13 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
-      <td align="center" style="border: none;"><sub>Wait 44m</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — play at 2026-04-16 06:08 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — pet at 2026-04-16 06:38 UTC</em></small>
   </div>
 
 
@@ -72,7 +72,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 42
+1. @sudo-sidd – 43
 2. @Mithrajith – 6
 3. @SILVER-2K3 – 5
 4. @Pradeesh1108 – 3
@@ -95,9 +95,9 @@ Use the buttons above or comment commands in an issue:
 **States & Rules**:
 - **Happy States**: Keep Mood high to make cron Playful or Excited!
 - **Warning Signs**: 
-  - Low Fullness makes cron Hungry.
-  - Low Energy makes cron Sleepy.
-  - Low Mood makes cron Cry.
+    - Low Fullness makes cron Hungry.
+    - Low Energy makes cron Sleepy.
+    - Low Mood makes cron Cry.
 - **Critical Conditions**:
   - **Game Over**: If he gets too hungry and tired, cron will Faint.
 
