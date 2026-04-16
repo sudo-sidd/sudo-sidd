@@ -11,7 +11,7 @@ SPRITES_DIR = 'sprites'
 REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 
 # Users to hide from the displayed leaderboard (still tracked in state)
-LEADERBOARD_EXCLUDE_USERS = {"sudo-sidd","testbot"}
+LEADERBOARD_EXCLUDE_USERS = {"testbot"}
 
 # Configuration
 # Rates per hour (approximate)
@@ -223,9 +223,9 @@ def update_readme(state):
 ### {state['name']} (Age: {state['ageHours'] // 24} days, {state['ageHours'] % 24} hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
-  <p>
-    He's <strong>Woop</strong> the Wooper. He's my pet and yes you can pet him.
-  </p>
+        <p>
+        He's <strong>Sudo</strong> the Wooper. He's my pet and yes you can pet him.
+    </p>
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -269,7 +269,7 @@ def update_readme(state):
   </div>
 
 
-<details open>
+<details>
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
@@ -292,9 +292,9 @@ Use the buttons above or comment commands in an issue:
 **States & Rules**:
 - **Happy States**: Keep Mood high to make {state['name']} Playful or Excited!
 - **Warning Signs**: 
-  - Low Fullness makes Woop Hungry.
-  - Low Energy makes Woop Sleepy.
-  - Low Mood makes Woop Cry.
+    - Low Fullness makes Sudo Hungry.
+    - Low Energy makes Sudo Sleepy.
+    - Low Mood makes Sudo Cry.
 - **Critical Conditions**:
   - **Game Over**: If he gets too hungry and tired, {state['name']} will Faint.
 
@@ -586,7 +586,7 @@ def handle_action(state, action, user):
         stats['mood'] = clamp(stats['mood'] + 35)
         stats['energy'] = clamp(stats['energy'] + 45)
         timestamps['lastFedAt'] = now.isoformat()
-        print(f"@{user} fed Woop!")
+        print(f"@{user} fed Sudo!")
 
         # Can revive fainted state if conditions improved
         if state['state'].get('status', '').lower() == 'fainted' and stats['hunger'] < 100 and stats['energy'] >= 20:
@@ -623,7 +623,7 @@ def handle_action(state, action, user):
         stats['energy'] = clamp(stats['energy'] - energy_cost)
         stats['hunger'] = clamp(stats['hunger'] + hunger_cost)
         timestamps['lastPlayedAt'] = now.isoformat()
-        print(f"@{user} played with Woop! Mood +{mood_gain}, Energy -{energy_cost}")
+        print(f"@{user} played with Sudo! Mood +{mood_gain}, Energy -{energy_cost}")
 
     # --- Pet ---
     elif action == 'pet':

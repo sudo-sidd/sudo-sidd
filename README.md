@@ -1,9 +1,12 @@
 <div align="center">
 
 <pre>
-░▒█▀▀▀█░▒█░▒█░▒█▀▀▄░▒█▀▀▀█░░░░▒█▀▀▀█░▀█▀░▒█▀▀▄░▒█▀▀▄░░
-░░▀▀▀▄▄░▒█░▒█░▒█░▒█░▒█░░▒█░▀▀░░▀▀▀▄▄░▒█░░▒█░▒█░▒█░▒█░░
-░▒█▄▄▄█░░▀▄▄▀░▒█▄▄█░▒█▄▄▄█░░░░▒█▄▄▄█░▄█▄░▒█▄▄█░▒█▄▄█░░
+███████╗██╗   ██╗██████╗  ██████╗     ███████╗██╗██████╗ ██████╗     
+██╔════╝██║   ██║██╔══██╗██╔═══██╗    ██╔════╝██║██╔══██╗██╔══██╗    
+███████╗██║   ██║██║  ██║██║   ██║    ███████╗██║██║  ██║██║  ██║    
+╚════██║██║   ██║██║  ██║██║   ██║    ╚════██║██║██║  ██║██║  ██║    
+███████║╚██████╔╝██████╔╝╚██████╔╝    ███████║██║██████╔╝██████╔╝    
+╚══════╝ ╚═════╝ ╚═════╝  ╚═════╝     ╚══════╝╚═╝╚═════╝ ╚═════╝     
 </pre>
 
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&color=8335BA&center=true&vCenter=true&width=800&height=50&lines=Interactive+Developer+%26+Designer;AI%2FML+Engineer;Game+Developer" alt="Typing SVG" /></a>
@@ -16,11 +19,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 133 days, 2 hours)
+### Sudo (Age: 133 days, 2 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
-    He's <strong>Woop</strong> the Wooper. He's my pet and yes you can pet him.
+    He's <strong>Sudo</strong> the Wooper. He's my pet and yes you can pet him.
   </p>
 </div>
 
@@ -29,7 +32,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_eating.gif" alt="Sudo" width="256" style="image-rendering: pixelated;" />
         <br>
         <strong>Status: Eating</strong>
       </td>
@@ -65,15 +68,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   </div>
 
 
-<details open>
+<details>
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @Mithrajith – 6
-2. @SILVER-2K3 – 5
-3. @Pradeesh1108 – 3
-4. @dhanwanth-dev – 2
-5. @Syedha18 – 1
+1. @sudo-sidd – 42
+2. @Mithrajith – 6
+3. @SILVER-2K3 – 5
+4. @Pradeesh1108 – 3
+5. @dhanwanth-dev – 2
 ```
 </details>
 
@@ -90,13 +93,13 @@ Use the buttons above or comment commands in an issue:
 | `/pet` | Strong comfort boost to Mood with a short cooldown. | **15 mins** |
 
 **States & Rules**:
-- **Happy States**: Keep Mood high to make Woop Playful or Excited!
+- **Happy States**: Keep Mood high to make Sudo Playful or Excited!
 - **Warning Signs**: 
-  - Low Fullness makes Woop Hungry.
-  - Low Energy makes Woop Sleepy.
-  - Low Mood makes Woop Cry.
+  - Low Fullness makes Sudo Hungry.
+  - Low Energy makes Sudo Sleepy.
+  - Low Mood makes Sudo Cry.
 - **Critical Conditions**:
-  - **Game Over**: If he gets too hungry and tired, Woop will Faint.
+  - **Game Over**: If he gets too hungry and tired, Sudo will Faint.
 
 </details>
 
@@ -122,8 +125,15 @@ Feel free to poke around my projects—most are open experiments for you to expl
 <br>
 
 
-<a href="https://sudosidd.dev" target="_blank"><img src="https://img.shields.io/badge/sudosidd.dev-black?style=for-the-badge" alt="Website" /></a>
-<a href="https://linkedin.com/in/sudo-sidd" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<a href="mailto:siddharth.t.dev@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
+<br>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle">
+      <img src="sprites/wooper_petting.gif" alt="wooper petting" width="120" style="vertical-align: middle; margin-right: 12px;" />
+      <a href="https://sudosidd.dev">sudosidd.dev</a> | <a href="https://linkedin.com/in/sudo-sidd">linkedin</a> | <a href="mailto:siddharth.t.dev@gmail.com">email</a>
+    </td>
+  </tr>
+</table>
 
 </div>
