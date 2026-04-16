@@ -12,7 +12,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Woop (Age: 16 days, 2 hours)
+### Woop (Age: 133 days, 2 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
@@ -25,17 +25,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_crying.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_eating.gif" alt="Woop" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Crying</strong>
+        <strong>Status: Eating</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `██████████░░░░░`&nbsp;70%<br><br>
         <strong>❤️ </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `█████░░░░░░░░░░`&nbsp;35%<br><br>
         <strong>⚡ </strong>
-        `███░░░░░░░░░░░░`&nbsp;17%
+        `███████░░░░░░░░`&nbsp;45%
       </td>
     </tr>
   </table>
@@ -50,14 +50,14 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Too hungry</sub></td>
+      <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
+      <td align="center" style="border: none;"><sub>Play with him</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — pet at 2025-12-19 12:09 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — feed at 2026-04-16 06:08 UTC</em></small>
   </div>
 
 
@@ -75,15 +75,15 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <details open>
 <summary><strong>How to interact</strong></summary>
-The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
+The system updates every 15 minutes automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 
 Use the buttons above or comment commands in an issue:
 
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
-| `/feed` | Fills his tummy a lot, boosts Mood, and restores Energy. | **20 mins** |
-| `/play` | Boosts Mood a lot, costs Energy, and makes him hungrier. Requires Energy. | **None** |
-| `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
+| `/feed` | Massive refill: strongly restores Fullness, Mood, and Energy. | **2 hours** |
+| `/play` | Big Mood boost, costs Energy, and increases Hunger. Requires Energy. | **45 mins** |
+| `/pet` | Strong comfort boost to Mood with a short cooldown. | **15 mins** |
 
 **States & Rules**:
 - **Happy States**: Keep Mood high to make Woop Playful or Excited!
@@ -100,7 +100,7 @@ Use the buttons above or comment commands in an issue:
 <summary><strong>How this game works</strong></summary>
 
 This is a fully automated creature living in the repository.
-- **Time**: It ages and stats decay in real-time (updated every 6 hours).
+- **Time**: It ages and stats decay in real-time (updated every 15 minutes).
 - **Memory**: It remembers who interacted with it and when.
 - **Persistence**: All state is saved in `state/creature.json`.
 - **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet. After you take an action, wait for the GitHub Action to finish and refresh this page to see the updated pet.
