@@ -29,14 +29,13 @@ ENERGY_REC_HUNGER_MAX = 75
 ENERGY_STABLE_MOOD_THRESHOLD = 45
 ENERGY_DECAY_HUNGER_THRESHOLD = 80
 
-COOLDOWN_FEED = 1200  # 20 minutes in seconds
-COOLDOWN_PLAY = 0  # No cooldown, limited by energy
-# Petting has no cooldown (always allowed)
-COOLDOWN_PET = 0
+COOLDOWN_FEED = 7200  # 2 hours in seconds
+COOLDOWN_PLAY = 2700  # 45 minutes in seconds
+COOLDOWN_PET = 900   # 15 minutes in seconds
 
 # The scheduled automatic update interval for the repository (minutes).
-# Keep this in sync with `.github/workflows/pet_loop.yml` which now runs every 6 hours.
-SCHEDULE_STEP_MINUTES = 6 * 60  # 360 minutes = 6 hours
+# Keep this in sync with `.github/workflows/pet_loop.yml` which runs every 15 minutes.
+SCHEDULE_STEP_MINUTES = 15
 
 def load_state():
     with open(STATE_FILE, 'r') as f:
@@ -121,16 +120,22 @@ def get_action_hint(state, action):
         return "Feed him"
 
     if action == 'play':
-        if stats.get('energy', 0) < 15:
+        last_played = parse_time(timestamps['lastPlayedAt']) if timestamps.get('lastPlayedAt') else None
+        if last_played and COOLDOWN_PLAY and (now - last_played).total_seconds() < COOLDOWN_PLAY:
+            remaining = int((COOLDOWN_PLAY - (now - last_played).total_seconds()) / 60)
+            return f"Wait {max(1, remaining)}m"
+
+        if stats.get('energy', 0) < 20:
             return "Too tired"
-        if stats.get('hunger', 0) >= 80:
+        if stats.get('hunger', 0) >= 85:
             return "Too hungry"
         return "Play with him"
 
     if action == 'pet':
         last_petted = parse_time(timestamps['lastPettedAt']) if timestamps.get('lastPettedAt') else None
-        if last_petted and (now - last_petted).total_seconds() < 120:
-            return "He feels loved"
+        if last_petted and COOLDOWN_PET and (now - last_petted).total_seconds() < COOLDOWN_PET:
+            remaining = int((COOLDOWN_PET - (now - last_petted).total_seconds()) / 60)
+            return f"Wait {max(1, remaining)}m"
         return "Pet him"
 
     return ""
@@ -274,15 +279,15 @@ def update_readme(state):
 
 <details open>
 <summary><strong>How to interact</strong></summary>
-The system updates every 6 hours automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
+The system updates every 15 minutes automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 
 Use the buttons above or comment commands in an issue:
 
 | Command | Effect | Cooldown |
 | :--- | :--- | :--- |
-| `/feed` | Fills his tummy a lot, boosts Mood, and restores Energy. | **20 mins** |
-| `/play` | Boosts Mood a lot, costs Energy, and makes him hungrier. Requires Energy. | **None** |
-| `/pet` | Cheers him up! A quick way to boost Mood. | **None** |
+| `/feed` | Massive refill: strongly restores Fullness, Mood, and Energy. | **2 hours** |
+| `/play` | Big Mood boost, costs Energy, and increases Hunger. Requires Energy. | **45 mins** |
+| `/pet` | Strong comfort boost to Mood with a short cooldown. | **15 mins** |
 
 **States & Rules**:
 - **Happy States**: Keep Mood high to make {state['name']} Playful or Excited!
@@ -299,7 +304,7 @@ Use the buttons above or comment commands in an issue:
 <summary><strong>How this game works</strong></summary>
 
 This is a fully automated creature living in the repository.
-- **Time**: It ages and stats decay in real-time (updated every 6 hours).
+- **Time**: It ages and stats decay in real-time (updated every 15 minutes).
 - **Memory**: It remembers who interacted with it and when.
 - **Persistence**: All state is saved in `state/creature.json`.
 - **Interaction**: You can influence its mood and health by clicking the buttons above, which open issues that trigger a GitHub Action to update the pet. After you take an action, wait for the GitHub Action to finish and refresh this page to see the updated pet.
@@ -576,10 +581,10 @@ def handle_action(state, action, user):
             print(f"Cooldown active. You can feed again in {int((COOLDOWN_FEED - (now - last_fed).total_seconds())/60)} minutes.")
             return state
 
-        # Feed: super OP to combat sadness
-        stats['hunger'] = clamp(stats['hunger'] - 50)
-        stats['mood'] = clamp(stats['mood'] + 25)
-        stats['energy'] = clamp(stats['energy'] + 35)
+        # Low-traffic balance: large reward with larger cooldown.
+        stats['hunger'] = clamp(stats['hunger'] - 70)
+        stats['mood'] = clamp(stats['mood'] + 35)
+        stats['energy'] = clamp(stats['energy'] + 45)
         timestamps['lastFedAt'] = now.isoformat()
         print(f"@{user} fed Woop!")
 
@@ -597,22 +602,22 @@ def handle_action(state, action, user):
             return state
 
         # Play requirement: Energy
-        if stats['energy'] < 15:
+        if stats['energy'] < 20:
             print("Too tired to play.")
             return state
 
-        # Play only allowed if hunger less than 80
-        if stats['hunger'] >= 80:
+        # Play only allowed if hunger less than 85
+        if stats['hunger'] >= 85:
             print("Too hungry to play.")
             # playing while hungry does nothing but maybe reduce energy
             stats['energy'] = clamp(stats['energy'] - 5)
             return state
 
-        # Play effectiveness scales with energy - super OP version
+        # Low-traffic balance: bigger payoff, but cooldown and noticeable resource cost.
         energy_pct = stats['energy'] / 100.0
-        mood_gain = int(45 * max(0.75, energy_pct))  # 35..45
-        energy_cost = int(15 + (5 * (1 - energy_pct)))  # 15..20
-        hunger_cost = 5
+        mood_gain = int(65 * max(0.70, energy_pct))  # 45..65
+        energy_cost = int(18 + (6 * (1 - energy_pct)))  # 18..24
+        hunger_cost = 10
 
         stats['mood'] = clamp(stats['mood'] + mood_gain)
         stats['energy'] = clamp(stats['energy'] - energy_cost)
@@ -622,14 +627,20 @@ def handle_action(state, action, user):
 
     # --- Pet ---
     elif action == 'pet':
-        # petting always works (no cooldown) - super OP version
-        stats['mood'] = clamp(stats['mood'] + 15)
+        last_petted = parse_time(timestamps['lastPettedAt']) if timestamps.get('lastPettedAt') else None
+        if last_petted and COOLDOWN_PET and (now - last_petted).total_seconds() < COOLDOWN_PET:
+            print(f"Cooldown active. You can pet again in {int((COOLDOWN_PET - (now - last_petted).total_seconds())/60)} minutes.")
+            return state
+
+        # Low-traffic balance: stronger comfort action with short cooldown.
+        stats['mood'] = clamp(stats['mood'] + 25)
+        stats['energy'] = clamp(stats['energy'] + 8)
         timestamps['lastPettedAt'] = now.isoformat()
-        print(f"@{user} petted Wisphe! (mood +15)")
+        print(f"@{user} petted Wisphe! (mood +25, energy +8)")
 
         # If very sad, pet provides extra comfort
-        if stats['mood'] < 30:
-            stats['mood'] = clamp(stats['mood'] + 25)
+        if stats['mood'] < 35:
+            stats['mood'] = clamp(stats['mood'] + 20)
             print("Pet calmed Wisphe.")
     
     else:

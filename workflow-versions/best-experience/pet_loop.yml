@@ -1,8 +1,8 @@
-name: Pet Loop
+name: Pet Loop (Best Experience)
 
 on:
   schedule:
-      - cron: '*/15 * * * *' # Every 15 minutes
+    - cron: '0 */6 * * *' # Every 6 hrs
   workflow_dispatch:
   issues:
     types: [opened]
@@ -10,10 +10,6 @@ on:
 permissions:
   contents: write
   issues: write
-
-concurrency:
-  group: pet-loop
-  cancel-in-progress: true
 
 jobs:
   update-pet:
@@ -38,7 +34,7 @@ jobs:
             echo "ACTION=" >> $GITHUB_ENV
             echo "ACTOR=" >> $GITHUB_ENV
           fi
-          
+
       - name: Run Game Engine
         run: |
           python scripts/update_pet.py --action "${{ env.ACTION }}" --user "${{ env.ACTOR }}"
@@ -56,3 +52,14 @@ jobs:
           git config --global user.email "action@github.com"
           git add state/creature.json README.md
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update pet state [skip ci]" && git push)
+
+      - name: Wait and Revert Animation
+        if: github.event_name == 'issues'
+        run: |
+          echo "Waiting for animation duration (2 mins)..."
+          sleep 130
+
+          python scripts/update_pet.py
+
+          git add state/creature.json README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: revert animation to idle [skip ci]" && git push)
