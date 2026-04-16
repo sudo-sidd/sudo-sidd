@@ -224,7 +224,7 @@ def update_readme(state):
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
-        He's <strong>Sudo</strong> the Wooper. He's my pet and yes you can pet him.
+        He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
     </p>
 </div>
 
@@ -292,9 +292,9 @@ Use the buttons above or comment commands in an issue:
 **States & Rules**:
 - **Happy States**: Keep Mood high to make {state['name']} Playful or Excited!
 - **Warning Signs**: 
-    - Low Fullness makes Sudo Hungry.
-    - Low Energy makes Sudo Sleepy.
-    - Low Mood makes Sudo Cry.
+    - Low Fullness makes cron Hungry.
+    - Low Energy makes cron Sleepy.
+    - Low Mood makes cron Cry.
 - **Critical Conditions**:
   - **Game Over**: If he gets too hungry and tired, {state['name']} will Faint.
 

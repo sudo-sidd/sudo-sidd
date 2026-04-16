@@ -19,11 +19,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### Sudo (Age: 133 days, 2 hours)
+### cron (Age: 133 days, 2 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
   <p>
-    He's <strong>Sudo</strong> the Wooper. He's my pet and yes you can pet him.
+    He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
   </p>
 </div>
 
@@ -32,7 +32,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_eating.gif" alt="Sudo" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_eating.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
         <strong>Status: Eating</strong>
       </td>
@@ -93,13 +93,13 @@ Use the buttons above or comment commands in an issue:
 | `/pet` | Strong comfort boost to Mood with a short cooldown. | **15 mins** |
 
 **States & Rules**:
-- **Happy States**: Keep Mood high to make Sudo Playful or Excited!
+- **Happy States**: Keep Mood high to make cron Playful or Excited!
 - **Warning Signs**: 
-  - Low Fullness makes Sudo Hungry.
-  - Low Energy makes Sudo Sleepy.
-  - Low Mood makes Sudo Cry.
+  - Low Fullness makes cron Hungry.
+  - Low Energy makes cron Sleepy.
+  - Low Mood makes cron Cry.
 - **Critical Conditions**:
-  - **Game Over**: If he gets too hungry and tired, Sudo will Faint.
+  - **Game Over**: If he gets too hungry and tired, cron will Faint.
 
 </details>
 
