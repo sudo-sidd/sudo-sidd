@@ -40,9 +40,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>❤️ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;15%<br><br>
+        `██░░░░░░░░░░░░░`&nbsp;12%<br><br>
         <strong>⚡ </strong>
-        `████████░░░░░░░`&nbsp;54%
+        `████████░░░░░░░`&nbsp;53%
       </td>
     </tr>
   </table>
