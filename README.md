@@ -32,17 +32,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_fainted.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Fainted</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>❤️ </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `███████░░░░░░░░`&nbsp;45%<br><br>
         <strong>⚡ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;12%
+        `███░░░░░░░░░░░░`&nbsp;20%
       </td>
     </tr>
   </table>
@@ -58,13 +58,13 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Too tired</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>Too hungry</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — feed at 2026-04-18 14:24 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — pet at 2026-04-22 06:37 UTC</em></small>
   </div>
 
 
@@ -72,7 +72,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 44
+1. @sudo-sidd – 45
 2. @Mithrajith – 6
 3. @SILVER-2K3 – 5
 4. @Pradeesh1108 – 3
