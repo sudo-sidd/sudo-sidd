@@ -11,7 +11,7 @@
     "lastFedAt": "2026-04-18T14:24:04.877677+00:00",
     "lastPlayedAt": "2026-04-16T06:08:34.413600+00:00",
     "lastPettedAt": "2026-04-22T06:37:00.797506+00:00",
-    "lastAutoUpdate": "2026-04-23T21:07:35.394840+00:00"
+    "lastAutoUpdate": "2026-04-23T22:01:00.346959+00:00"
   },
   "interactions": {
     "total": 65,
@@ -73,9 +73,9 @@
     "status": "Fainted"
   },
   "decayCarry": {
-    "hunger": 0.619310853472558,
-    "mood": 0.7527433988319707,
-    "energy": 0.5609741989955609
+    "hunger": 0.8449720270836694,
+    "mood": 0.4235368071653043,
+    "energy": 0.703416514106672
   },
   "lastInteraction": {
     "user": "sudo-sidd",
