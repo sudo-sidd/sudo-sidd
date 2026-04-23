@@ -19,7 +19,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 140 days, 7 hours)
+### cron (Age: 140 days, 8 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -32,9 +32,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_crying.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_fainted.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Crying</strong>
+        <strong>Status: Fainted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
@@ -42,7 +42,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>❤️ </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>⚡ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;16%
+        `██░░░░░░░░░░░░░`&nbsp;15%
       </td>
     </tr>
   </table>
