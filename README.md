@@ -42,7 +42,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>❤️ </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>⚡ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;14%
+        `██░░░░░░░░░░░░░`&nbsp;13%
       </td>
     </tr>
   </table>
