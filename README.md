@@ -19,7 +19,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 162 days, 3 hours)
+### cron (Age: 162 days, 4 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -32,17 +32,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_fainted.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_eating.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Fainted</strong>
+        <strong>Status: Eating</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `██████████░░░░░`&nbsp;70%<br><br>
         <strong>❤️ </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `█████░░░░░░░░░░`&nbsp;35%<br><br>
         <strong>⚡ </strong>
-        `██░░░░░░░░░░░░░`&nbsp;11%
+        `████████░░░░░░░`&nbsp;56%
       </td>
     </tr>
   </table>
@@ -57,14 +57,14 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Too tired</sub></td>
+      <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
+      <td align="center" style="border: none;"><sub>Play with him</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — feed at 2026-05-12 04:10 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — feed at 2026-05-15 08:14 UTC</em></small>
   </div>
 
 
@@ -72,7 +72,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 47
+1. @sudo-sidd – 48
 2. @Mithrajith – 6
 3. @SILVER-2K3 – 5
 4. @Pradeesh1108 – 3

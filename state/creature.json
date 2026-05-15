@@ -1,24 +1,24 @@
 {
   "name": "cron",
-  "ageHours": 3891,
+  "ageHours": 3892,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 11
+    "hunger": 30,
+    "mood": 35,
+    "energy": 56
   },
   "timestamps": {
-    "lastFedAt": "2026-05-12T04:10:32.937444+00:00",
+    "lastFedAt": "2026-05-15T08:14:37.051037+00:00",
     "lastPlayedAt": "2026-04-16T06:08:34.413600+00:00",
     "lastPettedAt": "2026-04-22T06:37:00.797506+00:00",
-    "lastAutoUpdate": "2026-05-15T07:40:49.199218+00:00"
+    "lastAutoUpdate": "2026-05-15T08:14:37.050977+00:00"
   },
   "interactions": {
-    "total": 67,
+    "total": 68,
     "byUser": {
       "sudo-sidd": {
-        "count": 47,
-        "lastInteractionAt": "2026-05-12T04:10:32.937444+00:00",
+        "count": 48,
+        "lastInteractionAt": "2026-05-15T08:14:37.051037+00:00",
         "lastAction": "feed"
       },
       "Syedha18": {
@@ -69,17 +69,17 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_fainted.gif",
-    "status": "Fainted"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.003890698611439092,
-    "mood": 0.5497592563319742,
-    "energy": 0.22246468424446242
+    "hunger": 0.41212108680588355,
+    "mood": 0.23963572216530737,
+    "energy": 0.31259142908890686
   },
   "lastInteraction": {
     "user": "sudo-sidd",
     "action": "feed",
-    "at": "2026-05-12T04:10:32.937444+00:00"
+    "at": "2026-05-15T08:14:37.051037+00:00"
   }
 }
