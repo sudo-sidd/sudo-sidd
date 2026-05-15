@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 3901,
+  "ageHours": 3903,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 65,
-    "mood": 63,
+    "hunger": 69,
+    "mood": 59,
     "energy": 44
   },
   "timestamps": {
     "lastFedAt": "2026-05-15T08:14:37.051037+00:00",
     "lastPlayedAt": "2026-05-15T08:15:46.709236+00:00",
     "lastPettedAt": "2026-04-22T06:37:00.797506+00:00",
-    "lastAutoUpdate": "2026-05-15T18:05:52.801417+00:00"
+    "lastAutoUpdate": "2026-05-15T19:53:31.298114+00:00"
   },
   "interactions": {
     "total": 69,
@@ -70,11 +70,11 @@
   },
   "state": {
     "currentAnimation": "wooper_idle.gif",
-    "status": "Happy"
+    "status": "Idle"
   },
   "decayCarry": {
-    "hunger": 0.04805879305588423,
-    "mood": 0.9775108706653084,
+    "hunger": 0.5331259229169953,
+    "mood": 0.20675920416530857,
     "energy": 0.0
   },
   "lastInteraction": {
