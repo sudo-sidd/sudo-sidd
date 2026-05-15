@@ -38,11 +38,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `██████████░░░░░`&nbsp;70%<br><br>
+        `█████████░░░░░░`&nbsp;60%<br><br>
         <strong>❤️ </strong>
-        `█████░░░░░░░░░░`&nbsp;35%<br><br>
+        `████████████░░░`&nbsp;80%<br><br>
         <strong>⚡ </strong>
-        `████████░░░░░░░`&nbsp;56%
+        `█████░░░░░░░░░░`&nbsp;36%
       </td>
     </tr>
   </table>
@@ -58,13 +58,13 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
-      <td align="center" style="border: none;"><sub>Play with him</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 44m</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — feed at 2026-05-15 08:14 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — play at 2026-05-15 08:15 UTC</em></small>
   </div>
 
 
@@ -72,7 +72,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 48
+1. @sudo-sidd – 49
 2. @Mithrajith – 6
 3. @SILVER-2K3 – 5
 4. @Pradeesh1108 – 3
