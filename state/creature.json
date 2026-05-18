@@ -1,6 +1,6 @@
 {
   "name": "cron",
-  "ageHours": 3973,
+  "ageHours": 3975,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 100,
@@ -11,7 +11,7 @@
     "lastFedAt": "2026-05-15T08:14:37.051037+00:00",
     "lastPlayedAt": "2026-05-15T08:15:46.709236+00:00",
     "lastPettedAt": "2026-04-22T06:37:00.797506+00:00",
-    "lastAutoUpdate": "2026-05-18T17:15:56.900778+00:00"
+    "lastAutoUpdate": "2026-05-18T19:11:03.945269+00:00"
   },
   "interactions": {
     "total": 69,
@@ -73,9 +73,9 @@
     "status": "Fainted"
   },
   "decayCarry": {
-    "hunger": 0.9675713180558887,
-    "mood": 0.3789010186653119,
-    "energy": 0.18145396204000286
+    "hunger": 0.7641299680558884,
+    "mood": 0.13477139866531118,
+    "energy": 0.4884337156400029
   },
   "lastInteraction": {
     "user": "sudo-sidd",
