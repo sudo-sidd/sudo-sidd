@@ -3,18 +3,18 @@
   "ageHours": 4035,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 3
+    "hunger": 30,
+    "mood": 35,
+    "energy": 48
   },
   "timestamps": {
-    "lastFedAt": "2026-05-15T08:14:37.051037+00:00",
+    "lastFedAt": "2026-05-21T07:48:10.378635+00:00",
     "lastPlayedAt": "2026-05-15T08:15:46.709236+00:00",
     "lastPettedAt": "2026-04-22T06:37:00.797506+00:00",
-    "lastAutoUpdate": "2026-05-21T07:36:38.140551+00:00"
+    "lastAutoUpdate": "2026-05-21T07:48:10.378592+00:00"
   },
   "interactions": {
-    "total": 69,
+    "total": 70,
     "byUser": {
       "sudo-sidd": {
         "count": 49,
@@ -65,21 +65,26 @@
         "count": 5,
         "lastInteractionAt": "2025-12-19T11:26:42.066105+00:00",
         "lastAction": "pet"
+      },
+      "aharondev": {
+        "count": 1,
+        "lastInteractionAt": "2026-05-21T07:48:10.378635+00:00",
+        "lastAction": "feed"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_fainted.gif",
-    "status": "Fainted"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.8295428451392173,
-    "mood": 0.4132668511653108,
-    "energy": 0.15662013977333822
+    "hunger": 0.3102637069447729,
+    "mood": 0.9901318853319774,
+    "energy": 0.1873862749288938
   },
   "lastInteraction": {
-    "user": "sudo-sidd",
-    "action": "play",
-    "at": "2026-05-15T08:15:46.709236+00:00"
+    "user": "aharondev",
+    "action": "feed",
+    "at": "2026-05-21T07:48:10.378635+00:00"
   }
 }
