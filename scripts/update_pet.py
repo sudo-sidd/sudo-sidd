@@ -1,10 +1,12 @@
 import argparse
 import datetime
 import json
+import math
 import os
 import urllib.parse
-import math
+import urllib.request
 
+# Configuration & Paths
 STATE_FILE = 'state/creature.json'
 README_FILE = 'README.md'
 SPRITES_DIR = 'sprites'
@@ -13,8 +15,7 @@ REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 # Users to hide from the displayed leaderboard (still tracked in state)
 LEADERBOARD_EXCLUDE_USERS = {"testbot"}
 
-# Configuration
-# Rates per hour (approximate)
+# Game Mechanics Settings
 HUNGER_INC_PER_HOUR = 2.5
 MOOD_DEC_PER_HOUR = 1.8
 ENERGY_DEC_PER_HOUR = 1.6
@@ -29,56 +30,504 @@ ENERGY_REC_HUNGER_MAX = 75
 ENERGY_STABLE_MOOD_THRESHOLD = 45
 ENERGY_DECAY_HUNGER_THRESHOLD = 80
 
-COOLDOWN_FEED = 7200  # 2 hours in seconds
-COOLDOWN_PLAY = 2700  # 45 minutes in seconds
-COOLDOWN_PET = 900   # 15 minutes in seconds
+# Cooldowns (in seconds)
+COOLDOWN_FEED = 7200  # 2 hours
+COOLDOWN_PLAY = 2700  # 45 minutes
+COOLDOWN_PET = 900    # 15 minutes
 
-# The scheduled automatic update interval for the repository (minutes).
-# Keep this in sync with `.github/workflows/pet_loop.yml` which runs every 15 minutes.
+# The scheduled automatic update interval for the repository (minutes)
 SCHEDULE_STEP_MINUTES = 15
 
+
+# ==========================================
+# Helpers & Utilities
+# ==========================================
+
 def load_state():
+    """Loads the pet's current state from the JSON file."""
     with open(STATE_FILE, 'r') as f:
         return json.load(f)
 
+
 def save_state(state):
+    """Saves the pet's current state to the JSON file."""
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2)
 
+
 def get_utc_now():
+    """Returns the current UTC datetime."""
     return datetime.datetime.now(datetime.timezone.utc)
 
+
 def parse_time(iso_str):
+    """Parses an ISO 8601 datetime string, handling the Z suffix for UTC."""
+    if iso_str.endswith('Z'):
+        iso_str = iso_str[:-1] + '+00:00'
     return datetime.datetime.fromisoformat(iso_str)
 
+
 def clamp(value, min_val=0, max_val=100):
+    """Clamps a numeric value between a minimum and maximum range."""
     return max(min_val, min(max_val, value))
 
+
 def _ensure_decay_carry(state):
-    # Tracks fractional decay so small time steps still accumulate smoothly.
-    carry = state.get('decayCarry')
-    if not isinstance(carry, dict):
-        carry = {}
+    """Ensures decay carry-over structures exist in the state for smooth accumulation."""
+    carry = state.setdefault('decayCarry', {})
     carry.setdefault('hunger', 0.0)
     carry.setdefault('mood', 0.0)
     carry.setdefault('energy', 0.0)
-    state['decayCarry'] = carry
     return state
 
+
+# ==========================================
+# GitHub Activity Checking
+# ==========================================
+
+def check_github_activity(username, last_update_str):
+    """
+    Fetches the public GitHub events for the specified username
+    and returns events that occurred after last_update_str.
+    """
+    if not username:
+        return []
+    
+    url = f"https://api.github.com/users/{username}/events/public"
+    req = urllib.request.Request(url)
+    req.add_header('User-Agent', 'GitHub-Pet-Action')
+    
+    token = os.environ.get('GITHUB_TOKEN') or os.environ.get('GH_TOKEN')
+    if token:
+        req.add_header('Authorization', f'Bearer {token}')
+        
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            if response.status == 200:
+                events = json.loads(response.read().decode('utf-8'))
+                last_update = parse_time(last_update_str)
+                new_events = []
+                for event in events:
+                    created_at_str = event.get('created_at')
+                    if not created_at_str:
+                        continue
+                    event_time = parse_time(created_at_str)
+                    if event_time > last_update:
+                        new_events.append(event)
+                # Reverse to process events chronologically
+                new_events.reverse()
+                return new_events
+    except Exception as e:
+        print(f"Warning: Could not fetch GitHub activity: {e}")
+    return []
+
+
+def update_github_activity(state):
+    """
+    Checks the user's GitHub activity and rewards the pet with
+    stats (Mood, Food/Fullness, and Energy) for new activity.
+    """
+    owner = REPO_SLUG.split('/')[0]
+    last_update_str = state.get('timestamps', {}).get('lastAutoUpdate') or state.get('createdAt')
+    if not last_update_str:
+        return state
+        
+    new_events = check_github_activity(owner, last_update_str)
+    if not new_events:
+        return state
+        
+    stats = state['stats']
+    push_count = 0
+    other_count = 0
+    latest_event = None
+    
+    for event in new_events:
+        latest_event = event
+        event_type = event.get('type')
+        
+        if event_type == 'PushEvent':
+            push_count += 1
+            # Push code: +15 Fullness (hunger -15), +15 Mood, +15 Energy
+            stats['hunger'] = clamp(stats['hunger'] - 15)
+            stats['mood'] = clamp(stats['mood'] + 15)
+            stats['energy'] = clamp(stats['energy'] + 15)
+        else:
+            other_count += 1
+            # Other activity: +10 Fullness (hunger -10), +10 Mood, +10 Energy
+            stats['hunger'] = clamp(stats['hunger'] - 10)
+            stats['mood'] = clamp(stats['mood'] + 10)
+            stats['energy'] = clamp(stats['energy'] + 10)
+            
+    pet_name = state.get('name', 'cron')
+    print(f"Processed GitHub activity for @{owner}: {push_count} pushes, {other_count} other events. Updated {pet_name}'s stats.")
+    
+    if latest_event:
+        latest_event_time = parse_time(latest_event.get('created_at'))
+        action_name = "pushed_code" if push_count > 0 else "github_activity"
+        
+        # Log to caretaker leaderboard & total interaction stats
+        state['interactions']['total'] += len(new_events)
+        
+        user_data = state['interactions']['byUser'].setdefault(owner, {
+            'count': 0,
+            'lastInteractionAt': None,
+            'lastAction': None
+        })
+        # Handle migration if it was a plain integer
+        if isinstance(user_data, int):
+            user_data = {
+                'count': user_data,
+                'lastInteractionAt': None,
+                'lastAction': None
+            }
+            state['interactions']['byUser'][owner] = user_data
+            
+        user_data['count'] += len(new_events)
+        user_data['lastInteractionAt'] = latest_event_time.isoformat()
+        user_data['lastAction'] = action_name
+        
+        # Update last interaction at the top level
+        current_last_at = None
+        if state.get('lastInteraction') and isinstance(state['lastInteraction'], dict):
+            current_last_at_str = state['lastInteraction'].get('at')
+            if current_last_at_str:
+                current_last_at = parse_time(current_last_at_str)
+                
+        if not current_last_at or latest_event_time > current_last_at:
+            state['lastInteraction'] = {
+                'user': owner,
+                'action': action_name,
+                'at': latest_event_time.isoformat()
+            }
+            
+        # Revive fainted state if stats recovered
+        if state['state'].get('status', '').lower() == 'fainted' and stats['hunger'] < 100 and stats['energy'] >= 20:
+            state['state']['status'] = 'Happy'
+            state['state']['currentAnimation'] = 'wooper_idle.gif'
+            print(f"{pet_name} has been revived via GitHub activity!")
+            
+    return state
+
+
+# ==========================================
+# Game Engine & State Management
+# ==========================================
+
+def apply_decay(state, now=None):
+    """Applies temporal decay to stats based on time elapsed since lastAutoUpdate."""
+    state = _ensure_decay_carry(state)
+    now = now or get_utc_now()
+
+    last_update_str = state.get('timestamps', {}).get('lastAutoUpdate') or state.get('createdAt')
+    if not last_update_str:
+        state.setdefault('timestamps', {})['lastAutoUpdate'] = now.isoformat()
+        return state
+
+    last_update = parse_time(last_update_str)
+    diff = now - last_update
+    hours_passed = max(0.0, diff.total_seconds() / 3600.0)
+    if hours_passed <= 0.0:
+        return state
+
+    carry = state['decayCarry']
+
+    # 1. Hunger Increase
+    hunger_delta = (hours_passed * HUNGER_INC_PER_HOUR) + float(carry.get('hunger', 0.0))
+    hunger_inc = int(math.floor(hunger_delta))
+    carry['hunger'] = hunger_delta - hunger_inc
+    if hunger_inc:
+        state['stats']['hunger'] = clamp(state['stats']['hunger'] + hunger_inc)
+
+    # 2. Mood Decay (penalized if starving)
+    mood_rate = MOOD_DEC_PER_HOUR
+    if state['stats']['hunger'] >= 80:
+        mood_rate += HUNGER_MOOD_PENALTY_PER_HOUR
+
+    mood_delta = (hours_passed * mood_rate) + float(carry.get('mood', 0.0))
+    mood_dec = int(math.floor(mood_delta))
+    carry['mood'] = mood_delta - mood_dec
+    if mood_dec:
+        state['stats']['mood'] = clamp(state['stats']['mood'] - mood_dec)
+
+    # 3. Energy Recovery / Decay
+    mood = state['stats']['mood']
+    hunger = state['stats']['hunger']
+
+    energy_rate = 0.0
+    if mood >= ENERGY_REC_MOOD_THRESHOLD and hunger <= ENERGY_REC_HUNGER_MAX:
+        energy_rate = ENERGY_REC_PER_HOUR
+    elif mood < ENERGY_STABLE_MOOD_THRESHOLD or hunger >= ENERGY_DECAY_HUNGER_THRESHOLD:
+        energy_rate = -ENERGY_DEC_PER_HOUR
+
+    if energy_rate == 0.0:
+        carry['energy'] = 0.0
+    else:
+        # Soft caps/tapering for energy decay/recovery
+        energy = state['stats']['energy']
+        mult = 1.0
+        if energy_rate < 0:
+            if energy <= 20:
+                mult = 0.1
+            elif energy <= 30:
+                t = (30 - energy) / 10.0
+                mult = 1.0 - (0.9 * t)
+        else:
+            if energy >= 85:
+                mult = 0.1
+            elif energy >= 75:
+                t = (energy - 75) / 10.0
+                mult = 1.0 - (0.9 * t)
+
+        effective_rate = abs(energy_rate) * mult
+        energy_delta = (hours_passed * effective_rate) + float(carry.get('energy', 0.0))
+        energy_mag = int(math.floor(energy_delta))
+        carry['energy'] = energy_delta - energy_mag
+        if energy_mag:
+            state['stats']['energy'] = clamp(
+                state['stats']['energy'] + (energy_mag if energy_rate > 0 else -energy_mag)
+            )
+
+    return state
+
+
+def handle_action(state, action, user):
+    """Processes user action commands (/feed, /play, /pet) and applies cooldowns/rewards."""
+    now = get_utc_now()
+    timestamps = state['timestamps']
+    stats = state['stats']
+    pet_name = state.get('name', 'cron')
+    
+    action = action.lower().replace('/', '').strip()
+    
+    # --- Feed ---
+    if action == 'feed':
+        last_fed = parse_time(timestamps['lastFedAt']) if timestamps.get('lastFedAt') else None
+        if last_fed and COOLDOWN_FEED and (now - last_fed).total_seconds() < COOLDOWN_FEED:
+            rem = int((COOLDOWN_FEED - (now - last_fed).total_seconds()) / 60)
+            print(f"Cooldown active. You can feed again in {rem} minutes.")
+            return state
+
+        stats['hunger'] = clamp(stats['hunger'] - 70)
+        stats['mood'] = clamp(stats['mood'] + 35)
+        stats['energy'] = clamp(stats['energy'] + 45)
+        timestamps['lastFedAt'] = now.isoformat()
+        print(f"@{user} fed {pet_name}!")
+
+        if state['state'].get('status', '').lower() == 'fainted' and stats['hunger'] < 100 and stats['energy'] >= 20:
+            state['state']['status'] = 'Happy'
+            state['state']['currentAnimation'] = 'wooper_idle.gif'
+            print(f"{pet_name} has been revived via feeding.")
+
+    # --- Play ---
+    elif action == 'play':
+        last_played = parse_time(timestamps['lastPlayedAt']) if timestamps.get('lastPlayedAt') else None
+        if last_played and COOLDOWN_PLAY and (now - last_played).total_seconds() < COOLDOWN_PLAY:
+            rem = int((COOLDOWN_PLAY - (now - last_played).total_seconds()) / 60)
+            print(f"Cooldown active. You can play again in {rem} minutes.")
+            return state
+
+        if stats['energy'] < 20:
+            print("Too tired to play.")
+            return state
+
+        if stats['hunger'] >= 85:
+            print("Too hungry to play.")
+            stats['energy'] = clamp(stats['energy'] - 5)
+            return state
+
+        energy_pct = stats['energy'] / 100.0
+        mood_gain = int(65 * max(0.70, energy_pct))
+        energy_cost = int(18 + (6 * (1 - energy_pct)))
+        hunger_cost = 10
+
+        stats['mood'] = clamp(stats['mood'] + mood_gain)
+        stats['energy'] = clamp(stats['energy'] - energy_cost)
+        stats['hunger'] = clamp(stats['hunger'] + hunger_cost)
+        timestamps['lastPlayedAt'] = now.isoformat()
+        print(f"@{user} played with {pet_name}! Mood +{mood_gain}, Energy -{energy_cost}")
+
+    # --- Pet ---
+    elif action == 'pet':
+        last_petted = parse_time(timestamps['lastPettedAt']) if timestamps.get('lastPettedAt') else None
+        if last_petted and COOLDOWN_PET and (now - last_petted).total_seconds() < COOLDOWN_PET:
+            rem = int((COOLDOWN_PET - (now - last_petted).total_seconds()) / 60)
+            print(f"Cooldown active. You can pet again in {rem} minutes.")
+            return state
+
+        stats['mood'] = clamp(stats['mood'] + 25)
+        stats['energy'] = clamp(stats['energy'] + 8)
+        timestamps['lastPettedAt'] = now.isoformat()
+        print(f"@{user} petted {pet_name}! (mood +25, energy +8)")
+
+        if stats['mood'] < 35:
+            stats['mood'] = clamp(stats['mood'] + 20)
+            print(f"Pet calmed {pet_name}.")
+    
+    else:
+        print(f"Unknown command: {action}")
+        return state
+
+    # Record User Interactions
+    state['interactions']['total'] += 1
+    user_data = state['interactions']['byUser'].setdefault(user, {
+        'count': 0,
+        'lastInteractionAt': None,
+        'lastAction': None
+    })
+    if isinstance(user_data, int):
+        user_data = {
+            'count': user_data,
+            'lastInteractionAt': None,
+            'lastAction': None
+        }
+        state['interactions']['byUser'][user] = user_data
+
+    user_data['count'] += 1
+    user_data['lastInteractionAt'] = now.isoformat()
+    user_data['lastAction'] = action
+
+    state['lastInteraction'] = {
+        'user': user,
+        'action': action,
+        'at': now.isoformat()
+    }
+
+    return state
+
+
+def determine_state(state):
+    """Calculates status states and assigns corresponding sprite animation."""
+    stats = state['stats']
+    hunger = stats['hunger']
+    mood = stats['mood']
+    energy = stats['energy']
+    timestamps = state['timestamps']
+    now = get_utc_now()
+
+    # 1. Action Animation Overrides (2 minutes window after action)
+    for trigger, anim, status in [
+        ('lastFedAt', 'wooper_eating.gif', 'Eating'),
+        ('lastPlayedAt', 'wooper_play.gif', 'Playing'),
+        ('lastPettedAt', 'wooper_petting.gif', 'Being Petted')
+    ]:
+        if timestamps.get(trigger):
+            last_action_time = parse_time(timestamps[trigger])
+            if (now - last_action_time).total_seconds() < 120:
+                state['state']['currentAnimation'] = anim
+                state['state']['status'] = status
+                return state
+
+    # 2. Post-action Happiness Window (120-150s after action)
+    most_recent_action_time = None
+    for action_key in ['lastFedAt', 'lastPlayedAt', 'lastPettedAt']:
+        if timestamps.get(action_key):
+            action_time = parse_time(timestamps[action_key])
+            if most_recent_action_time is None or action_time > most_recent_action_time:
+                most_recent_action_time = action_time
+    
+    if most_recent_action_time:
+        seconds_since_action = (now - most_recent_action_time).total_seconds()
+        if 120 <= seconds_since_action < 150:
+            if mood >= 70 and energy >= 50 and hunger <= 60:
+                state['state']['currentAnimation'] = "wooper_idle.gif"
+                state['state']['status'] = "Excited"
+            else:
+                state['state']['currentAnimation'] = "wooper_idle.gif"
+                state['state']['status'] = "Happy"
+            return state
+
+    # 3. Game Over / Fainted State
+    if hunger >= 100 and energy <= 15:
+        state['state']['currentAnimation'] = "wooper_fainted.gif"
+        state['state']['status'] = "Fainted"
+        return state
+
+    # 4. Cry State
+    if mood < 18:
+        state['state']['currentAnimation'] = "wooper_crying.gif"
+        state['state']['status'] = "Crying"
+        return state
+
+    # 5. Sad State
+    if hunger >= 85 or energy < 18 or mood < 38:
+        state['state']['currentAnimation'] = "wooper_sad.gif"
+        state['state']['status'] = "Sad"
+        return state
+
+    # 6. Excited State
+    if mood >= 82 and energy >= 55 and hunger <= 55:
+        state['state']['currentAnimation'] = "wooper_idle.gif"
+        state['state']['status'] = "Excited"
+        return state
+
+    # 7. Happy State
+    if mood >= 62 and energy >= 32:
+        state['state']['currentAnimation'] = "wooper_idle.gif"
+        state['state']['status'] = "Happy"
+        return state
+
+    # 8. Idle State
+    state['state']['currentAnimation'] = "wooper_idle.gif"
+    state['state']['status'] = "Idle"
+    return state
+
+
+def simulate_distribution(seed_state, days=7, step_minutes=30, start_hunger=10, start_mood=80, start_energy=60):
+    """Simulates automatic update decay cycles over days to test stability distributions."""
+    sim_state = json.loads(json.dumps(seed_state))
+    sim_state = _ensure_decay_carry(sim_state)
+    created_at = parse_time(sim_state['createdAt']) if sim_state.get('createdAt') else get_utc_now()
+
+    sim_state['stats']['hunger'] = clamp(start_hunger)
+    sim_state['stats']['mood'] = clamp(start_mood)
+    sim_state['stats']['energy'] = clamp(start_energy)
+    sim_state['decayCarry'] = {'hunger': 0.0, 'mood': 0.0, 'energy': 0.0}
+
+    sim_state.setdefault('timestamps', {})
+    for k in ('lastFedAt', 'lastPlayedAt', 'lastPettedAt'):
+        sim_state['timestamps'].pop(k, None)
+
+    now = get_utc_now()
+    sim_state['timestamps']['lastAutoUpdate'] = now.isoformat()
+    end = now + datetime.timedelta(days=days)
+    step = datetime.timedelta(minutes=step_minutes)
+
+    counts = {}
+    total = 0
+    while now < end:
+        now = now + step
+        sim_state = apply_decay(sim_state, now=now)
+        sim_state['timestamps']['lastAutoUpdate'] = now.isoformat()
+        sim_state['ageHours'] = int((now - created_at).total_seconds() / 3600)
+        sim_state = determine_state(sim_state)
+        status = sim_state['state']['status']
+        counts[status] = counts.get(status, 0) + 1
+        total += 1
+
+    return counts, total
+
+
+# ==========================================
+# README Generator
+# ==========================================
+
 def render_stat_bar(value, total_blocks=15):
+    """Creates a stylized monospace stat bar with percentages."""
     percent = clamp(value)
     filled = int(round((percent / 100) * total_blocks))
     filled = min(total_blocks, filled)
     bar = '█' * filled + '░' * (total_blocks - filled)
     return f"`{bar}`&nbsp;{percent}%"
 
+
 def make_issue_button(label, action):
+    """Builds the HTML badge button leading to issue creation links."""
     issue_title = urllib.parse.quote_plus(f"/{action}")
     issue_body = urllib.parse.quote_plus(f"/{action}")
     badge_label = urllib.parse.quote(label)
-    # Orange button with darker orange/brown label background to simulate border/style
-    color = 'FF8C00' # Dark Orange
-    label_color = 'A0522D' # Sienna (Brownish)
+    
+    color = 'FF8C00'        # Dark Orange
+    label_color = 'A0522D'  # Sienna
     
     badge_url = (
         f"https://img.shields.io/badge/{badge_label}-{color}?"
@@ -92,31 +541,32 @@ def make_issue_button(label, action):
         f'<img src="{badge_url}" alt="{label}" /></a>'
     )
 
+
 def get_cooldown_status(last_time_str, cooldown_seconds):
+    """Checks the time since last_time_str and formats remaining cooldown status."""
     if not last_time_str:
         return "Ready"
     last_time = parse_time(last_time_str)
     now = get_utc_now()
     diff = (now - last_time).total_seconds()
-    if not cooldown_seconds or cooldown_seconds <= 0:
+    if not cooldown_seconds or cooldown_seconds <= 0 or diff >= cooldown_seconds:
         return "Ready"
-    if diff >= cooldown_seconds:
-        return "Ready"
-    else:
-        remaining = int((cooldown_seconds - diff) / 60)
-        return f"Wait {remaining}m"
+    
+    remaining = int((cooldown_seconds - diff) / 60)
+    return f"Wait {remaining}m"
+
 
 def get_action_hint(state, action):
+    """Calculates human-readable warnings or tips for UI interaction buttons."""
     timestamps = state['timestamps']
     stats = state['stats']
     now = get_utc_now()
-
     action = action.lower().strip()
 
     if action == 'feed':
         last_fed = parse_time(timestamps['lastFedAt']) if timestamps.get('lastFedAt') else None
         if last_fed and COOLDOWN_FEED and (now - last_fed).total_seconds() < COOLDOWN_FEED:
-            return "He just ate — maybe later"
+            return f"He just ate — maybe later"
         return "Feed him"
 
     if action == 'play':
@@ -124,7 +574,6 @@ def get_action_hint(state, action):
         if last_played and COOLDOWN_PLAY and (now - last_played).total_seconds() < COOLDOWN_PLAY:
             remaining = int((COOLDOWN_PLAY - (now - last_played).total_seconds()) / 60)
             return f"Wait {max(1, remaining)}m"
-
         if stats.get('energy', 0) < 20:
             return "Too tired"
         if stats.get('hunger', 0) >= 85:
@@ -140,7 +589,9 @@ def get_action_hint(state, action):
 
     return ""
 
+
 def update_readme(state):
+    """Renders all updated status data, leaderboard entries, and animations into the README."""
     with open(README_FILE, 'r') as f:
         content = f.read()
 
@@ -155,10 +606,8 @@ def update_readme(state):
         return
 
     stats = state['stats']
-    timestamps = state['timestamps']
     
-    # Leaderboard
-    # Handle new user structure (dict) or old structure (int)
+    # Leaderboard rows builder
     users_list = []
     for user, data in state['interactions']['byUser'].items():
         if user in LEADERBOARD_EXCLUDE_USERS:
@@ -167,53 +616,44 @@ def update_readme(state):
         users_list.append((user, count))
         
     sorted_users = sorted(users_list, key=lambda x: x[1], reverse=True)
-    leaderboard_rows = []
-    for i, (user, count) in enumerate(sorted_users[:5], 1):
-        leaderboard_rows.append(f"{i}. @{user} – {count}")
-    
+    leaderboard_rows = [f"{i}. @{user} – {count}" for i, (user, count) in enumerate(sorted_users[:5], 1)]
     leaderboard_text = "\n".join(leaderboard_rows) if leaderboard_rows else "No interactions yet."
 
-    # Status Text
     status_text = state['state']['status'].title()
-    
-    # Sprite
     sprite_file = state['state']['currentAnimation']
     
-    # Button hints (human-friendly)
     status_feed = get_action_hint(state, 'feed')
     status_play = get_action_hint(state, 'play')
     status_pet = get_action_hint(state, 'pet')
 
-    # Prefer the explicit top-level lastInteraction if present, otherwise fall back to scanning byUser
+    # Resolve last interaction text safely
     last = state.get('lastInteraction')
     if last and isinstance(last, dict):
         try:
             last_time = parse_time(last.get('at'))
-            last_interaction_text = f"Last interaction: @{last.get('user')} — {last.get('action')} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+            action_desc = last.get('action', '').replace('_', ' ')
+            last_interaction_text = f"Last interaction: @{last.get('user')} — {action_desc} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
         except Exception:
             last_interaction_text = "Last interaction: data unavailable"
     else:
-        # Backwards compatibility: scan per-user records
-        last_user = None
-        last_time = None
-        last_action = None
+        # Scanning per-user data as a fallback
+        last_user, last_time, last_action = None, None, None
         for user, data in state['interactions']['byUser'].items():
             if user in LEADERBOARD_EXCLUDE_USERS:
                 continue
-            if isinstance(data, dict):
-                last_at = data.get('lastInteractionAt')
-                if last_at:
-                    try:
-                        t = parse_time(last_at)
-                    except Exception:
-                        continue
-                    if last_time is None or t > last_time:
-                        last_time = t
-                        last_user = user
-                        last_action = data.get('lastAction')
+            if isinstance(data, dict) and data.get('lastInteractionAt'):
+                try:
+                    t = parse_time(data['lastInteractionAt'])
+                except Exception:
+                    continue
+                if last_time is None or t > last_time:
+                    last_time = t
+                    last_user = user
+                    last_action = data.get('lastAction')
 
         if last_user:
-            last_interaction_text = f"Last interaction: @{last_user} — {last_action} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+            action_desc = last_action.replace('_', ' ') if last_action else "interacted"
+            last_interaction_text = f"Last interaction: @{last_user} — {action_desc} at {last_time.astimezone(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
         else:
             last_interaction_text = "No interactions yet."
 
@@ -314,369 +754,13 @@ This is a fully automated creature living in the repository.
 {end_marker}"""
 
     new_content = content[:start_idx] + new_section + content[end_idx + len(end_marker):]
-    
     with open(README_FILE, 'w') as f:
         f.write(new_content)
 
-def determine_state(state):
-    stats = state['stats']
-    hunger = stats['hunger']
-    mood = stats['mood']
-    energy = stats['energy']
-    timestamps = state['timestamps']
-    now = get_utc_now()
 
-    # Check for recent player actions (within 2 minutes)
-    # Feed
-    if timestamps.get('lastFedAt'):
-        last_fed = parse_time(timestamps['lastFedAt'])
-        if (now - last_fed).total_seconds() < 120:
-            state['state']['currentAnimation'] = "wooper_eating.gif"
-            state['state']['status'] = "Eating"
-            return state
-
-    # Play
-    if timestamps.get('lastPlayedAt'):
-        last_played = parse_time(timestamps['lastPlayedAt'])
-        if (now - last_played).total_seconds() < 120:
-            state['state']['currentAnimation'] = "wooper_play.gif"
-            state['state']['status'] = "Playing"
-            return state
-
-    # Pet
-    if timestamps.get('lastPettedAt'):
-        last_petted = parse_time(timestamps['lastPettedAt'])
-        if (now - last_petted).total_seconds() < 120:
-            state['state']['currentAnimation'] = "wooper_petting.gif"
-            state['state']['status'] = "Being Petted"
-            return state
-
-    # Post-action happiness window (30 seconds after action animation ends)
-    # Check all action timestamps for the 120-150 second window
-    most_recent_action_time = None
-    for action_key in ['lastFedAt', 'lastPlayedAt', 'lastPettedAt']:
-        if timestamps.get(action_key):
-            action_time = parse_time(timestamps[action_key])
-            if most_recent_action_time is None or action_time > most_recent_action_time:
-                most_recent_action_time = action_time
-    
-    if most_recent_action_time:
-        seconds_since_action = (now - most_recent_action_time).total_seconds()
-        # Happiness window: 2 minutes (action animation) to 2.5 minutes (30 sec happiness)
-        if 120 <= seconds_since_action < 150:
-            # Choose animation based on stats - excited if stats are good, happy otherwise
-            if mood >= 70 and energy >= 50 and hunger <= 60:
-                state['state']['currentAnimation'] = "wooper_idle.gif"
-                state['state']['status'] = "Excited"
-            else:
-                state['state']['currentAnimation'] = "wooper_idle.gif"
-                state['state']['status'] = "Happy"
-            return state
-
-    # Post-action happiness window (30 seconds after action animation ends)
-    # Check all action timestamps for the 120-150 second window
-    most_recent_action_time = None
-    for action_key in ['lastFedAt', 'lastPlayedAt', 'lastPettedAt']:
-        if timestamps.get(action_key):
-            action_time = parse_time(timestamps[action_key])
-            if most_recent_action_time is None or action_time > most_recent_action_time:
-                most_recent_action_time = action_time
-    
-    if most_recent_action_time:
-        seconds_since_action = (now - most_recent_action_time).total_seconds()
-        # Happiness window: 2 minutes (action animation) to 2.5 minutes (30 sec happiness)
-        if 120 <= seconds_since_action < 150:
-            # Choose animation based on stats - excited if stats are good, happy otherwise
-            if mood >= 70 and energy >= 50 and hunger <= 60:
-                state['state']['currentAnimation'] = "wooper_idle.gif"
-                state['state']['status'] = "Excited"
-            else:
-                state['state']['currentAnimation'] = "wooper_idle.gif"
-                state['state']['status'] = "Happy"
-            return state
-
-    # Fainted (hard condition)
-    if hunger >= 100 and energy <= 15:
-        state['state']['currentAnimation'] = "wooper_fainted.gif"
-        state['state']['status'] = "Fainted"
-        return state
-
-    # Crying (rare)
-    if mood < 18:
-        state['state']['currentAnimation'] = "wooper_crying.gif"
-        state['state']['status'] = "Crying"
-        return state
-
-    # Sad (common)
-    if hunger >= 85 or energy < 18 or mood < 38:
-        state['state']['currentAnimation'] = "wooper_sad.gif"
-        state['state']['status'] = "Sad"
-        return state
-
-    # Positive states
-    if mood >= 82 and energy >= 55 and hunger <= 55:
-        state['state']['currentAnimation'] = "wooper_idle.gif"
-        state['state']['status'] = "Excited"
-        return state
-
-    if mood >= 62 and energy >= 32:
-        state['state']['currentAnimation'] = "wooper_idle.gif"
-        state['state']['status'] = "Happy"
-        return state
-
-    # Neutral
-    state['state']['currentAnimation'] = "wooper_idle.gif"
-    state['state']['status'] = "Idle"
-    return state
-
-def apply_decay(state, now=None):
-    state = _ensure_decay_carry(state)
-    now = now or get_utc_now()
-
-    # Use lastAutoUpdate if present, otherwise fall back to createdAt; if neither, initialize lastAutoUpdate
-    last_update_str = state.get('timestamps', {}).get('lastAutoUpdate') or state.get('createdAt')
-    if not last_update_str:
-        # Nothing to decay from; set lastAutoUpdate and return
-        state.setdefault('timestamps', {})
-        state['timestamps']['lastAutoUpdate'] = now.isoformat()
-        return state
-
-    last_update = parse_time(last_update_str)
-
-    # Calculate hours passed
-    diff = now - last_update
-    hours_passed = max(0.0, diff.total_seconds() / 3600.0)
-    if hours_passed <= 0.0:
-        return state
-
-    carry = state['decayCarry']
-
-    # Hunger increases over time
-    hunger_delta = (hours_passed * HUNGER_INC_PER_HOUR) + float(carry.get('hunger', 0.0))
-    hunger_inc = int(math.floor(hunger_delta))
-    carry['hunger'] = hunger_delta - hunger_inc
-    if hunger_inc:
-        state['stats']['hunger'] = clamp(state['stats']['hunger'] + hunger_inc)
-
-    # Mood decreases over time, with a penalty when very hungry
-    mood_rate = MOOD_DEC_PER_HOUR
-    if state['stats']['hunger'] >= 80:
-        mood_rate += HUNGER_MOOD_PENALTY_PER_HOUR
-
-    mood_delta = (hours_passed * mood_rate) + float(carry.get('mood', 0.0))
-    mood_dec = int(math.floor(mood_delta))
-    carry['mood'] = mood_delta - mood_dec
-    if mood_dec:
-        state['stats']['mood'] = clamp(state['stats']['mood'] - mood_dec)
-
-    # Energy rules:
-    # - Recovers only when mood is high AND hunger isn't too high
-    # - Stays constant under normal/idle conditions
-    # - Decays only when mood is low OR hunger is high
-    mood = state['stats']['mood']
-    hunger = state['stats']['hunger']
-
-    energy_rate = 0.0
-    if mood >= ENERGY_REC_MOOD_THRESHOLD and hunger <= ENERGY_REC_HUNGER_MAX:
-        energy_rate = ENERGY_REC_PER_HOUR
-    elif mood < ENERGY_STABLE_MOOD_THRESHOLD or hunger >= ENERGY_DECAY_HUNGER_THRESHOLD:
-        energy_rate = -ENERGY_DEC_PER_HOUR
-
-    if energy_rate == 0.0:
-        # Don't accumulate carry while stable; keeps behavior predictable.
-        carry['energy'] = 0.0
-    else:
-        # Soft caps:
-        # - Below ~20, energy should be very hard to drain further.
-        # - Above ~85, energy should be very hard to recover further.
-        energy = state['stats']['energy']
-        mult = 1.0
-        if energy_rate < 0:
-            # Taper drain between 30 -> 20, then keep very slow below 20.
-            if energy <= 20:
-                mult = 0.1
-            elif energy <= 30:
-                t = (30 - energy) / 10.0  # 0..1
-                mult = 1.0 - (0.9 * t)  # 1.0 -> 0.1
-        else:
-            # Taper recovery between 75 -> 85, then keep very slow above 85.
-            if energy >= 85:
-                mult = 0.1
-            elif energy >= 75:
-                t = (energy - 75) / 10.0  # 0..1
-                mult = 1.0 - (0.9 * t)  # 1.0 -> 0.1
-
-        effective_rate = abs(energy_rate) * mult
-
-        energy_delta = (hours_passed * effective_rate) + float(carry.get('energy', 0.0))
-        energy_mag = int(math.floor(energy_delta))
-        carry['energy'] = energy_delta - energy_mag
-        if energy_mag:
-            state['stats']['energy'] = clamp(
-                state['stats']['energy'] + (energy_mag if energy_rate > 0 else -energy_mag)
-            )
-
-    return state
-
-def simulate_distribution(
-    seed_state,
-    days=7,
-    step_minutes=30,
-    start_hunger=10,
-    start_mood=80,
-    start_energy=60,
-):
-    # Simulate scheduled updates only (no actions) and return status distribution.
-    # Defaults are a "healthy" starting point: fullness ~90% => hunger=10.
-    sim_state = json.loads(json.dumps(seed_state))
-    sim_state = _ensure_decay_carry(sim_state)
-    created_at = parse_time(sim_state['createdAt']) if sim_state.get('createdAt') else get_utc_now()
-
-    # Reset stats to a believable baseline (so distributions are meaningful)
-    sim_state['stats']['hunger'] = clamp(start_hunger)
-    sim_state['stats']['mood'] = clamp(start_mood)
-    sim_state['stats']['energy'] = clamp(start_energy)
-    sim_state['decayCarry'] = {'hunger': 0.0, 'mood': 0.0, 'energy': 0.0}
-
-    # Clear action timestamps so we don't begin inside an action animation window
-    sim_state.setdefault('timestamps', {})
-    for k in ('lastFedAt', 'lastPlayedAt', 'lastPettedAt'):
-        if k in sim_state['timestamps']:
-            sim_state['timestamps'].pop(k, None)
-
-    # Start from "now" to avoid depending on whatever the repo state currently contains.
-    now = get_utc_now()
-    sim_state['timestamps']['lastAutoUpdate'] = now.isoformat()
-    end = now + datetime.timedelta(days=days)
-    step = datetime.timedelta(minutes=step_minutes)
-
-    counts = {}
-    total = 0
-    while now < end:
-        now = now + step
-        sim_state = apply_decay(sim_state, now=now)
-        sim_state['timestamps']['lastAutoUpdate'] = now.isoformat()
-
-        # Keep age consistent for realism.
-        sim_state['ageHours'] = int((now - created_at).total_seconds() / 3600)
-
-        sim_state = determine_state(sim_state)
-        status = sim_state['state']['status']
-        counts[status] = counts.get(status, 0) + 1
-        total += 1
-
-    return counts, total
-
-def handle_action(state, action, user):
-    now = get_utc_now()
-    timestamps = state['timestamps']
-    stats = state['stats']
-    
-    action = action.lower().replace('/', '').strip()
-    
-    # --- Feed ---
-    if action == 'feed':
-        last_fed = parse_time(timestamps['lastFedAt']) if timestamps.get('lastFedAt') else None
-        if last_fed and COOLDOWN_FEED and (now - last_fed).total_seconds() < COOLDOWN_FEED:
-            print(f"Cooldown active. You can feed again in {int((COOLDOWN_FEED - (now - last_fed).total_seconds())/60)} minutes.")
-            return state
-
-        # Low-traffic balance: large reward with larger cooldown.
-        stats['hunger'] = clamp(stats['hunger'] - 70)
-        stats['mood'] = clamp(stats['mood'] + 35)
-        stats['energy'] = clamp(stats['energy'] + 45)
-        timestamps['lastFedAt'] = now.isoformat()
-        print(f"@{user} fed Sudo!")
-
-        # Can revive fainted state if conditions improved
-        if state['state'].get('status', '').lower() == 'fainted' and stats['hunger'] < 100 and stats['energy'] >= 20:
-            state['state']['status'] = 'Happy'
-            state['state']['currentAnimation'] = 'wooper_idle.gif'
-            print("Wisphe has been revived via feeding.")
-
-    # --- Play ---
-    elif action == 'play':
-        last_played = parse_time(timestamps['lastPlayedAt']) if timestamps.get('lastPlayedAt') else None
-        if last_played and COOLDOWN_PLAY and (now - last_played).total_seconds() < COOLDOWN_PLAY:
-            print(f"Cooldown active. You can play again in {int((COOLDOWN_PLAY - (now - last_played).total_seconds())/60)} minutes.")
-            return state
-
-        # Play requirement: Energy
-        if stats['energy'] < 20:
-            print("Too tired to play.")
-            return state
-
-        # Play only allowed if hunger less than 85
-        if stats['hunger'] >= 85:
-            print("Too hungry to play.")
-            # playing while hungry does nothing but maybe reduce energy
-            stats['energy'] = clamp(stats['energy'] - 5)
-            return state
-
-        # Low-traffic balance: bigger payoff, but cooldown and noticeable resource cost.
-        energy_pct = stats['energy'] / 100.0
-        mood_gain = int(65 * max(0.70, energy_pct))  # 45..65
-        energy_cost = int(18 + (6 * (1 - energy_pct)))  # 18..24
-        hunger_cost = 10
-
-        stats['mood'] = clamp(stats['mood'] + mood_gain)
-        stats['energy'] = clamp(stats['energy'] - energy_cost)
-        stats['hunger'] = clamp(stats['hunger'] + hunger_cost)
-        timestamps['lastPlayedAt'] = now.isoformat()
-        print(f"@{user} played with Sudo! Mood +{mood_gain}, Energy -{energy_cost}")
-
-    # --- Pet ---
-    elif action == 'pet':
-        last_petted = parse_time(timestamps['lastPettedAt']) if timestamps.get('lastPettedAt') else None
-        if last_petted and COOLDOWN_PET and (now - last_petted).total_seconds() < COOLDOWN_PET:
-            print(f"Cooldown active. You can pet again in {int((COOLDOWN_PET - (now - last_petted).total_seconds())/60)} minutes.")
-            return state
-
-        # Low-traffic balance: stronger comfort action with short cooldown.
-        stats['mood'] = clamp(stats['mood'] + 25)
-        stats['energy'] = clamp(stats['energy'] + 8)
-        timestamps['lastPettedAt'] = now.isoformat()
-        print(f"@{user} petted Wisphe! (mood +25, energy +8)")
-
-        # If very sad, pet provides extra comfort
-        if stats['mood'] < 35:
-            stats['mood'] = clamp(stats['mood'] + 20)
-            print("Pet calmed Wisphe.")
-    
-    else:
-        print(f"Unknown command: {action}")
-        return state
-
-    # Update interactions
-    state['interactions']['total'] += 1
-    
-    if user not in state['interactions']['byUser']:
-        state['interactions']['byUser'][user] = {
-            'count': 0,
-            'lastInteractionAt': None,
-            'lastAction': None
-        }
-    
-    # Migration for old integer format if necessary
-    if isinstance(state['interactions']['byUser'][user], int):
-         state['interactions']['byUser'][user] = {
-            'count': state['interactions']['byUser'][user],
-            'lastInteractionAt': None,
-            'lastAction': None
-        }
-
-    state['interactions']['byUser'][user]['count'] += 1
-    state['interactions']['byUser'][user]['lastInteractionAt'] = now.isoformat()
-    state['interactions']['byUser'][user]['lastAction'] = action
-
-    # Persist the last interaction at the top-level for quick access and display
-    state['lastInteraction'] = {
-        'user': user,
-        'action': action,
-        'at': now.isoformat()
-    }
-
-    return state
+# ==========================================
+# CLI Execution Entry Point
+# ==========================================
 
 def main():
     parser = argparse.ArgumentParser()
@@ -690,6 +774,7 @@ def main():
 
     state = load_state()
 
+    # 1. Handle Simulation Mode
     if args.simulate_days and args.simulate_days > 0:
         counts, total = simulate_distribution(
             state,
@@ -707,46 +792,35 @@ def main():
             print(f"- {k}: {v} ({pct:.1f}%)")
         return
     
-    # Always calculate decay first? 
-    # The prompt says "On user comment... 4. Update stats and timestamps". 
-    # It doesn't explicitly say apply decay on user interaction, but usually you want to bring stats up to date before applying action.
-    # However, the prompt separates "Automatic cycle" (decay) from "Action Handling".
-    # "On scheduled run... Only decay + state update".
-    # "On user comment... Update stats".
-    # If we don't decay on user interaction, the pet might not age or get hungry between cron runs if people interact frequently.
-    # But let's stick to the prompt: "Automatic cycle... Step 3: Apply decay".
-    # I will apply decay ONLY if it's a scheduled run (no action) OR if we want to be realistic, we should apply decay based on time passed since last update regardless.
-    # Let's apply decay if it's the cron job (no action provided).
+    # 2. Main Pet Loop Mode
+    now = get_utc_now()
     
     if not args.action:
-        # Cron job mode
-        state = apply_decay(state)
-        # Age is now calculated dynamically based on createdAt
-        state['timestamps']['lastAutoUpdate'] = get_utc_now().isoformat()
+        # Scheduled Cron Update Cycle
+        state = apply_decay(state, now=now)
+        state = update_github_activity(state)
+        state.setdefault('timestamps', {})['lastAutoUpdate'] = now.isoformat()
         print("Ran automatic update cycle.")
     else:
-        # User interaction mode
+        # User Action Interaction Cycle
         if not args.user:
             print("Error: --user is required for actions.")
             return
-        # Apply decay up to now so state reflects time passed since last automatic update
-        now = get_utc_now()
         state = apply_decay(state, now=now)
-        state.setdefault('timestamps', {})
-        state['timestamps']['lastAutoUpdate'] = now.isoformat()
-
+        state = update_github_activity(state)
+        state.setdefault('timestamps', {})['lastAutoUpdate'] = now.isoformat()
         state = handle_action(state, args.action, args.user)
 
     # Calculate Age Dynamically
     if 'createdAt' in state:
         created_at = parse_time(state['createdAt'])
-        now = get_utc_now()
         age_hours = int((now - created_at).total_seconds() / 3600)
         state['ageHours'] = age_hours
 
     state = determine_state(state)
     save_state(state)
     update_readme(state)
+
 
 if __name__ == '__main__':
     main()

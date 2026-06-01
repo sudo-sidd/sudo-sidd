@@ -38,6 +38,8 @@ jobs:
       - name: Run Game Engine
         run: |
           python scripts/update_pet.py --action "${{ env.ACTION }}" --user "${{ env.ACTOR }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Close Issue
         if: github.event_name == 'issues'
@@ -60,6 +62,8 @@ jobs:
           sleep 130
 
           python scripts/update_pet.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           git add state/creature.json README.md
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: revert animation to idle [skip ci]" && git push)
