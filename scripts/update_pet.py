@@ -13,7 +13,7 @@ SPRITES_DIR = 'sprites'
 REPO_SLUG = os.environ.get('GITHUB_REPOSITORY', 'sudo-sidd/sudo-sidd')
 
 # Users to hide from the displayed leaderboard (still tracked in state)
-LEADERBOARD_EXCLUDE_USERS = {"testbot"}
+LEADERBOARD_EXCLUDE_USERS = {"testbot", "sudo-sidd"}
 
 # Game Mechanics Settings
 HUNGER_INC_PER_HOUR = 2.5

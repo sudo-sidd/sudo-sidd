@@ -33,17 +33,17 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_idle.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Sad</strong>
+        <strong>Status: Idle</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>🍖 </strong>
-        `████░░░░░░░░░░░`&nbsp;25%<br><br>
+        `██████░░░░░░░░░`&nbsp;40%<br><br>
         <strong>❤️ </strong>
-        `████░░░░░░░░░░░`&nbsp;25%<br><br>
+        `██████░░░░░░░░░`&nbsp;40%<br><br>
         <strong>⚡ </strong>
-        `██████░░░░░░░░░`&nbsp;37%
+        `████████░░░░░░░`&nbsp;52%
       </td>
     </tr>
   </table>
@@ -65,7 +65,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — pushed code at 2026-06-01 09:21 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — pushed code at 2026-06-01 09:24 UTC</em></small>
   </div>
 
 
@@ -73,11 +73,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <summary><strong>Top Caretakers</strong></summary>
 
 ```
-1. @sudo-sidd – 52
-2. @Mithrajith – 6
-3. @SILVER-2K3 – 5
-4. @Pradeesh1108 – 3
-5. @dhanwanth-dev – 2
+1. @Mithrajith – 6
+2. @SILVER-2K3 – 5
+3. @Pradeesh1108 – 3
+4. @dhanwanth-dev – 2
+5. @Syedha18 – 1
 ```
 </details>
 
