@@ -82,7 +82,7 @@ def _ensure_decay_carry(state):
 
 
 # ==========================================
-# GitHub Activity Checking
+# GitHub Activity & Streak Checking
 # ==========================================
 
 def check_github_activity(username, last_update_str):
@@ -124,14 +124,48 @@ def check_github_activity(username, last_update_str):
 
 def update_github_activity(state):
     """
-    Checks the user's GitHub activity and rewards the pet with
-    stats (Mood, Food/Fullness, and Energy) for new activity.
+    Checks the user's GitHub activity, updates streaks, and rewards the pet
+    with stats (Mood, Food/Fullness, and Energy) scaled by streak bonuses.
     """
     owner = REPO_SLUG.split('/')[0]
     last_update_str = state.get('timestamps', {}).get('lastAutoUpdate') or state.get('createdAt')
     if not last_update_str:
         return state
         
+    # Load or initialize owner data
+    user_data = state['interactions']['byUser'].setdefault(owner, {
+        'count': 0,
+        'lastInteractionAt': None,
+        'lastAction': None,
+        'streakDays': 0,
+        'lastActiveDay': None
+    })
+    if isinstance(user_data, int):
+        user_data = {
+            'count': user_data,
+            'lastInteractionAt': None,
+            'lastAction': None,
+            'streakDays': 0,
+            'lastActiveDay': None
+        }
+        state['interactions']['byUser'][owner] = user_data
+        
+    user_data.setdefault('streakDays', 0)
+    user_data.setdefault('lastActiveDay', None)
+    
+    current_date = get_utc_now().date()
+    
+    # Check if the streak is broken due to inactivity
+    last_active_day_str = user_data.get('lastActiveDay')
+    if last_active_day_str:
+        try:
+            last_active_date = datetime.date.fromisoformat(last_active_day_str)
+            if (current_date - last_active_date).days > 1:
+                user_data['streakDays'] = 0
+                user_data['lastActiveDay'] = None
+        except Exception:
+            pass
+
     new_events = check_github_activity(owner, last_update_str)
     if not new_events:
         return state
@@ -141,25 +175,57 @@ def update_github_activity(state):
     other_count = 0
     latest_event = None
     
+    # Process events and recalculate streak progression chronologically
+    streak = user_data.get('streakDays', 0)
+    last_active_day_str = user_data.get('lastActiveDay')
+    
     for event in new_events:
         latest_event = event
-        event_type = event.get('type')
+        event_time = parse_time(event.get('created_at'))
+        event_date = event_time.date()
         
+        # Calculate daily streak progression
+        if not last_active_day_str:
+            streak = 1
+            last_active_day_str = event_date.isoformat()
+        else:
+            try:
+                last_active_date = datetime.date.fromisoformat(last_active_day_str)
+                diff = (event_date - last_active_date).days
+                if diff == 1:
+                    streak += 1
+                    last_active_day_str = event_date.isoformat()
+                elif diff > 1:
+                    streak = 1
+                    last_active_day_str = event_date.isoformat()
+                elif diff == 0:
+                    # Same day activity, maintain streak
+                    last_active_day_str = event_date.isoformat()
+            except Exception:
+                streak = 1
+                last_active_day_str = event_date.isoformat()
+                
+        # Stat multiplier: +10% per day of streak, capped at 2.0x (11-day streak)
+        multiplier = min(2.0, 1.0 + 0.1 * (max(1, streak) - 1))
+        
+        event_type = event.get('type')
         if event_type == 'PushEvent':
             push_count += 1
-            # Push code: +15 Fullness (hunger -15), +15 Mood, +15 Energy
-            stats['hunger'] = clamp(stats['hunger'] - 15)
-            stats['mood'] = clamp(stats['mood'] + 15)
-            stats['energy'] = clamp(stats['energy'] + 15)
+            stats['hunger'] = clamp(stats['hunger'] - int(15 * multiplier))
+            stats['mood'] = clamp(stats['mood'] + int(15 * multiplier))
+            stats['energy'] = clamp(stats['energy'] + int(15 * multiplier))
         else:
             other_count += 1
-            # Other activity: +10 Fullness (hunger -10), +10 Mood, +10 Energy
-            stats['hunger'] = clamp(stats['hunger'] - 10)
-            stats['mood'] = clamp(stats['mood'] + 10)
-            stats['energy'] = clamp(stats['energy'] + 10)
-            
+            stats['hunger'] = clamp(stats['hunger'] - int(10 * multiplier))
+            stats['mood'] = clamp(stats['mood'] + int(10 * multiplier))
+            stats['energy'] = clamp(stats['energy'] + int(10 * multiplier))
+
+    user_data['streakDays'] = streak
+    user_data['lastActiveDay'] = last_active_day_str
+
+    final_multiplier = min(2.0, 1.0 + 0.1 * (max(1, streak) - 1))
     pet_name = state.get('name', 'cron')
-    print(f"Processed GitHub activity for @{owner}: {push_count} pushes, {other_count} other events. Updated {pet_name}'s stats.")
+    print(f"Processed GitHub activity for @{owner}: {push_count} pushes, {other_count} other events. Streak: 🔥 {streak} days ({final_multiplier:.1f}x bonus). Updated {pet_name}'s stats.")
     
     if latest_event:
         latest_event_time = parse_time(latest_event.get('created_at'))
@@ -168,20 +234,6 @@ def update_github_activity(state):
         # Log to caretaker leaderboard & total interaction stats
         state['interactions']['total'] += len(new_events)
         
-        user_data = state['interactions']['byUser'].setdefault(owner, {
-            'count': 0,
-            'lastInteractionAt': None,
-            'lastAction': None
-        })
-        # Handle migration if it was a plain integer
-        if isinstance(user_data, int):
-            user_data = {
-                'count': user_data,
-                'lastInteractionAt': None,
-                'lastAction': None
-            }
-            state['interactions']['byUser'][owner] = user_data
-            
         user_data['count'] += len(new_events)
         user_data['lastInteractionAt'] = latest_event_time.isoformat()
         user_data['lastAction'] = action_name
@@ -657,6 +709,18 @@ def update_readme(state):
         else:
             last_interaction_text = "No interactions yet."
 
+    # Retrieve owner's active streak if present
+    owner = REPO_SLUG.split('/')[0]
+    owner_data = state['interactions']['byUser'].get(owner, {})
+    streak = 0
+    if isinstance(owner_data, dict):
+        streak = owner_data.get('streakDays', 0)
+        
+    streak_text = ""
+    if streak > 0:
+        multiplier = min(2.0, 1.0 + 0.1 * (max(1, streak) - 1))
+        streak_text = f"\n    <p>🔥 <strong>Developer Streak:</strong> {streak} days ({multiplier:.1f}x activity boost!)</p>"
+
     new_section = f"""{start_marker}
 <div align="center" id="github-tamagotchi">
 
@@ -665,7 +729,7 @@ def update_readme(state):
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
         He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
-    </p>
+    </p>{streak_text}
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -731,6 +795,7 @@ Use the buttons above or comment commands in an issue:
 
 **States & Rules**:
 - **Happy States**: Keep Mood high to make {state['name']} Playful or Excited!
+- **Developer Streak**: Pushing code daily builds a streak (up to 2.0x bonus rewards) to help keep {state['name']} healthy and energized.
 - **Warning Signs**: 
     - Low Fullness makes cron Hungry.
     - Low Energy makes cron Sleepy.
