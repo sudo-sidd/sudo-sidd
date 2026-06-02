@@ -1,27 +1,27 @@
 {
   "name": "cron",
-  "ageHours": 4317,
+  "ageHours": 4322,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 86,
-    "mood": 20,
-    "energy": 40
+    "hunger": 71,
+    "mood": 33,
+    "energy": 59
   },
   "timestamps": {
     "lastFedAt": "2026-05-29T06:01:56.358892+00:00",
     "lastPlayedAt": "2026-05-15T08:15:46.709236+00:00",
     "lastPettedAt": "2026-04-22T06:37:00.797506+00:00",
-    "lastAutoUpdate": "2026-06-02T01:58:18.300466+00:00"
+    "lastAutoUpdate": "2026-06-02T06:48:38.269689+00:00"
   },
   "interactions": {
-    "total": 75,
+    "total": 77,
     "byUser": {
       "sudo-sidd": {
-        "count": 54,
-        "lastInteractionAt": "2026-06-01T09:26:48+00:00",
+        "count": 56,
+        "lastInteractionAt": "2026-06-02T04:40:06+00:00",
         "lastAction": "pushed_code",
-        "streakDays": 1,
-        "lastActiveDay": "2026-06-01"
+        "streakDays": 2,
+        "lastActiveDay": "2026-06-02"
       },
       "Syedha18": {
         "count": 1,
@@ -80,13 +80,13 @@
     "status": "Sad"
   },
   "decayCarry": {
-    "hunger": 0.7324291972225536,
-    "mood": 0.08672050099864137,
-    "energy": 0.4344574944666837
+    "hunger": 0.8296300465281092,
+    "mood": 0.6033615201653078,
+    "energy": 0.17666603802224046
   },
   "lastInteraction": {
     "user": "sudo-sidd",
     "action": "pushed_code",
-    "at": "2026-06-01T09:26:48+00:00"
+    "at": "2026-06-02T04:40:06+00:00"
   }
 }
