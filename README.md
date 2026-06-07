@@ -19,13 +19,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 184 days, 19 hours)
+### cron (Age: 184 days, 21 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
         He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
     </p>
-    <p>🔥 <strong>Developer Streak:</strong> 1 days (1.0x activity boost!)</p>
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -41,9 +40,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>❤️ </strong>
-        `█░░░░░░░░░░░░░░`&nbsp;6%<br><br>
+        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>⚡ </strong>
-        `█████████░░░░░░`&nbsp;59%
+        `████████░░░░░░░`&nbsp;55%
       </td>
     </tr>
   </table>
