@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 4540,
+  "ageHours": 4543,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 0,
-    "mood": 74,
+    "hunger": 6,
+    "mood": 70,
     "energy": 100
   },
   "timestamps": {
     "lastFedAt": "2026-06-11T08:29:12.496115+00:00",
     "lastPlayedAt": "2026-06-05T10:10:48.899331+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-06-11T08:29:44.790504+00:00"
+    "lastAutoUpdate": "2026-06-11T11:08:30.492982+00:00"
   },
   "interactions": {
     "total": 87,
@@ -81,12 +81,12 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Happy"
   },
   "decayCarry": {
-    "hunger": 0.04249172361143701,
-    "mood": 0.2001107189986354,
+    "hunger": 0.6575628888892142,
+    "mood": 0.962961957998635,
     "energy": 0.0
   },
   "lastInteraction": {
