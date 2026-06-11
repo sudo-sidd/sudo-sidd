@@ -41,9 +41,9 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>🍖 </strong>
         `███████████████`&nbsp;100%<br><br>
         <strong>❤️ </strong>
-        `███████░░░░░░░░`&nbsp;49%<br><br>
+        `███████████░░░░`&nbsp;74%<br><br>
         <strong>⚡ </strong>
-        `██████████████░`&nbsp;92%
+        `███████████████`&nbsp;100%
       </td>
     </tr>
   </table>
@@ -60,12 +60,12 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
       <td align="center" style="border: none;"><sub>Play with him</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @Crosline — feed at 2026-06-11 08:29 UTC</em></small>
+    <small><em>Last interaction: @Crosline — pet at 2026-06-11 08:29 UTC</em></small>
   </div>
 
 
@@ -77,7 +77,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 2. @SILVER-2K3 – 5
 3. @Pradeesh1108 – 3
 4. @dhanwanth-dev – 2
-5. @Syedha18 – 1
+5. @Crosline – 2
 ```
 </details>
 
