@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 4554,
+  "ageHours": 4555,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 28,
-    "mood": 89,
-    "energy": 87
+    "hunger": 33,
+    "mood": 86,
+    "energy": 88
   },
   "timestamps": {
     "lastFedAt": "2026-06-11T08:29:12.496115+00:00",
     "lastPlayedAt": "2026-06-11T16:22:09.556409+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-06-11T22:27:59.303779+00:00"
+    "lastAutoUpdate": "2026-06-12T00:05:03.886285+00:00"
   },
   "interactions": {
     "total": 99,
@@ -90,9 +90,9 @@
     "status": "Excited"
   },
   "decayCarry": {
-    "hunger": 0.969237053472547,
-    "mood": 0.34736735649863526,
-    "energy": 0.5980388530124994
+    "hunger": 0.014086015972546662,
+    "mood": 0.2596586094986355,
+    "energy": 0.32611166626249943
   },
   "lastInteraction": {
     "user": "teefanyc",
