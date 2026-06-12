@@ -728,7 +728,7 @@ def update_readme(state):
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
-        He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
+        He's <strong>cron</strong> the Wooper. He's my pet (yes, you can pet him!) and was the starter for my first successful randomized SoulSilver Nuzlocke.
     </p>{streak_text}
 </div>
 
@@ -742,11 +742,11 @@ def update_readme(state):
         <strong>Status: {status_text}</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
-        <strong>🍖 </strong>
+        <strong>[HUN] </strong>
         {render_stat_bar(100 - stats['hunger'])}<br><br>
-        <strong>❤️ </strong>
+        <strong>[MOD] </strong>
         {render_stat_bar(stats['mood'])}<br><br>
-        <strong>⚡ </strong>
+        <strong>[ENG] </strong>
         {render_stat_bar(stats['energy'])}
       </td>
     </tr>

@@ -13,8 +13,7 @@
 
 <br>
 
-I Enjoy building interactive toys and experimenting with anything i can get my hands on.
-I'm a student of AIML , and i  like making interactive experiences , designing and developing them .
+I'm a tech enthusiast trying to learn anything and everything that I find interesting, currently an AIML student at college and a gamedev at every break I get, experimenting and goofing around.
 
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
@@ -23,7 +22,7 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
-        He's <strong>cron</strong> the Wooper. He's my pet and yes you can pet him.
+        He's <strong>cron</strong> the Wooper. He's my pet (yes, you can pet him!) and was the starter for my first successful randomized SoulSilver Nuzlocke.
     </p>
     <p>🔥 <strong>Developer Streak:</strong> 2 days (1.1x activity boost!)</p>
 </div>
@@ -38,11 +37,11 @@ I'm a student of AIML , and i  like making interactive experiences , designing a
         <strong>Status: Excited</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
-        <strong>🍖 </strong>
+        <strong>[HUN] </strong>
         `██████████░░░░░`&nbsp;67%<br><br>
-        <strong>❤️ </strong>
+        <strong>[MOD] </strong>
         `█████████████░░`&nbsp;86%<br><br>
-        <strong>⚡ </strong>
+        <strong>[ENG] </strong>
         `█████████████░░`&nbsp;88%
       </td>
     </tr>
@@ -134,6 +133,8 @@ Feel free to poke around my projects—most are open experiments for you to expl
     <td align="center" valign="middle">
       <img src="sprites/wooper_petting.gif" alt="wooper petting" width="120" style="vertical-align: middle; margin-right: 12px;" />
       <a href="https://sudosidd.dev">sudosidd.dev</a> | <a href="https://linkedin.com/in/sudo-sidd">linkedin</a> | <a href="mailto:siddharth.t.dev@gmail.com">email</a>
+      <br><br>
+      <img src="https://komarev.com/ghpvc/?username=sudo-sidd&color=8335BA&style=flat-square&label=cron+visits" alt="cron visits" />
     </td>
   </tr>
 </table>
