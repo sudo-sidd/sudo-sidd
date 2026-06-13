@@ -134,7 +134,7 @@ Feel free to poke around my projects—most are open experiments for you to expl
       <img src="sprites/wooper_petting.gif" alt="wooper petting" width="120" style="vertical-align: middle; margin-right: 12px;" />
       <a href="https://sudosidd.dev">sudosidd.dev</a> | <a href="https://linkedin.com/in/sudo-sidd">linkedin</a> | <a href="mailto:siddharth.t.dev@gmail.com">email</a>
       <br><br>
-      <img src="https://komarev.com/ghpvc/?username=sudo-sidd&color=8335BA&style=flat-square&label=cron+visits" alt="cron visits" />
+      <img src="https://komarev.com/ghpvc/?username=sudo-sidd&color=8335BA&style=flat-square&label=cron+visits&base=1263" alt="cron visits" />
     </td>
   </tr>
 </table>
