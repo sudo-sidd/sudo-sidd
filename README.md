@@ -18,7 +18,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 196 days, 17 hours)
+### cron (Age: 196 days, 19 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -32,17 +32,17 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_crying.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Sad</strong>
+        <strong>Status: Crying</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `███░░░░░░░░░░░░`&nbsp;19%<br><br>
+        `██░░░░░░░░░░░░░`&nbsp;14%<br><br>
         <strong>[MOD] </strong>
-        `███░░░░░░░░░░░░`&nbsp;18%<br><br>
+        `██░░░░░░░░░░░░░`&nbsp;12%<br><br>
         <strong>[ENG] </strong>
-        `███████████░░░░`&nbsp;75%
+        `███████████░░░░`&nbsp;71%
       </td>
     </tr>
   </table>
@@ -58,7 +58,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Play with him</sub></td>
+      <td align="center" style="border: none;"><sub>Too hungry</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
