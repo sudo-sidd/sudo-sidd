@@ -1,25 +1,25 @@
 {
   "name": "cron",
-  "ageHours": 4761,
+  "ageHours": 4762,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 20
+    "hunger": 30,
+    "mood": 35,
+    "energy": 65
   },
   "timestamps": {
-    "lastFedAt": "2026-06-17T12:45:22.524245+00:00",
+    "lastFedAt": "2026-06-20T14:16:12.694785+00:00",
     "lastPlayedAt": "2026-06-11T16:22:09.556409+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-06-20T13:12:33.300413+00:00"
+    "lastAutoUpdate": "2026-06-20T14:16:12.284967+00:00"
   },
   "interactions": {
-    "total": 113,
+    "total": 114,
     "byUser": {
       "sudo-sidd": {
-        "count": 88,
-        "lastInteractionAt": "2026-06-17T04:21:22+00:00",
-        "lastAction": "pushed_code",
+        "count": 89,
+        "lastInteractionAt": "2026-06-20T14:16:12.694785+00:00",
+        "lastAction": "feed",
         "streakDays": 0,
         "lastActiveDay": null
       },
@@ -91,17 +91,17 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_crying.gif",
-    "status": "Crying"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.826179160416995,
-    "mood": 0.24102445349864254,
-    "energy": 0.7589010857911127
+    "hunger": 0.4782517673614395,
+    "mood": 0.4235115818319759,
+    "energy": 0.9286337326355572
   },
   "lastInteraction": {
-    "user": "Prasanth-636939",
+    "user": "sudo-sidd",
     "action": "feed",
-    "at": "2026-06-17T12:45:22.524245+00:00"
+    "at": "2026-06-20T14:16:12.694785+00:00"
   }
 }
