@@ -18,7 +18,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 198 days, 15 hours)
+### cron (Age: 198 days, 17 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -37,11 +37,11 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `████████░░░░░░░`&nbsp;56%<br><br>
+        `████████░░░░░░░`&nbsp;52%<br><br>
         <strong>[MOD] </strong>
-        `████░░░░░░░░░░░`&nbsp;25%<br><br>
+        `███░░░░░░░░░░░░`&nbsp;22%<br><br>
         <strong>[ENG] </strong>
-        `████████░░░░░░░`&nbsp;55%
+        `████████░░░░░░░`&nbsp;53%
       </td>
     </tr>
   </table>
