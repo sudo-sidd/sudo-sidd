@@ -18,12 +18,13 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 212 days, 4 hours)
+### cron (Age: 212 days, 5 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
         He's <strong>cron</strong> the Wooper. He's my pet (yes, you can pet him!) and was the starter for my first successful randomized SoulSilver Nuzlocke.
     </p>
+    <p>🔥 <strong>Developer Streak:</strong> 1 days (1.0x activity boost!)</p>
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -31,17 +32,17 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_crying.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_eating.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Crying</strong>
+        <strong>Status: Eating</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `████████████░░░`&nbsp;80%<br><br>
         <strong>[MOD] </strong>
-        `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
+        `███████░░░░░░░░`&nbsp;45%<br><br>
         <strong>[ENG] </strong>
-        `███░░░░░░░░░░░░`&nbsp;17%
+        `███████████░░░░`&nbsp;72%
       </td>
     </tr>
   </table>
@@ -56,14 +57,14 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       <td style="border: none; padding: 5px;"><a href="https://github.com/sudo-sidd/sudo-sidd/issues/new?title=%2Fpet&body=%2Fpet" target="_blank"><img src="https://img.shields.io/badge/Pet-FF8C00?style=for-the-badge&labelColor=A0522D&logoColor=white" alt="Pet" /></a></td>
     </tr>
     <tr>
-      <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Too tired</sub></td>
+      <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
+      <td align="center" style="border: none;"><sub>Play with him</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — feed at 2026-07-02 09:47 UTC</em></small>
+    <small><em>Last interaction: @sudo-sidd — feed at 2026-07-04 09:54 UTC</em></small>
   </div>
 
 
