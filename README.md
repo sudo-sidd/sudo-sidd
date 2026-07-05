@@ -32,17 +32,17 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_play.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Sad</strong>
+        <strong>Status: Playing</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `████████░░░░░░░`&nbsp;51%<br><br>
+        `██████░░░░░░░░░`&nbsp;39%<br><br>
         <strong>[MOD] </strong>
-        `██████░░░░░░░░░`&nbsp;37%<br><br>
+        `████████████░░░`&nbsp;82%<br><br>
         <strong>[ENG] </strong>
-        `███████████░░░░`&nbsp;75%
+        `████████░░░░░░░`&nbsp;54%
       </td>
     </tr>
   </table>
@@ -58,13 +58,13 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Play with him</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 44m</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — pushed code at 2026-07-05 09:21 UTC</em></small>
+    <small><em>Last interaction: @TortoiseLeaf — play at 2026-07-05 17:58 UTC</em></small>
   </div>
 
 

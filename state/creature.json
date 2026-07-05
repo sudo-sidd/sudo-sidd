@@ -3,18 +3,18 @@
   "ageHours": 5125,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 49,
-    "mood": 37,
-    "energy": 75
+    "hunger": 61,
+    "mood": 82,
+    "energy": 54
   },
   "timestamps": {
     "lastFedAt": "2026-07-04T09:54:24.921136+00:00",
-    "lastPlayedAt": "2026-06-11T16:22:09.556409+00:00",
+    "lastPlayedAt": "2026-07-05T17:58:50.419242+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-07-05T17:07:15.972961+00:00"
+    "lastAutoUpdate": "2026-07-05T17:58:50.177393+00:00"
   },
   "interactions": {
-    "total": 122,
+    "total": 123,
     "byUser": {
       "sudo-sidd": {
         "count": 97,
@@ -87,21 +87,26 @@
         "count": 1,
         "lastInteractionAt": "2026-06-17T12:45:22.524245+00:00",
         "lastAction": "feed"
+      },
+      "TortoiseLeaf": {
+        "count": 1,
+        "lastInteractionAt": "2026-07-05T17:58:50.419242+00:00",
+        "lastAction": "play"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_sad.gif",
-    "status": "Sad"
+    "currentAnimation": "wooper_play.gif",
+    "status": "Playing"
   },
   "decayCarry": {
-    "hunger": 0.6058128743058844,
-    "mood": 0.9571508968319882,
-    "energy": 0.8275940186666668
+    "hunger": 0.7545659520836621,
+    "mood": 0.5042531128319885,
+    "energy": 0.20279598844444457
   },
   "lastInteraction": {
-    "user": "sudo-sidd",
-    "action": "pushed_code",
-    "at": "2026-07-05T09:21:16+00:00"
+    "user": "TortoiseLeaf",
+    "action": "play",
+    "at": "2026-07-05T17:58:50.419242+00:00"
   }
 }
