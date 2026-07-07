@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 5155,
+  "ageHours": 5157,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 100,
-    "mood": 2,
-    "energy": 37
+    "mood": 0,
+    "energy": 34
   },
   "timestamps": {
     "lastFedAt": "2026-07-04T09:54:24.921136+00:00",
     "lastPlayedAt": "2026-07-05T17:58:50.419242+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-07-06T23:31:38.988359+00:00"
+    "lastAutoUpdate": "2026-07-07T01:23:36.837496+00:00"
   },
   "interactions": {
     "total": 123,
@@ -20,8 +20,8 @@
         "count": 97,
         "lastInteractionAt": "2026-07-05T09:21:16+00:00",
         "lastAction": "pushed_code",
-        "streakDays": 2,
-        "lastActiveDay": "2026-07-05"
+        "streakDays": 0,
+        "lastActiveDay": null
       },
       "Syedha18": {
         "count": 1,
@@ -100,9 +100,9 @@
     "status": "Crying"
   },
   "decayCarry": {
-    "hunger": 0.6217957895836626,
-    "mood": 0.4260103068319845,
-    "energy": 0.6498022813333342
+    "hunger": 0.286968801389218,
+    "mood": 0.024217920998650833,
+    "energy": 0.6355130088888901
   },
   "lastInteraction": {
     "user": "TortoiseLeaf",
