@@ -34,13 +34,13 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       <td align="center" style="border: none; padding: 20px;">
         <img src="sprites/wooper_idle.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Happy</strong>
+        <strong>Status: Idle</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `█████████░░░░░░`&nbsp;59%<br><br>
+        `████████░░░░░░░`&nbsp;56%<br><br>
         <strong>[MOD] </strong>
-        `█████████░░░░░░`&nbsp;62%<br><br>
+        `█████████░░░░░░`&nbsp;60%<br><br>
         <strong>[ENG] </strong>
         `████████████░░░`&nbsp;80%
       </td>
