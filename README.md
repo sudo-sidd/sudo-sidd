@@ -24,7 +24,6 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
         <p>
         He's <strong>cron</strong> the Wooper. He's my pet (yes, you can pet him!) and was the starter for my first successful randomized SoulSilver Nuzlocke.
     </p>
-    <p>🔥 <strong>Developer Streak:</strong> 3 days (1.2x activity boost!)</p>
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -38,11 +37,11 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `████░░░░░░░░░░░`&nbsp;25%<br><br>
+        `███░░░░░░░░░░░░`&nbsp;22%<br><br>
         <strong>[MOD] </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>[ENG] </strong>
-        `████████░░░░░░░`&nbsp;54%
+        `████████░░░░░░░`&nbsp;53%
       </td>
     </tr>
   </table>
