@@ -18,13 +18,12 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 229 days, 19 hours)
+### cron (Age: 229 days, 20 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
         He's <strong>cron</strong> the Wooper. He's my pet (yes, you can pet him!) and was the starter for my first successful randomized SoulSilver Nuzlocke.
     </p>
-    <p>🔥 <strong>Developer Streak:</strong> 1 days (1.0x activity boost!)</p>
 </div>
 
 <!-- Sprite & Stats Section -->
@@ -42,7 +41,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
         <strong>[MOD] </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>[ENG] </strong>
-        `███░░░░░░░░░░░░`&nbsp;20%
+        `███░░░░░░░░░░░░`&nbsp;19%
       </td>
     </tr>
   </table>
@@ -58,7 +57,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
-      <td align="center" style="border: none;"><sub>Too hungry</sub></td>
+      <td align="center" style="border: none;"><sub>Too tired</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
