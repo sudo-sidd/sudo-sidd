@@ -37,11 +37,11 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `██████████░░░░░`&nbsp;70%<br><br>
+        `█████████░░░░░░`&nbsp;60%<br><br>
         <strong>[MOD] </strong>
-        `█████░░░░░░░░░░`&nbsp;35%<br><br>
+        `████████████░░░`&nbsp;80%<br><br>
         <strong>[ENG] </strong>
-        `█████████░░░░░░`&nbsp;63%
+        `██████░░░░░░░░░`&nbsp;43%
       </td>
     </tr>
   </table>
@@ -57,13 +57,13 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
     </tr>
     <tr>
       <td align="center" style="border: none;"><sub>He just ate — maybe later</sub></td>
-      <td align="center" style="border: none;"><sub>Play with him</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 44m</sub></td>
       <td align="center" style="border: none;"><sub>Pet him</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @dnzilkay — feed at 2026-07-26 17:21 UTC</em></small>
+    <small><em>Last interaction: @dnzilkay — play at 2026-07-26 17:22 UTC</em></small>
   </div>
 
 

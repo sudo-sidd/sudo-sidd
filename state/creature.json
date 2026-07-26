@@ -3,18 +3,18 @@
   "ageHours": 5629,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 30,
-    "mood": 35,
-    "energy": 63
+    "hunger": 40,
+    "mood": 80,
+    "energy": 43
   },
   "timestamps": {
     "lastFedAt": "2026-07-26T17:21:15.905978+00:00",
-    "lastPlayedAt": "2026-07-05T17:58:50.419242+00:00",
+    "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-07-26T17:21:15.545251+00:00"
+    "lastAutoUpdate": "2026-07-26T17:22:17.318089+00:00"
   },
   "interactions": {
-    "total": 140,
+    "total": 141,
     "byUser": {
       "sudo-sidd": {
         "count": 113,
@@ -94,9 +94,9 @@
         "lastAction": "play"
       },
       "dnzilkay": {
-        "count": 1,
-        "lastInteractionAt": "2026-07-26T17:21:15.905978+00:00",
-        "lastAction": "feed"
+        "count": 2,
+        "lastInteractionAt": "2026-07-26T17:22:17.632122+00:00",
+        "lastAction": "play"
       }
     }
   },
@@ -105,13 +105,13 @@
     "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.18884918680587726,
-    "mood": 0.8775758718319886,
-    "energy": 0.904335338444459
+    "hunger": 0.23174699097254392,
+    "mood": 0.9084622908319886,
+    "energy": 0.9317899331111257
   },
   "lastInteraction": {
     "user": "dnzilkay",
-    "action": "feed",
-    "at": "2026-07-26T17:21:15.905978+00:00"
+    "action": "play",
+    "at": "2026-07-26T17:22:17.632122+00:00"
   }
 }
