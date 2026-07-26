@@ -4,14 +4,14 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 40,
-    "mood": 80,
-    "energy": 43
+    "mood": 79,
+    "energy": 44
   },
   "timestamps": {
     "lastFedAt": "2026-07-26T17:21:15.905978+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-07-26T17:22:17.318089+00:00"
+    "lastAutoUpdate": "2026-07-26T17:35:06.710346+00:00"
   },
   "interactions": {
     "total": 141,
@@ -101,13 +101,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Happy"
   },
   "decayCarry": {
-    "hunger": 0.23174699097254392,
-    "mood": 0.9084622908319886,
-    "energy": 0.9317899331111257
+    "hunger": 0.7660471694447661,
+    "mood": 0.2931584193319887,
+    "energy": 0.8935302543611257
   },
   "lastInteraction": {
     "user": "dnzilkay",
