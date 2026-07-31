@@ -1,20 +1,20 @@
 {
   "name": "cron",
-  "ageHours": 5738,
+  "ageHours": 5741,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 9
+    "hunger": 30,
+    "mood": 35,
+    "energy": 54
   },
   "timestamps": {
-    "lastFedAt": "2026-07-26T17:21:15.905978+00:00",
+    "lastFedAt": "2026-07-31T09:22:05.568961+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-07-31T06:32:46.168338+00:00"
+    "lastAutoUpdate": "2026-07-31T09:22:05.176456+00:00"
   },
   "interactions": {
-    "total": 141,
+    "total": 142,
     "byUser": {
       "sudo-sidd": {
         "count": 113,
@@ -97,21 +97,26 @@
         "count": 2,
         "lastInteractionAt": "2026-07-26T17:22:17.632122+00:00",
         "lastAction": "play"
+      },
+      "Ghost-101-ui": {
+        "count": 1,
+        "lastInteractionAt": "2026-07-31T09:22:05.568961+00:00",
+        "lastAction": "feed"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_fainted.gif",
-    "status": "Fainted"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.16844855277809856,
-    "mood": 0.08957673133198796,
-    "energy": 0.2090979071066692
+    "hunger": 0.22331530138920908,
+    "mood": 0.5554168296653206,
+    "energy": 0.6606093790177804
   },
   "lastInteraction": {
-    "user": "dnzilkay",
-    "action": "play",
-    "at": "2026-07-26T17:22:17.632122+00:00"
+    "user": "Ghost-101-ui",
+    "action": "feed",
+    "at": "2026-07-31T09:22:05.568961+00:00"
   }
 }
