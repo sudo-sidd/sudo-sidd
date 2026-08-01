@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 5754,
+  "ageHours": 5755,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 64,
-    "mood": 10,
-    "energy": 32
+    "hunger": 66,
+    "mood": 8,
+    "energy": 30
   },
   "timestamps": {
     "lastFedAt": "2026-07-31T09:22:05.568961+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-07-31T22:57:31.054690+00:00"
+    "lastAutoUpdate": "2026-08-01T00:03:53.838848+00:00"
   },
   "interactions": {
     "total": 142,
@@ -110,9 +110,9 @@
     "status": "Crying"
   },
   "decayCarry": {
-    "hunger": 0.19961963055587573,
-    "mood": 0.018355946665320033,
-    "energy": 0.4054441496844481
+    "hunger": 0.9654419625003201,
+    "mood": 0.009748025665319737,
+    "energy": 0.17557044212889217
   },
   "lastInteraction": {
     "user": "Ghost-101-ui",
