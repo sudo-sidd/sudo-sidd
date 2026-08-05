@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 5853,
+  "ageHours": 5856,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 100,
     "mood": 0,
-    "energy": 16
+    "energy": 15
   },
   "timestamps": {
     "lastFedAt": "2026-08-01T13:10:38.916944+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-08-05T01:07:37.384943+00:00"
+    "lastAutoUpdate": "2026-08-05T04:28:30.952574+00:00"
   },
   "interactions": {
     "total": 145,
@@ -106,13 +106,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_crying.gif",
-    "status": "Crying"
+    "currentAnimation": "wooper_fainted.gif",
+    "status": "Fainted"
   },
   "decayCarry": {
-    "hunger": 0.6206823062503171,
-    "mood": 0.2950540181653185,
-    "energy": 0.6229681960933353
+    "hunger": 0.9912153833336497,
+    "mood": 0.3396937106653173,
+    "energy": 0.1586823130266688
   },
   "lastInteraction": {
     "user": "sudo-sidd",
