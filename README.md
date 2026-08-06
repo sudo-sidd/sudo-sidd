@@ -18,7 +18,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 245 days, 9 hours)
+### cron (Age: 245 days, 10 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -32,17 +32,17 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_idle.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_petting.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Happy</strong>
+        <strong>Status: Being Petted</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `███████████░░░░`&nbsp;75%<br><br>
+        `███████████░░░░`&nbsp;74%<br><br>
         <strong>[MOD] </strong>
-        `███████████░░░░`&nbsp;75%<br><br>
+        `███████████████`&nbsp;100%<br><br>
         <strong>[ENG] </strong>
-        `█████████████░░`&nbsp;85%
+        `██████████████░`&nbsp;93%
       </td>
     </tr>
   </table>
@@ -59,12 +59,12 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
     <tr>
       <td align="center" style="border: none;"><sub>Feed him</sub></td>
       <td align="center" style="border: none;"><sub>Play with him</sub></td>
-      <td align="center" style="border: none;"><sub>Pet him</sub></td>
+      <td align="center" style="border: none;"><sub>Wait 14m</sub></td>
     </tr>
   </table>
 
   <div style="margin-top:8px;">
-    <small><em>Last interaction: @sudo-sidd — pushed code at 2026-08-06 11:52 UTC</em></small>
+    <small><em>Last interaction: @HARI-3728 — pet at 2026-08-06 14:15 UTC</em></small>
   </div>
 
 

@@ -1,20 +1,20 @@
 {
   "name": "cron",
-  "ageHours": 5889,
+  "ageHours": 5890,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 25,
-    "mood": 75,
-    "energy": 85
+    "hunger": 26,
+    "mood": 100,
+    "energy": 93
   },
   "timestamps": {
     "lastFedAt": "2026-08-01T13:10:38.916944+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
-    "lastPettedAt": "2026-06-11T08:29:45.227312+00:00",
-    "lastAutoUpdate": "2026-08-06T14:02:41.522894+00:00"
+    "lastPettedAt": "2026-08-06T14:15:59.081886+00:00",
+    "lastAutoUpdate": "2026-08-06T14:15:58.627889+00:00"
   },
   "interactions": {
-    "total": 146,
+    "total": 147,
     "byUser": {
       "sudo-sidd": {
         "count": 117,
@@ -102,21 +102,26 @@
         "count": 1,
         "lastInteractionAt": "2026-07-31T09:22:05.568961+00:00",
         "lastAction": "feed"
+      },
+      "HARI-3728": {
+        "count": 1,
+        "lastInteractionAt": "2026-08-06T14:15:59.081886+00:00",
+        "lastAction": "pet"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_idle.gif",
-    "status": "Happy"
+    "currentAnimation": "wooper_petting.gif",
+    "status": "Being Petted"
   },
   "decayCarry": {
-    "hunger": 0.9152225500003226,
-    "mood": 0.04850231066532018,
-    "energy": 0.5298187716933369
+    "hunger": 0.4687676854169893,
+    "mood": 0.4470548081653202,
+    "energy": 0.6294568960683369
   },
   "lastInteraction": {
-    "user": "sudo-sidd",
-    "action": "pushed_code",
-    "at": "2026-08-06T11:52:00+00:00"
+    "user": "HARI-3728",
+    "action": "pet",
+    "at": "2026-08-06T14:15:59.081886+00:00"
   }
 }
