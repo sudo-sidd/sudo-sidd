@@ -185,9 +185,11 @@ def update_github_activity(state):
         event_date = event_time.date()
         
         # Calculate daily streak progression
+        is_first_of_day = False
         if not last_active_day_str:
             streak = 1
             last_active_day_str = event_date.isoformat()
+            is_first_of_day = True
         else:
             try:
                 last_active_date = datetime.date.fromisoformat(last_active_day_str)
@@ -195,15 +197,18 @@ def update_github_activity(state):
                 if diff == 1:
                     streak += 1
                     last_active_day_str = event_date.isoformat()
+                    is_first_of_day = True
                 elif diff > 1:
                     streak = 1
                     last_active_day_str = event_date.isoformat()
+                    is_first_of_day = True
                 elif diff == 0:
                     # Same day activity, maintain streak
                     last_active_day_str = event_date.isoformat()
             except Exception:
                 streak = 1
                 last_active_day_str = event_date.isoformat()
+                is_first_of_day = True
                 
         # Stat multiplier: +10% per day of streak, capped at 2.0x (11-day streak)
         multiplier = min(2.0, 1.0 + 0.1 * (max(1, streak) - 1))
@@ -211,14 +216,16 @@ def update_github_activity(state):
         event_type = event.get('type')
         if event_type == 'PushEvent':
             push_count += 1
-            stats['hunger'] = clamp(stats['hunger'] - int(15 * multiplier))
-            stats['mood'] = clamp(stats['mood'] + int(15 * multiplier))
-            stats['energy'] = clamp(stats['energy'] + int(15 * multiplier))
+            base_stat = 75 if is_first_of_day else 15
+            stats['hunger'] = clamp(stats['hunger'] - int(base_stat * multiplier))
+            stats['mood'] = clamp(stats['mood'] + int(base_stat * multiplier))
+            stats['energy'] = clamp(stats['energy'] + int(base_stat * multiplier))
         else:
             other_count += 1
-            stats['hunger'] = clamp(stats['hunger'] - int(10 * multiplier))
-            stats['mood'] = clamp(stats['mood'] + int(10 * multiplier))
-            stats['energy'] = clamp(stats['energy'] + int(10 * multiplier))
+            base_stat = 35 if is_first_of_day else 10
+            stats['hunger'] = clamp(stats['hunger'] - int(base_stat * multiplier))
+            stats['mood'] = clamp(stats['mood'] + int(base_stat * multiplier))
+            stats['energy'] = clamp(stats['energy'] + int(base_stat * multiplier))
 
     user_data['streakDays'] = streak
     user_data['lastActiveDay'] = last_active_day_str
