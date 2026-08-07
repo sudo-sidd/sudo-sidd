@@ -40,9 +40,9 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
         <strong>[HUN] </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>[MOD] </strong>
-        `████░░░░░░░░░░░`&nbsp;29%<br><br>
+        `████░░░░░░░░░░░`&nbsp;27%<br><br>
         <strong>[ENG] </strong>
-        `████████████░░░`&nbsp;82%
+        `████████████░░░`&nbsp;80%
       </td>
     </tr>
   </table>
