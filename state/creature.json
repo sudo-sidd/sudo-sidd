@@ -4,14 +4,14 @@
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
     "hunger": 100,
-    "mood": 2,
-    "energy": 67
+    "mood": 0,
+    "energy": 66
   },
   "timestamps": {
     "lastFedAt": "2026-08-01T13:10:38.916944+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-08-06T14:15:59.081886+00:00",
-    "lastAutoUpdate": "2026-08-08T07:13:37.353713+00:00"
+    "lastAutoUpdate": "2026-08-08T08:00:43.951950+00:00"
   },
   "interactions": {
     "total": 147,
@@ -115,9 +115,9 @@
     "status": "Crying"
   },
   "decayCarry": {
-    "hunger": 0.8706606187503194,
-    "mood": 0.3222229861653201,
-    "energy": 0.19440702133333598
+    "hunger": 0.8335760611114305,
+    "mood": 0.6777215169986537,
+    "energy": 0.4506729044444473
   },
   "lastInteraction": {
     "user": "HARI-3728",
