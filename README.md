@@ -37,11 +37,11 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `█████████░░░░░░`&nbsp;62%<br><br>
+        `█████████░░░░░░`&nbsp;60%<br><br>
         <strong>[MOD] </strong>
-        `████░░░░░░░░░░░`&nbsp;29%<br><br>
+        `████░░░░░░░░░░░`&nbsp;27%<br><br>
         <strong>[ENG] </strong>
-        `███████░░░░░░░░`&nbsp;45%
+        `███████░░░░░░░░`&nbsp;44%
       </td>
     </tr>
   </table>
