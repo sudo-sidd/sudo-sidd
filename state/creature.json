@@ -3,18 +3,18 @@
   "ageHours": 6061,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 100,
-    "mood": 0,
-    "energy": 5
+    "hunger": 30,
+    "mood": 35,
+    "energy": 50
   },
   "timestamps": {
-    "lastFedAt": "2026-08-01T13:10:38.916944+00:00",
+    "lastFedAt": "2026-08-13T18:01:34.366709+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-08-06T14:15:59.081886+00:00",
-    "lastAutoUpdate": "2026-08-13T17:41:53.417109+00:00"
+    "lastAutoUpdate": "2026-08-13T18:01:34.073387+00:00"
   },
   "interactions": {
-    "total": 147,
+    "total": 148,
     "byUser": {
       "sudo-sidd": {
         "count": 117,
@@ -107,21 +107,26 @@
         "count": 1,
         "lastInteractionAt": "2026-08-06T14:15:59.081886+00:00",
         "lastAction": "pet"
+      },
+      "d34db017k": {
+        "count": 1,
+        "lastInteractionAt": "2026-08-13T18:01:34.366709+00:00",
+        "lastAction": "feed"
       }
     }
   },
   "state": {
-    "currentAnimation": "wooper_fainted.gif",
-    "status": "Fainted"
+    "currentAnimation": "wooper_eating.gif",
+    "status": "Eating"
   },
   "decayCarry": {
-    "hunger": 0.04848242152810256,
-    "mood": 0.7356091494986563,
-    "energy": 0.18344746707111823
+    "hunger": 0.8683826145836581,
+    "mood": 0.7194893811653229,
+    "energy": 0.23592107942667379
   },
   "lastInteraction": {
-    "user": "HARI-3728",
-    "action": "pet",
-    "at": "2026-08-06T14:15:59.081886+00:00"
+    "user": "d34db017k",
+    "action": "feed",
+    "at": "2026-08-13T18:01:34.366709+00:00"
   }
 }
