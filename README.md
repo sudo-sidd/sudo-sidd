@@ -37,7 +37,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `█░░░░░░░░░░░░░░`&nbsp;4%<br><br>
+        `░░░░░░░░░░░░░░░`&nbsp;3%<br><br>
         <strong>[MOD] </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>[ENG] </strong>
