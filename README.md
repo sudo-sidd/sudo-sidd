@@ -81,7 +81,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 
 <details open>
 <summary><strong>How to interact</strong></summary>
-The system updates every 15 minutes automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
+The system updates automatically. After you take an action (e.g. `/feed`, `/play`, `/pet`), wait for the GitHub Action to finish and refresh this page to see the changes.
 
 Use the buttons above or comment commands in an issue:
 
