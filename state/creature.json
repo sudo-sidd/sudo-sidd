@@ -3,15 +3,15 @@
   "ageHours": 6325,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 32,
-    "mood": 47,
+    "hunger": 34,
+    "mood": 46,
     "energy": 80
   },
   "timestamps": {
     "lastFedAt": "2026-08-24T04:24:42.710945+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-08-06T14:15:59.081886+00:00",
-    "lastAutoUpdate": "2026-08-24T17:15:17.161509+00:00"
+    "lastAutoUpdate": "2026-08-24T17:56:47.794719+00:00"
   },
   "interactions": {
     "total": 150,
@@ -120,8 +120,8 @@
     "status": "Idle"
   },
   "decayCarry": {
-    "hunger": 0.9399715881947666,
-    "mood": 0.2192216824986568,
+    "hunger": 0.6695779840280998,
+    "mood": 0.4645382874986568,
     "energy": 0.0
   },
   "lastInteraction": {
