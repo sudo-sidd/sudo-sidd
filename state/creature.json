@@ -11,7 +11,7 @@
     "lastFedAt": "2026-08-24T04:24:42.710945+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-08-06T14:15:59.081886+00:00",
-    "lastAutoUpdate": "2026-08-24T04:24:42.406148+00:00"
+    "lastAutoUpdate": "2026-08-24T04:28:08.841912+00:00"
   },
   "interactions": {
     "total": 150,
@@ -116,13 +116,13 @@
     }
   },
   "state": {
-    "currentAnimation": "wooper_eating.gif",
-    "status": "Eating"
+    "currentAnimation": "wooper_idle.gif",
+    "status": "Happy"
   },
   "decayCarry": {
-    "hunger": 0.8325025875003216,
-    "mood": 0.10184400199865618,
-    "energy": 0.20866023873334738
+    "hunger": 0.975860756944766,
+    "mood": 0.20506188399865616,
+    "energy": 0.0
   },
   "lastInteraction": {
     "user": "sudo-sidd",
