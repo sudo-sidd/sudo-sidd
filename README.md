@@ -38,9 +38,9 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `███████████░░░░`&nbsp;73%<br><br>
+        `███████████░░░░`&nbsp;71%<br><br>
         <strong>[MOD] </strong>
-        `████████░░░░░░░`&nbsp;51%<br><br>
+        `████████░░░░░░░`&nbsp;50%<br><br>
         <strong>[ENG] </strong>
         `████████████░░░`&nbsp;80%
       </td>
