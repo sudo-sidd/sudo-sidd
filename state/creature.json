@@ -1,17 +1,17 @@
 {
   "name": "cron",
-  "ageHours": 6313,
+  "ageHours": 6315,
   "createdAt": "2025-12-04T04:06:24.657065+00:00",
   "stats": {
-    "hunger": 4,
-    "mood": 67,
+    "hunger": 8,
+    "mood": 65,
     "energy": 80
   },
   "timestamps": {
     "lastFedAt": "2026-08-24T04:24:42.710945+00:00",
     "lastPlayedAt": "2026-07-26T17:22:17.632122+00:00",
     "lastPettedAt": "2026-08-06T14:15:59.081886+00:00",
-    "lastAutoUpdate": "2026-08-24T06:02:27.152172+00:00"
+    "lastAutoUpdate": "2026-08-24T07:19:23.118904+00:00"
   },
   "interactions": {
     "total": 150,
@@ -120,8 +120,8 @@
     "status": "Happy"
   },
   "decayCarry": {
-    "hunger": 0.905242881944766,
-    "mood": 0.0342170139986564,
+    "hunger": 0.1107753347225433,
+    "mood": 0.3422003799986566,
     "energy": 0.0
   },
   "lastInteraction": {
