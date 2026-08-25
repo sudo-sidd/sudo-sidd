@@ -40,7 +40,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
         <strong>[HUN] </strong>
         `███░░░░░░░░░░░░`&nbsp;21%<br><br>
         <strong>[MOD] </strong>
-        `██░░░░░░░░░░░░░`&nbsp;14%<br><br>
+        `██░░░░░░░░░░░░░`&nbsp;13%<br><br>
         <strong>[ENG] </strong>
         `████████░░░░░░░`&nbsp;53%
       </td>
