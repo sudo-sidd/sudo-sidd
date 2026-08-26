@@ -41,7 +41,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
         <strong>[MOD] </strong>
         `░░░░░░░░░░░░░░░`&nbsp;0%<br><br>
         <strong>[ENG] </strong>
-        `████░░░░░░░░░░░`&nbsp;26%
+        `████░░░░░░░░░░░`&nbsp;25%
       </td>
     </tr>
   </table>
