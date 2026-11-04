@@ -18,7 +18,7 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
 <!-- PET-START -->
 <div align="center" id="github-tamagotchi">
 
-### cron (Age: 334 days, 22 hours)
+### cron (Age: 335 days, 5 hours)
 
 <div align="center" style="max-width: 600px; margin: 20px auto; font-family: monospace;">
         <p>
@@ -32,17 +32,17 @@ I'm a tech enthusiast trying to learn anything and everything that I find intere
   <table border="0" style="border: none; background: transparent;">
     <tr>
       <td align="center" style="border: none; padding: 20px;">
-        <img src="sprites/wooper_sad.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
+        <img src="sprites/wooper_crying.gif" alt="cron" width="256" style="image-rendering: pixelated;" />
         <br>
-        <strong>Status: Sad</strong>
+        <strong>Status: Crying</strong>
       </td>
       <td align="left" style="border: none; padding: 20px; vertical-align: middle;">
         <strong>[HUN] </strong>
-        `██████░░░░░░░░░`&nbsp;42%<br><br>
+        `████░░░░░░░░░░░`&nbsp;24%<br><br>
         <strong>[MOD] </strong>
-        `████░░░░░░░░░░░`&nbsp;28%<br><br>
+        `██░░░░░░░░░░░░░`&nbsp;15%<br><br>
         <strong>[ENG] </strong>
-        `██████████░░░░░`&nbsp;65%
+        `████████░░░░░░░`&nbsp;54%
       </td>
     </tr>
   </table>
